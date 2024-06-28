@@ -1,0 +1,90 @@
+- TODO: tied records?
+
+Record tags:
+-- Some tags are exclusive (ex. VP vs CFO cannot be on the same record)
+-- Tags used to determine record supremecy (ex. RL record counts for no restriction)
+-- Tags should be assumed to be unordered at all times. Nothing should be assumed based on the order tags appear in a response
+-- Tags are used in discord bot/website code to organize records. Organization is defined by the frontend, NOT the backend
+
+-- Tags should encode as much information as possible:
+---- For example the "activities" tag is not required to uniquely define all records (ttr-golf would be enough), but if the discord bot wanted to group all activities we would need it
+
+-- Tags used to identify how a record is scored:
+---- default = scored by a single time, lower is better
+---- golf = score, lower is better. time as tiebreaker, lower is better
+---- min_rewards = same as golf
+-- Tags used to determine # of players
+
+
+Frontend - Discord bot:
+
+- when a user joins the server, if they're not in the database, create them with username=null, desired_name=null
+- /username <name> - sets the user's desired name. if a mod runs this set the user's actual name
+
+- /record submit <record> <?time> <?score> <evidence> <user1> <?user2> <etc>
+- /record approve <submission_id> - sets status=APPROVED
+- /record deny <submission_id> - sets status=DENIED
+- /record edit <submission_id> <?time> <?score> <?evidence> <?user1> <?user2> <etc> - same arguments as submit command but just edits them. any argument not provided is assumed to be the same
+
+- apps -> submit record - uses message id to find the record's name and sends an ephemeral template for it
+- apps -> check user's records - uses user id to show info about the user's records (both approved and not)
+
+- periodically update leaderboards
+- periodically update record channels
+- periodically update list of pending records for mods to approve/deny
+- periodically update list of people who have desired name != username for mods to approve/deny
+
+- FUTURE CONCERNS:
+-- add an easy way to get submission ids for mods to edit/deny records that have already been approved a while ago
+-- move stuff from periodic to webhooks
+-- add buttons for approve/deny so its a lil easier for mods
+
+
+Database Objects:
+
+- User objects
+-- _id
+-- discord id
+-- username
+-- desired_username
+
+- Record submission objects
+-- _id
+-- record name
+-- value
+-- time
+-- evidence
+-- users
+-- date
+-- status
+-- submitter id
+
+
+Backend Endpoints:
+
+=== Username stuff ===    assume id = discord id   for any of these, if id is not currently in the database it creates a new blank user
+- get_username(id) - get current username from id.
+- set_desired_username(id, username) - sets their desired username IF no user currently has it
+- set_username(id, username) - sets their username IF no user currently has it
+- get_pending_users() - gets all users in the database who have a different desired vs actual username
+--- poll this to check for names that need to be approved
+- get_all_users() - gets all users as an id:username dictionary. Skips anyone with username=null.
+--- use this to autofill usernames and convert between usernames/ids
+
+=== Submission stuff ===
+- submit(record name, user_ids(s), value(s), evidence, submitter id) - _id, date, status=PENDING auto created by db
+- edit(_id, ?record name, ?user_ids(s), ?value(s), ?evidence) - updates any arguments provided
+- approve(_id) - set STATUS=APPROVED
+- deny(_id) - set STATUS=DENIED
+- get_all_pending() - gets all submissions that are pending
+--- poll this to check for records that need to be approved
+- get_submissions(user_id) - gets all submissions a user took part in
+--- used in app command
+
+=== Record/channel stuff ===
+- get_records() - gets a list of all of the records in the database. each record object has name, tags, points, max_players, value_required, time_required, 1st-3rd place info INCLUDING USERNAMES
+--- poll this/check for changes to update channels
+- get_records_info() - same as above but does not include 1st-3rd so it doesn't need to touch database and can be cached
+--- used to generate record template and autofill record names
+- get_leaderboards() - gets leaderboards for ttr, ttcc, overall
+--- poll this to update leaderboards

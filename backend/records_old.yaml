@@ -1,0 +1,4348 @@
+---
+games:
+- game: Toontown Rewritten
+  id: TTR
+  categories:
+  - category: Factory
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Short Factory
+        id: F1
+        thumbnail: https://i.imgur.com/7WbKRdU.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Long Factory
+        id: F2
+        thumbnail: https://i.imgur.com/aHq1un2.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Short Factory
+        id: F1
+        thumbnail: https://i.imgur.com/7WbKRdU.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Long Factory
+        id: F2
+        thumbnail: https://i.imgur.com/aHq1un2.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+  - category: Mint
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Coin Mint
+        id: M1
+        thumbnail: https://i.imgur.com/cp9Udt7.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Dollar Mint
+        id: M2
+        thumbnail: https://i.imgur.com/TeU8dtX.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+      - subcategory: Bullion Mint
+        id: M3
+        thumbnail: https://i.imgur.com/RunGHlD.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 10
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Coin Mint
+        id: M1
+        thumbnail: https://i.imgur.com/cp9Udt7.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          - 5
+          - 8
+          hitless_points: 1
+      - subcategory: Dollar Mint
+        id: M2
+        thumbnail: https://i.imgur.com/TeU8dtX.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          - 10
+          hitless_points: 1
+      - subcategory: Bullion Mint
+        id: M3
+        thumbnail: https://i.imgur.com/RunGHlD.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          - 7
+          - 15
+          hitless_points: 1
+  - category: Office
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Office A
+        id: O1
+        thumbnail: https://i.imgur.com/xyDBxKu.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Office B
+        id: O2
+        thumbnail: https://i.imgur.com/CAZ1i6d.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+      - subcategory: Office C
+        id: O3
+        thumbnail: https://i.imgur.com/4AWOeHT.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 9
+          hitless_points: 1
+      - subcategory: Office D
+        id: O4
+        thumbnail: https://i.imgur.com/QhJPYUO.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 7
+          - 8
+          - 11
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Office A
+        id: O1
+        thumbnail: https://i.imgur.com/xyDBxKu.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 4
+          - 5
+          hitless_points: 1
+      - subcategory: Office B
+        id: O2
+        thumbnail: https://i.imgur.com/CAZ1i6d.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Office C
+        id: O3
+        thumbnail: https://i.imgur.com/4AWOeHT.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 6
+          - 7
+          hitless_points: 1
+      - subcategory: Office D
+        id: O4
+        thumbnail: https://i.imgur.com/QhJPYUO.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 7
+          - 8
+          hitless_points: 1
+  - category: Cog Golf Course
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Front Three
+        id: G1
+        thumbnail: https://i.imgur.com/5TFAp9i.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 8
+          hitless_points: 1
+      - subcategory: Middle Six
+        id: G2
+        thumbnail: https://i.imgur.com/JER23So.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          hitless_points: 1
+      - subcategory: Back Nine
+        id: G3
+        thumbnail: https://i.imgur.com/ZdoMxC1.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 8
+          - 10
+          - 14
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Front Three
+        id: G1
+        thumbnail: https://i.imgur.com/5TFAp9i.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Middle Six
+        id: G2
+        thumbnail: https://i.imgur.com/JER23So.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 6
+          - 8
+          hitless_points: 1
+      - subcategory: Back Nine
+        id: G3
+        thumbnail: https://i.imgur.com/ZdoMxC1.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 8
+          - 10
+          hitless_points: 1
+  - category: VP
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: VP
+        id: VP
+        thumbnail: https://i.imgur.com/54nl5SN.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 11
+          - 13
+          hitless_points: 3
+      - subcategory: VP Cog Round
+        id: VPC
+        thumbnail: https://i.imgur.com/EPIyWNJ.jpeg
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          - 8
+          - 10
+          hitless_points: 1
+      - subcategory: VP Pie Round
+        id: VPF
+        thumbnail: https://cdn.discordapp.com/attachments/689766434678636550/887904429368565820/unknown.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          - 8
+          - 10
+          hitless_points: -4
+      - subcategory: VP Misc Records
+        id: VP
+        thumbnail: https://static.wikia.nocookie.net/toontownrewritten/images/4/46/Boss-sellbot-vicepresident.png/revision/latest?cb=20200611183748
+        color: 7489641
+        records:
+        - name: Most VPs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Most SOS Cards Owned
+          id: MISC2
+          value_class:
+          - sos cards
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a VP Solo
+          id: MISC3
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: VP
+        id: VP
+        thumbnail: https://i.imgur.com/54nl5SN.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 15
+          hitless_points: 1
+      - subcategory: VP Cog Round
+        id: VPC
+        thumbnail: https://i.imgur.com/EPIyWNJ.jpeg
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          - 7
+          - 12
+          hitless_points: 1
+  - category: CFO
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CFO
+        id: CFO
+        thumbnail: https://i.imgur.com/SUwPXpi.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 9
+          - 10
+          - 11
+          - 12
+          - 14
+          hitless_points: 3
+      - subcategory: CFO Cog Round
+        id: CFOC
+        thumbnail: https://i.imgur.com/1h5yoOa.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 8
+          - 9
+          - 11
+          hitless_points: 1
+      - subcategory: CFO Crane Round
+        id: CFOF
+        thumbnail: https://i.imgur.com/plhYQt3.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          - 8
+          - 10
+          hitless_points: -4
+      - subcategory: CFO Misc Records
+        id: CFO
+        thumbnail: https://static.wikia.nocookie.net/toontownrewritten/images/2/29/Boss-cashbot-chieffinancialofficer.png/revision/latest?cb=20200611183753
+        color: 6660217
+        records:
+        - name: Most CFOs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Most Unites Owned
+          id: MISC2
+          value_class:
+          - unites
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a CFO Solo
+          id: MISC3
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: CFO
+        id: CFO
+        thumbnail: https://i.imgur.com/SUwPXpi.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless: []
+          base_points:
+          - 9
+          - 10
+          - 12
+          hitless_points: 1
+      - subcategory: CFO Cog Round
+        id: CFOC
+        thumbnail: https://i.imgur.com/1h5yoOa.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless: []
+          base_points:
+          - 6
+          - 7
+          - 9
+          hitless_points: 1
+  - category: CJ
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CJ
+        id: CJ
+        thumbnail: https://i.imgur.com/Q8ybUn2.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 10
+          - 11
+          - 12
+          - 14
+          - 17
+          hitless_points: 3
+      - subcategory: CJ Cog Round
+        id: CJC
+        thumbnail: https://i.imgur.com/iS95oLy.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 8
+          - 10
+          - 12
+          hitless_points: 3
+      - subcategory: CJ Evidence Round
+        id: CJF
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 9
+          - 11
+          - 14
+          hitless_points: -4
+      - subcategory: CJ (NBW)
+        id: NBW
+        thumbnail: https://i.imgur.com/pWFnX6B.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 10
+          - 11
+          - 12
+          - 14
+          - 32
+          hitless_points: 8
+      - subcategory: CJ Evidence Round (NBW)
+        id: NBWF
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          - 14
+          - 28
+          hitless_points: 4
+      - subcategory: CJ Lawyer Stunning
+        id: CJS
+        thumbnail: https://i.imgur.com/3oSRr1W.png
+        color: 4278935
+        records:
+        - name: "%h 8-Lawyer Stun"
+          id: STN8
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          - 4
+          hitless_points: 0
+        - name: "%h 9-Lawyer Stun"
+          id: STN9
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          - 5
+          hitless_points: 0
+        - name: "%h 10-Lawyer Stun"
+          id: STN0
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          hitless_points: 0
+      - subcategory: CJ Lawyer Stunning (from start)
+        id: CJS
+        thumbnail: https://i.imgur.com/3oSRr1W.png
+        color: 4278935
+        records:
+        - name: "%h 8-Lawyer Stun (from start)"
+          id: SSTN8
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          - 5
+          hitless_points: 0
+        - name: "%h 9-Lawyer Stun (from start)"
+          id: SSTN9
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          hitless_points: 0
+        - name: "%h 10-Lawyer Stun (from start)"
+          id: SSTN0
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          - 7
+          hitless_points: 0
+      - subcategory: CJ Misc Records
+        id: CJ
+        thumbnail: https://static.wikia.nocookie.net/toontownrewritten/images/a/aa/Boss-lawbot-chiefjustice.png/revision/latest/scale-to-width-down/250?cb=20200823081056
+        color: 4278935
+        records:
+        - name: Most CJs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a CJ Solo
+          id: MISC2
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: CJ
+        id: CJ
+        thumbnail: https://i.imgur.com/Q8ybUn2.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless: []
+          base_points:
+          - 10
+          - 11
+          - 13
+          hitless_points: 1
+      - subcategory: CJ Cog Round
+        id: CJC
+        thumbnail: https://i.imgur.com/iS95oLy.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless: []
+          base_points:
+          - 7
+          - 8
+          - 10
+          hitless_points: 1
+      - subcategory: CJ (NBW)
+        id: NBW
+        thumbnail: https://i.imgur.com/pWFnX6B.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless:
+          - 1
+          base_points:
+          - 10
+          - 12
+          - 15
+          hitless_points: 5
+  - category: CEO
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CEO
+        id: CEO
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 11
+          - 12
+          - 13
+          - 15
+          - 18
+          hitless_points: 5
+      - subcategory: CEO Cog Round
+        id: CEOC
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 7
+          - 8
+          - 9
+          - 11
+          - 14
+          hitless_points: 1
+      - subcategory: CEO Seltzer Round
+        id: CEOF
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          - 12
+          - 15
+          hitless_points: -4
+      - subcategory: 5-Fire CEO
+        id: CEOM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 13
+          - 15
+          - 17
+          - 20
+          - 24
+          hitless_points: 4
+      - subcategory: CEO Misc Records
+        id: CEO
+        thumbnail: https://static.wikia.nocookie.net/toontownrewritten/images/0/0f/Boss-bossbot-chiefexecutiveofficer.png/revision/latest/scale-to-width-down/250?cb=20200823081015
+        color: 11700084
+        records:
+        - name: Most CEOs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a CEO Solo
+          id: MISC3
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+        - name: Fewest Rewards Used in a 5-Fire CEO Solo
+          id: MISC4
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: CEO
+        id: CEO
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless: []
+          base_points:
+          - 10
+          - 12
+          - 16
+          hitless_points: 1
+      - subcategory: CEO Cog Round
+        id: CEOC
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          valid_hitless: []
+          base_points:
+          - 8
+          - 10
+          - 14
+          hitless_points: 1
+      - subcategory: 5-Fire CEO
+        id: CEOM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 5
+  - category: Buildings
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Buildings
+        id: BLDG
+        thumbnail: https://static.wikia.nocookie.net/toontown/images/c/ca/Sellbotbldg_ttc.jpg/revision/latest/scale-to-width-down/250?cb=20130907175322
+        color: 9868965
+        records:
+        - name: Max-Tier 5-Story Building
+          id: 5FM-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 5
+          hitless_points: 1
+        - name: 5-Story Building
+          id: 5F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+        - name: 4-Story Building
+          id: 4F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+        - name: 3-Story Building
+          id: 3F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 2
+          hitless_points: 1
+        - name: 2-Story Building
+          id: 2F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 1
+          hitless_points: 1
+        - name: 1-Story Building
+          id: 1F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 1
+          hitless_points: 1
+  - category: Activities
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Fishing
+        id: FISH
+        thumbnail: https://vignette.wikia.nocookie.net/toontown/images/a/a8/Toons_fishing.png/revision/latest?cb=20121104221658
+        color: 16743679
+        records:
+        - name: Fastest Bucket Filled
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+        - name: Most Valuable Bucket
+          id: MV
+          value_class:
+          - jellybeans
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+        - name: Least Valuable Bucket
+          id: LV
+          value_class:
+          - jellybeans
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+      - subcategory: Racing
+        id: RACE
+        thumbnail: https://static.wikia.nocookie.net/toontown/images/4/41/Racing1.png/revision/latest/scale-to-width-down/661?cb=20110312053314
+        color: 16711680
+        records:
+        - name: Screwball Stadium
+          id: SS
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Screwball Stadium (Reverse)
+          id: SSR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Corkscrew Colosseum
+          id: CC
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Corkscrew Colosseum (Reverse)
+          id: CCR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Rustic Raceway
+          id: RR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Rustic Raceway (Reverse)
+          id: RRR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Airborne Acres
+          id: AA
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: Airborne Acres (Reverse)
+          id: AAR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: City Circuit
+          id: CI
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: City Circuit (Reverse)
+          id: CIR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: Blizzard Boulevard
+          id: BB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Blizzard Boulevard (Reverse)
+          id: BBR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+      - subcategory: Golfing
+        id: GOLF
+        thumbnail: https://cdn.toontownrewritten.com/news-site/img/21-4-11_revenge_of_the_golf_balls.jpg
+        color: 5563476
+        records:
+        - name: Best Score in Walk in the Par
+          id: 3H
+          value_class:
+          - score
+          - time
+          lower_is_better:
+          - true
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+        - name: Best Score on Hole Some Fun
+          id: 6H
+          value_class:
+          - score
+          - time
+          lower_is_better:
+          - true
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Best Score on The Hole Kit and Kaboodle
+          id: 9H
+          value_class:
+          - score
+          - time
+          lower_is_better:
+          - true
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 10
+          hitless_points: 1
+      - subcategory: Trolley
+        id: TRLY
+        thumbnail: https://vignette.wikia.nocookie.net/toontown/images/e/e5/Tttrolly.png/revision/latest/scale-to-width-down/340?cb=20130907163024
+        color: 16777038
+        records:
+        - name: Fastest Jungle Vines Completion
+          id: JVSR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 2
+          hitless_points: 1
+        - name: "%t Highest Jungle Vines Score"
+          id: JVHS
+          value_class:
+          - score
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          - 2
+          hitless_points: 1
+        - name: Fastest Toon Escape Completion
+          id: TESR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 2
+          hitless_points: 1
+        - name: "%t Highest Toon Escape Score"
+          id: TEHS
+          value_class:
+          - score
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          - 2
+          hitless_points: 1
+        - name: "%t Fastest Memory Game Completion"
+          id: MGSR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 1
+          - 3
+          hitless_points: 1
+        - name: "%t Least Memory Game Flips"
+          id: MGLS
+          value_class:
+          - flips
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          - 4
+          hitless_points: 1
+        - name: Most Treasure Dive Chests Retrieved
+          id: TDMC
+          value_class:
+          - chests
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+      - subcategory: Cartoonival
+        id: CTVL
+        thumbnail: https://cdn.toontownrewritten.com/news-site/img/16-9-19_meetmarole.jpg?1
+        color: 3247871
+        records:
+        - name: Most Clouds Hit at Cartoonival
+          id: CL
+          value_class:
+          - clouds
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+        - name: Longest Cartoonival Cannon Flight
+          id: CF
+          value_class:
+          - time
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+        - name: Fastest Trampoline Completion
+          id: TR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+  - category: Taskline
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CO-OP Playground Speedruns
+        id: COOP
+        thumbnail: https://vignette.wikia.nocookie.net/toontownrewritten/images/3/33/14-5-12_whatwouldacogerase.jpg/revision/latest?cb=20140513020031
+        color: 0
+        records:
+        - name: Toontown Central
+          id: TTC
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: Donald's Dock
+          id: DD
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 12
+          hitless_points: 1
+        - name: Daisy's Gardens
+          id: DG
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 14
+          hitless_points: 1
+        - name: Minnie's Melodyland
+          id: MML
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: The Brrrgh
+          id: TB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 18
+          hitless_points: 1
+        - name: Donald's Dreamland
+          id: DDL
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 20
+          hitless_points: 1
+      - subcategory: SOLO Playground Speedruns
+        id: SOLO
+        thumbnail: https://vignette.wikia.nocookie.net/toontownrewritten/images/3/33/14-5-12_whatwouldacogerase.jpg/revision/latest?cb=20140513020031
+        color: 0
+        records:
+        - name: Solo Toontown Central
+          id: TTC
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 20
+          hitless_points: 1
+        - name: Solo Donald's Dock
+          id: DD
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: Solo Daisy's Gardens
+          id: DG
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 18
+          hitless_points: 1
+        - name: Solo Minnie's Melodyland
+          id: MML
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 20
+          hitless_points: 1
+        - name: Solo The Brrrgh
+          id: TB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 24
+          hitless_points: 1
+        - name: Solo Donald's Dreamland
+          id: DDL
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 30
+          hitless_points: 1
+- game: Corporate Clash
+  id: TTCC
+  categories:
+  - category: Factory
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Short Factory
+        id: F1
+        thumbnail: https://i.imgur.com/7WbKRdU.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Long Factory
+        id: F2
+        thumbnail: https://i.imgur.com/aHq1un2.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Short Factory
+        id: F1
+        thumbnail: https://i.imgur.com/7WbKRdU.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Long Factory
+        id: F2
+        thumbnail: https://i.imgur.com/aHq1un2.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+  - category: Mint
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Coin Mint
+        id: M1
+        thumbnail: https://i.imgur.com/cp9Udt7.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Dollar Mint
+        id: M2
+        thumbnail: https://i.imgur.com/TeU8dtX.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+      - subcategory: Bullion Mint
+        id: M3
+        thumbnail: https://i.imgur.com/RunGHlD.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 10
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Coin Mint
+        id: M1
+        thumbnail: https://i.imgur.com/cp9Udt7.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 8
+          hitless_points: 1
+      - subcategory: Dollar Mint
+        id: M2
+        thumbnail: https://i.imgur.com/TeU8dtX.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 10
+          hitless_points: 1
+      - subcategory: Bullion Mint
+        id: M3
+        thumbnail: https://i.imgur.com/RunGHlD.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 15
+          hitless_points: 1
+  - category: Lawfice
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Lawfice A
+        id: L1
+        thumbnail: https://i.imgur.com/xyDBxKu.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Lawfice B
+        id: L2
+        thumbnail: https://i.imgur.com/CAZ1i6d.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          hitless_points: 1
+      - subcategory: Lawfice C
+        id: L3
+        thumbnail: https://i.imgur.com/4AWOeHT.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 9
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Lawfice A
+        id: L1
+        thumbnail: https://i.imgur.com/xyDBxKu.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Lawfice B
+        id: L2
+        thumbnail: https://i.imgur.com/CAZ1i6d.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 8
+          hitless_points: 1
+      - subcategory: Lawfice C
+        id: L3
+        thumbnail: https://i.imgur.com/4AWOeHT.png
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 8
+          hitless_points: 1
+  - category: Cog Golf Course
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Front Three
+        id: G1
+        thumbnail: https://i.imgur.com/5TFAp9i.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 8
+          hitless_points: 1
+      - subcategory: Middle Six
+        id: G2
+        thumbnail: https://i.imgur.com/JER23So.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          hitless_points: 1
+      - subcategory: Back Nine
+        id: G3
+        thumbnail: https://i.imgur.com/ZdoMxC1.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 8
+          - 10
+          - 14
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: Front Three
+        id: G1
+        thumbnail: https://i.imgur.com/5TFAp9i.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          hitless_points: 1
+      - subcategory: Middle Six
+        id: G2
+        thumbnail: https://i.imgur.com/JER23So.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 6
+          - 8
+          hitless_points: 1
+      - subcategory: Back Nine
+        id: G3
+        thumbnail: https://i.imgur.com/ZdoMxC1.png
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 8
+          - 10
+          hitless_points: 1
+  - category: VP
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: VP
+        id: VP
+        thumbnail: https://i.imgur.com/54nl5SN.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 11
+          - 13
+          hitless_points: 3
+      - subcategory: VP Cog Round
+        id: VPC
+        thumbnail: https://i.imgur.com/EPIyWNJ.jpeg
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 5
+          - 6
+          - 7
+          - 8
+          - 10
+          hitless_points: 1
+      - subcategory: VP Pie Round
+        id: VPF
+        thumbnail: https://cdn.discordapp.com/attachments/689766434678636550/887904429368565820/unknown.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          - 8
+          - 10
+          hitless_points: -4
+      - subcategory: Max-Tier VP
+        id: VPM
+        thumbnail: https://i.imgur.com/54nl5SN.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 11
+          - 13
+          hitless_points: 3
+      - subcategory: Max-Tier VP Pie Round
+        id: VPFM
+        thumbnail: https://cdn.discordapp.com/attachments/689766434678636550/887904429368565820/unknown.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          hitless_points: -4
+      - subcategory: VP Misc Records
+        id: VP
+        thumbnail: https://static.wikia.nocookie.net/toontownrewritten/images/4/46/Boss-sellbot-vicepresident.png/revision/latest?cb=20200611183748
+        color: 7489641
+        records:
+        - name: Most VPs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Most SOS Cards Owned
+          id: MISC2
+          value_class:
+          - sos cards
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a VP Solo
+          id: MISC3
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: VP
+        id: VP
+        thumbnail: https://i.imgur.com/54nl5SN.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 11
+          - 25
+          hitless_points: 1
+      - subcategory: VP Cog Round
+        id: VPC
+        thumbnail: https://i.imgur.com/EPIyWNJ.jpeg
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless: []
+          base_points:
+          - 5
+          - 6
+          - 7
+          - 9
+          - 20
+          hitless_points: 1
+      - subcategory: Max-Tier VP
+        id: VPM
+        thumbnail: https://i.imgur.com/54nl5SN.png
+        color: 7489641
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 11
+          hitless_points: 3
+  - category: CFO
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CFO
+        id: CFO
+        thumbnail: https://i.imgur.com/SUwPXpi.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 9
+          - 10
+          - 11
+          - 12
+          - 14
+          hitless_points: 3
+      - subcategory: CFO Cog Round
+        id: CFOC
+        thumbnail: https://i.imgur.com/1h5yoOa.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 8
+          - 9
+          - 11
+          hitless_points: 1
+      - subcategory: CFO Crane Round
+        id: CFOF
+        thumbnail: https://i.imgur.com/plhYQt3.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          - 8
+          - 10
+          hitless_points: -4
+      - subcategory: Max-Tier CFO
+        id: CFOM
+        thumbnail: https://i.imgur.com/SUwPXpi.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 9
+          - 10
+          - 11
+          - 12
+          - 14
+          hitless_points: 3
+      - subcategory: Max-Tier CFO Crane Round
+        id: CFOFM
+        thumbnail: https://i.imgur.com/plhYQt3.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 4
+          - 5
+          - 6
+          - 8
+          - 10
+          hitless_points: -4
+      - subcategory: CFO Misc Records
+        id: CFO
+        thumbnail: https://static.wikia.nocookie.net/toontownrewritten/images/2/29/Boss-cashbot-chieffinancialofficer.png/revision/latest?cb=20200611183753
+        color: 6660217
+        records:
+        - name: Most CFOs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Most Unites Owned
+          id: MISC2
+          value_class:
+          - unites
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a CFO Solo
+          id: MISC3
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: CFO
+        id: CFO
+        thumbnail: https://i.imgur.com/SUwPXpi.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 9
+          - 10
+          - 11
+          - 12
+          hitless_points: 1
+      - subcategory: CFO Cog Round
+        id: CFOC
+        thumbnail: https://i.imgur.com/1h5yoOa.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 6
+          - 7
+          - 8
+          - 9
+          hitless_points: 1
+      - subcategory: Max-Tier CFO
+        id: CFOM
+        thumbnail: https://i.imgur.com/SUwPXpi.png
+        color: 6660217
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 9
+          - 10
+          - 11
+          - 12
+          hitless_points: 1
+  - category: CLO
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CLO
+        id: CLO
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 10
+          - 11
+          - 12
+          - 14
+          - 17
+          hitless_points: 3
+      - subcategory: CLO Cog Round
+        id: CLOC
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 8
+          - 10
+          - 12
+          hitless_points: 3
+      - subcategory: CLO Sound Round
+        id: CLOF
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 9
+          - 11
+          - 14
+          hitless_points: 4
+      - subcategory: Max-Tier CLO
+        id: CLOM
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 10
+          - 11
+          - 12
+          - 14
+          - 17
+          hitless_points: 3
+      - subcategory: Max-Tier CLO Sound Round
+        id: CLOFM
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 7
+          - 9
+          - 11
+          - 14
+          hitless_points: 4
+      - subcategory: Overclocked CLO
+        id: OCLO
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 14
+          - 26
+          - 22
+          - 30
+          hitless_points: 3
+      - subcategory: Overclocked CLO Cog Round
+        id: OCLOC
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          - 10
+          - 10
+          - 12
+          - 15
+          hitless_points: 3
+      - subcategory: Overclocked CLO Litigation Round
+        id: OCLOL
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 10
+          - 22
+          - 18
+          - 26
+          hitless_points: 3
+      - subcategory: Overclocked CLO Sound Round
+        id: OCLOF
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 8
+          - 1
+          base_points:
+          - 8
+          - 9
+          - 10
+          - 12
+          - 16
+          hitless_points: 12
+      - subcategory: CLO Misc Records
+        id: CLO
+        thumbnail: ''
+        color: 4278935
+        records:
+        - name: Most CLOs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Fewest Rewards Used in a CLO Solo
+          id: MISC2
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+        - name: Highest Score in CLO Cannon Round
+          id: MISC3
+          value_class:
+          - score
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Highest Score in OCLO Cannon Round
+          id: MISC4
+          value_class:
+          - score
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+  - category: CEO
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CEO
+        id: CEO
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 11
+          - 12
+          - 13
+          - 15
+          - 18
+          hitless_points: 5
+      - subcategory: CEO Cog Round
+        id: CEOC
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 7
+          - 8
+          - 9
+          - 11
+          - 14
+          hitless_points: 1
+      - subcategory: CEO Seltzer Round
+        id: CEOF
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          - 12
+          - 15
+          hitless_points: -4
+      - subcategory: Max-Tier CEO
+        id: CEOM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 13
+          - 15
+          - 17
+          - 20
+          - 24
+          hitless_points: 4
+      - subcategory: Max-Tier CEO Cog Round
+        id: CEOCM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 13
+          - 15
+          - 17
+          - 20
+          - 24
+          hitless_points: 4
+      - subcategory: Max-Tier CEO Seltzer Round
+        id: CEOFM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          - 1
+          valid_hitless:
+          - 1
+          base_points:
+          - 6
+          - 8
+          - 10
+          - 12
+          - 15
+          hitless_points: -4
+      - subcategory: CEO Misc Records
+        id: CEO
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: Most CEOs Soloed
+          id: MISC1
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 15
+          hitless_points: 1
+        - name: Most Diners Fed %t
+          id: MISC2
+          value_class:
+          - solos
+          lower_is_better:
+          - false
+          valid_toons:
+          - 8
+          - 1
+          valid_hitless: []
+          base_points:
+          - 12
+          - 6
+          hitless_points: 1
+        - name: Fewest Rewards Used in a CEO Solo
+          id: MISC3
+          value_class:
+          - rewards
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 25
+          hitless_points: 1
+    - restriction:
+      - Rewardless
+      id: RL
+      banner: https://i.imgur.com/5CJ98JI.png
+      subcategories:
+      - subcategory: CEO
+        id: CEO
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 10
+          - 12
+          - 16
+          - 22
+          hitless_points: 1
+      - subcategory: CEO Cog Round
+        id: CEOC
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 8
+          - 10
+          - 14
+          - 20
+          hitless_points: 1
+      - subcategory: Max-Tier CEO
+        id: CEOM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 10
+          - 12
+          - 16
+          - 22
+          hitless_points: 1
+      - subcategory: Max-Tier CEO Cog Round
+        id: CEOCM
+        thumbnail: ''
+        color: 11700084
+        records:
+        - name: "%r %h %t %s"
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 8
+          - 6
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 10
+          - 12
+          - 16
+          - 22
+          hitless_points: 1
+  - category: Buildings
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Buildings
+        id: BLDG
+        thumbnail: ''
+        color: 9868965
+        records:
+        - name: Max-Tier 6-Story Building
+          id: 6FM-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: 6-Story Building
+          id: 6F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 5
+          hitless_points: 1
+        - name: 5-Story Building
+          id: 5F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+        - name: 4-Story Building
+          id: 4F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+        - name: 3-Story Building
+          id: 3F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 2
+          hitless_points: 1
+        - name: 2-Story Building
+          id: 2F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 1
+          hitless_points: 1
+        - name: 1-Story Building
+          id: 1F-SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 1
+          hitless_points: 1
+  - category: Activities
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: Fishing
+        id: FISH
+        thumbnail: ''
+        color: 16743679
+        records:
+        - name: Fastest Bucket Filled
+          id: SR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+        - name: Most Valuable Bucket
+          id: MV
+          value_class:
+          - jellybeans
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+        - name: Least Valuable Bucket
+          id: LV
+          value_class:
+          - jellybeans
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+      - subcategory: Racing
+        id: RACE
+        thumbnail: ''
+        color: 16711680
+        records:
+        - name: Screwball Stadium
+          id: SS
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Screwball Stadium (Reverse)
+          id: SSR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Corkscrew Colosseum
+          id: CC
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Corkscrew Colosseum (Reverse)
+          id: CCR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 6
+          hitless_points: 1
+        - name: Rustic Raceway
+          id: RR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Rustic Raceway (Reverse)
+          id: RRR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Airborne Acres
+          id: AA
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: Airborne Acres (Reverse)
+          id: AAR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: City Circuit
+          id: CI
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: City Circuit (Reverse)
+          id: CIR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+        - name: Blizzard Boulevard
+          id: BB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Blizzard Boulevard (Reverse)
+          id: BBR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+      - subcategory: Golfing
+        id: GOLF
+        thumbnail: ''
+        color: 5563476
+        records:
+        - name: Best Score in Walk in the Par
+          id: 3H
+          value_class:
+          - score
+          - time
+          lower_is_better:
+          - true
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 4
+          hitless_points: 1
+        - name: Best Score on Hole Some Fun
+          id: 6H
+          value_class:
+          - score
+          - time
+          lower_is_better:
+          - true
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 7
+          hitless_points: 1
+        - name: Best Score on The Hole Kit and Kaboodle
+          id: 9H
+          value_class:
+          - score
+          - time
+          lower_is_better:
+          - true
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 10
+          hitless_points: 1
+      - subcategory: Trolley
+        id: TRLY
+        thumbnail: ''
+        color: 16777038
+        records:
+        - name: Fastest Jungle Vines Completion
+          id: JVSR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 2
+          hitless_points: 1
+        - name: "%t Highest Jungle Vines Score"
+          id: JVHS
+          value_class:
+          - score
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          - 2
+          hitless_points: 1
+        - name: "%t Fastest Memory Game Completion"
+          id: MGSR
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 1
+          - 3
+          hitless_points: 1
+        - name: "%t Least Memory Game Flips"
+          id: MGLS
+          value_class:
+          - flips
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          - 4
+          hitless_points: 1
+        - name: Most Treasure Dive Chests Retrieved
+          id: TDMC
+          value_class:
+          - chests
+          lower_is_better:
+          - false
+          valid_toons:
+          - 4
+          valid_hitless: []
+          base_points:
+          - 8
+          hitless_points: 1
+      - subcategory: Halloween
+        id: HLWN
+        thumbnail: ''
+        color: 16758016
+        records:
+        - name: "%t Count Erclaim"
+          id: CE
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 6
+          - 8
+          hitless_points: 1
+        - name: Rewardless %t Count Erclaim
+          id: RCE
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 4
+          - 2
+          valid_hitless: []
+          base_points:
+          - 6
+          - 8
+          hitless_points: 1
+      - subcategory: Toonseltown
+        id: TSTN
+        thumbnail: ''
+        color: 15003135
+        records:
+        - name: Highest Score in Present Game
+          id: PG
+          value_class:
+          - score
+          lower_is_better:
+          - false
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 3
+          hitless_points: 1
+  - category: Taskline
+    restrictions:
+    - restriction: []
+      id: NA
+      banner: https://i.imgur.com/1luLEqI.png
+      subcategories:
+      - subcategory: CO-OP Playground Speedruns
+        id: COOP
+        thumbnail: ''
+        color: 0
+        records:
+        - name: Toontown Central
+          id: TTC
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: Barnacle Boatyard
+          id: BB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 12
+          hitless_points: 1
+        - name: Ye Olde Toontown
+          id: YOTT
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 14
+          hitless_points: 1
+        - name: Daffodil Gardens
+          id: DG
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: Mezzo Melodyland
+          id: MML
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 18
+          hitless_points: 1
+        - name: The Brrrgh
+          id: TB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 20
+          hitless_points: 1
+        - name: Acorn Acres
+          id: AA
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 22
+          hitless_points: 1
+        - name: Drowsy Dreamland
+          id: DDL
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 24
+          hitless_points: 1
+      - subcategory: SOLO Playground Speedruns
+        id: SOLO
+        thumbnail: ''
+        color: 0
+        records:
+        - name: Solo Toontown Central
+          id: TTC
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: Solo Barnacle Boatyard
+          id: BB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 12
+          hitless_points: 1
+        - name: Solo Ye Olde Toontown
+          id: YOTT
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 14
+          hitless_points: 1
+        - name: Solo Daffodil Gardens
+          id: DG
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 16
+          hitless_points: 1
+        - name: Solo Mezzo Melodyland
+          id: MML
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 18
+          hitless_points: 1
+        - name: Solo The Brrrgh
+          id: TB
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 20
+          hitless_points: 1
+        - name: Solo Acorn Acres
+          id: AA
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 22
+          hitless_points: 1
+        - name: Solo Drowsy Dreamland
+          id: DDL
+          value_class:
+          - time
+          lower_is_better:
+          - true
+          valid_toons:
+          - 1
+          valid_hitless: []
+          base_points:
+          - 24
+          hitless_points: 1

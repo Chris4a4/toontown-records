@@ -1,0 +1,58 @@
+---
+ttr:
+  vp:
+    ~:
+      full:
+        8: [Fastest VP, 1]
+        6: [Fastest 6-Toon VP, 1]
+        4: [Fastest 4-Toon VP, 1]
+        2: [Fastest Duo VP, 1]
+        1:
+          ~: [Fastest Solo VP, 1]
+          hl: [Fastest Hitless Solo VP, 1]
+          min_rewards: [Fewest Rewards Used in a VP Solo, 1]
+      cog:
+        8: [Fastest VP Cog Round, 1]
+        6: [Fastest 6-Toon VP Cog Round, 1]
+        4: [Fastest 4-Toon VP Cog Round, 1]
+        2: [Fastest Duo VP Cog Round, 1]
+        1:
+          ~: [Fastest Solo VP Cog Round, 1]
+          hl: [Fastest Hitless Solo VP Cog Round, 1]
+      pie:
+        8: [Fastest Pie Round, 1]
+        6: [Fastest 6-Toon Pie Round, 1]
+        4: [Fastest 4-Toon Pie Round, 1]
+        2: [Fastest Duo Pie Round, 1]
+        1:
+          ~: [Fastest Solo Pie Round, 1]
+          hl: [Fastest Hitless Solo Pie Round, 1]
+    rl:
+      full:
+        8: [Fastest Rewardless VP, 1]
+        6: [Fastest 6-Toon Rewardless VP, 1]
+        4: [Fastest 4-Toon Rewardless VP, 1]
+      cog:
+        8: [Fastest Rewardless VP Cog Round, 1]
+        6: [Fastest 6-Toon Rewardless VP Cog Round, 1]
+        4: [Fastest 4-Toon Rewardless VP Cog Round, 1]
+
+  activity:
+    1:
+      golf:
+        par: [Best Score in Walk in the Par, 1]
+        fun: [Best Score on Hole Some Fun, 1]
+        kit: [Best Score on The Hole Kit and Kaboodle, 1]
+      racing:
+        screw: [Fastest Screwball Stadium, 1]
+        screwr: [Fastest Screwball Stadium (Reverse), 1]
+        rust: [Fastest Rustic Raceway, 1]
+        rustr: [Fastest Rustic Raceway (Reverse), 1]
+        city: [Fastest City Circuit, 1]
+        cityr: [Fastest City Circuit (Reverse), 1]
+        cork: [Fastest Corkscrew Colosseum, 1]
+        corkr: [Fastest Corkscrew Colosseum (Reverse), 1]
+        air: [Fastest Airborne Acres, 1]
+        airr: [Fastest Airborne Acres (Reverse), 1]
+        bliz: [Fastest Blizzard Boulevard, 1]
+        blizr: [Fastest Blizzard Boulevard (Reverse), 1]
