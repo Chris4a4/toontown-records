@@ -88,3 +88,15 @@ Backend Endpoints:
 --- used to generate record template and autofill record names
 - get_leaderboards() - gets leaderboards for ttr, ttcc, overall
 --- poll this to update leaderboards
+
+
+Database log objects
+- Timestamp
+- initiator ID
+- Action ("submit-record", "approve-record", "deny-record", "submit-username", "approve-username", "deny-username")
+- extra
+- url
+
+
+Username Change Requests
+- STATUS=PENDING, APPROVED, DENIED, OUTDATED

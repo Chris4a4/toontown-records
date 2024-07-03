@@ -44,7 +44,7 @@ def counts_for_this(record_name):
     rule_groups = [
         [
             (None, None),
-            ('rl', []),
+            ('rl', 'nr'),
         ],
         [
             (None, None),
@@ -65,12 +65,11 @@ def counts_for_this(record_name):
         ]
     ]
 
-    data = get_record_data()
-    tags = [a for a in data if a['record_name'] == record_name][0]['tags']
+    tags = lookup_record_info(record_name)['tags']
 
     # Search through every record. Check if we can make the conversion and end up at the original record's tags
     results = []
-    for record in data:
+    for record in lookup_all_record_info():
         for rules in product(*rule_groups):
             check_tags = list(record['tags'])
             for from_val, to_val in rules:
@@ -104,7 +103,7 @@ def get_top_N(record, n):
         }
     ]
 
-    documents = Mongo_Config.records.aggregate(pipeline)
+    documents = Mongo_Config.submissions.aggregate(pipeline)
     to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
 
     return to_json
@@ -127,9 +126,9 @@ def flatten_yaml(d):
     return result
 
 
-# Gets all record data
+# Gets all record info
 @cache
-def get_record_data():
+def lookup_all_record_info():
     cur_dir = path.dirname(path.abspath(__file__))
     record_data_path = path.join(cur_dir, 'data', 'records.yaml')
 
@@ -150,3 +149,13 @@ def get_record_data():
         })
 
     return records
+
+
+# Gets info for one record
+@cache
+def lookup_record_info(record_name: str):
+    all_records = lookup_all_record_info()
+
+    for record in all_records:
+        if record['record_name'] == record_name:
+            return record

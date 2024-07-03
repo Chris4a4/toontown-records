@@ -1,34 +1,70 @@
 from collections import Counter
-from .records import get_record_data, get_top_N
+from .records import lookup_all_record_info, lookup_record_info, get_top_N
+from api.accounts.router import get_username
 from fastapi import APIRouter
 
 records_router = APIRouter()
 
 
-@records_router.get('/api/records/get_all_record_infos')
-async def get_all_record_infos():
-    return get_record_data()
+# Gets the record information for a given record
+@records_router.get('/api/records/get_info/{record_name}', tags=['Unlogged'])
+async def get_record_info(record_name: str):
+    record_data = lookup_record_info(record_name)
+
+    if record_data:
+        return {
+            'success': True,
+            'message': f'Looked up information for {record_name}',
+            'data': record_data
+        }
+
+    return {
+        'success': False,
+        'message': f'Could not find information for {record_name}',
+        'data': None
+    }
 
 
-@records_router.get('/api/records/get_all_records')
+# Gets the record information for every record
+@records_router.get('/api/records/get_all_info', tags=['Unlogged'])
+async def get_all_record_info():
+    all_data = lookup_all_record_info()
+
+    return {
+        'success': True,
+        'message': 'Looked up information for all records',
+        'data': all_data
+    }
+
+
+# Gets the record information and top3 information for every record
+@records_router.get('/api/records/get_all_records', tags=['Unlogged'])
 async def get_all_records():
-    records = get_record_data()
+    records = lookup_all_record_info()
     for record in records:
         record['top3'] = get_top_N(record, 3)
 
     return records
 
 
-@records_router.get('/api/records/get_leaderboards')
-async def get_leaderboards():
-    ttr_counter = Counter()
-    ttcc_counter = Counter()
+@records_router.get('/api/records/get_leaderboard/{game_id}', tags=['Unlogged'])
+async def get_leaderboard(game_id):
+    include_ttr = game_id == 'ttr' or game_id == 'overall'
+    include_ttcc = game_id == 'ttcc' or game_id == 'overall'
+
+    leaderboard = Counter()
+    max_points = 0
 
     # Accumulate points for each record defined in records.yaml
-    records = get_record_data()
+    records = lookup_all_record_info()
     for record in records:
         points = record['points']
         tags = record['tags']
+
+        including_game = ('ttr' in tags and include_ttr) or ('ttcc' in tags and include_ttcc)
+        if not including_game:
+            continue
+        max_points += points
 
         # Get the best placement if it exists
         best = get_top_N(record, 1)
@@ -38,15 +74,18 @@ async def get_leaderboards():
 
         # Loop through users and add points for them
         users = best['user_ids']
-        for user in users:
-            if 'ttr' in tags:
-                ttr_counter.update({user: points})
-            elif 'ttcc' in tags:
-                ttcc_counter.update({user: points})
+        for user in set(users):
+            leaderboard.update({user: points})
+    
+    result = []
+    for user_id, user_points in leaderboard.most_common():
+        result.append({
+            'user_id': user_id,
+            'username': await get_username(user_id),
+            'points': user_points
+        })
 
     return {
-        'ttr': dict(ttr_counter),
-        'ttcc': dict(ttcc_counter),
-        'all': dict(ttr_counter + ttcc_counter)
+        'max_points': max_points,
+        'leaderboard': result
     }
-
