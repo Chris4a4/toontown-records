@@ -2,10 +2,6 @@ import requests
 
 from misc.config import Config
 
-# TODO: change update times
-# TODO: check for ", print statements, weird use of if
-# TODO: add rest of records
-
 
 ########## RECORDS ##########
 def get_record_info(record_name):

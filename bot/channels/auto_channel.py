@@ -38,12 +38,6 @@ def has_changed(message, new_text, new_embed, new_view, new_files):
     if new_files:
         new_message['file'] = new_files[0].filename
 
-    if cur_message != new_message:
-        print('MESSAGE DIFFERENT')
-        print(cur_message)
-        print(new_message)
-        print()
-
     # Compare contents and edit if necessary
     return cur_message != new_message
 
@@ -76,7 +70,6 @@ class AutoChannel:
             if category.name == desired_category:
                 return category
 
-        print(f'WARNING: Category {desired_category} did not exist')
         return await Config.GUILD.create_category(desired_category)
 
     # Gets a channel by name + category name, if it exists. Otherwise creates it
@@ -88,7 +81,6 @@ class AutoChannel:
             if channel.category == category and channel.name == actual_name:
                 return channel
 
-        print(f'WARNING: Channel {desired_category}/#{actual_name} did not exist')
         return await Config.GUILD.create_text_channel(actual_name, category=category)
 
     # Constructs a message iterator for the specified channel
@@ -100,7 +92,6 @@ class AutoChannel:
         history = []
         for msg in temp_history:
             if not msg.author.id == self.bot.user.id:
-                print(f'WARNING: Message from {str(msg.author)} was in bot-only channel #{channel.name}')
                 await msg.delete()
             else:
                 history.append(msg)
@@ -126,8 +117,5 @@ class MessageIterator:
 
     # Delete all the remaining messages
     async def aclose(self):
-        if len(self.history) > 0:
-            print(f'WARNING: Deleted {len(self.history)} extra messages in channel #{self.channel.name}')
-
         for msg in self.history:
             await msg.delete()

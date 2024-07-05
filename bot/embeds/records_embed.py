@@ -15,11 +15,11 @@ def records_embed(records):
 
     # Body
     for record in records:
-        points = record["points"]
+        points = record['points']
         if points == 1:
-            title = f'{record["record_name"]} - ``{points} point``'
+            title = f'{record['record_name']} - ``{points} point``'
         else:
-            title = f'{record["record_name"]} - ``{points} points``'
+            title = f'{record['record_name']} - ``{points} points``'
 
         top_3 = record['top3']
         if not top_3:
@@ -38,7 +38,7 @@ def records_embed(records):
 
                 # Value
                 value_desc = value_string(submission, tags=record['tags'])
-                descriptions.append(f"**{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})")
+                descriptions.append(f'**{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})')
 
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)

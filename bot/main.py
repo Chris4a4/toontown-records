@@ -5,9 +5,6 @@ bot = discord.Bot(intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user.name} ({bot.user.id})')
-    print('------')
-
     Config.add_context(bot)
     bot.load_extension('cogs.channels')
     bot.load_extension('cogs.usernames')
@@ -16,7 +13,7 @@ async def on_ready():
 # Welcome message
 @bot.event
 async def on_member_join(member):
-    await Config.WELCOME_CHANNEL.send(f"Hello {member.mention}!\n\nIf you haven't already, use the ``/username`` command to request a username so that you can use the server")
+    await Config.WELCOME_CHANNEL.send(f'Hello {member.mention}!\n\nIf you have not already, use the ``/username`` command to request a username so that you can use the server')
 
 
 bot.load_extension('cogs.commands')

@@ -26,7 +26,7 @@ def create_user(discord_id: int):
     }
     new_result = Mongo_Config.accounts.insert_one(new_user)
 
-    return Mongo_Config.accounts.find_one({"_id": new_result.inserted_id})
+    return Mongo_Config.accounts.find_one({'_id': new_result.inserted_id})
 
 
 # Marks a namechange request as approved
@@ -91,6 +91,13 @@ async def request_namechange(discord_id: int, username: str, audit_id: int):
         return {
             'success': False,
             'message': f'Names cannot be longer than {MAX_LEN} characters'
+        }
+    
+    MIN_LEN = 2
+    if len(username) < MIN_LEN:
+        return {
+            'success': False,
+            'message': f'Names cannot be shorter than {MIN_LEN} characters'
         }
 
     pattern = r'[^a-zA-Z0-9 ]'

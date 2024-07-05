@@ -11,25 +11,35 @@ class Channels(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-        self.channels = [
-            LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
-            LeaderboardChannelManager(bot, 'leaderboards', 'ttcc'),
-            LeaderboardChannelManager(bot, 'leaderboards', 'overall'),
+        self.mod_channels = [
             LogChannelManager(bot, 'mods', 'logs'),
-            RecordChannelManager(bot, 'ttr', 'vp'),
-            RecordChannelManager(bot, 'ttr', 'activities'),
             SubmissionsChannelManager(bot, 'mods', 'pending-records'),
             NamechangeChannelManager(bot, 'mods', 'pending-namechanges')
         ]
+        self.user_channels = [
+            LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
+            LeaderboardChannelManager(bot, 'leaderboards', 'ttcc'),
+            LeaderboardChannelManager(bot, 'leaderboards', 'overall'),
 
-        self.update_channels.start()
+            RecordChannelManager(bot, 'ttr', 'vp'),
+            RecordChannelManager(bot, 'ttr', 'activities'),
+        ]
+
+        self.frequent_update.start()
+        self.infrequent_update.start()
     
     def cog_unload(self):
-        self.update_channels.cancel()
+        self.frequent_update.cancel()
+        self.infrequent_update.cancel()
 
     @tasks.loop(minutes=1)
-    async def update_channels(self):
-        for channel_manager in self.channels:
+    async def frequent_update(self):
+        for channel_manager in self.mod_channels:
+            await channel_manager.update()
+    
+    @tasks.loop(minutes=15)
+    async def infrequent_update(self):
+        for channel_manager in self.user_channels:
             await channel_manager.update()
 
 

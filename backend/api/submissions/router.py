@@ -61,7 +61,7 @@ async def submit(data: Submission, audit_id: int):
     if not record:
         return {
             'success': False,
-            'message': "Couldn't find a record with that name"
+            'message': 'Could not find a record with that name'
         }
     
     # Check users
@@ -80,7 +80,7 @@ async def submit(data: Submission, audit_id: int):
         else:
             return {
                 'success': False,
-                'message': f"Couldn't find user: {username}"
+                'message': f'Could not find user: {username}'
             }
     
     # Check values/time
@@ -98,7 +98,7 @@ async def submit(data: Submission, audit_id: int):
     if submitted_score and not score_required:
         return {
             'success': False,
-            'message': "You can't submit a score for this record"
+            'message': 'You cannot submit a score for this record'
         }
 
     if time_required and not submitted_time:
@@ -110,7 +110,7 @@ async def submit(data: Submission, audit_id: int):
     if submitted_time and not time_required:
         return {
             'success': False,
-            'message': "You can't submit a time for this record"
+            'message': 'You cannot submit a time for this record'
         }
     
     if time_required:

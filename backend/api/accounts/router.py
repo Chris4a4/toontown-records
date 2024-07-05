@@ -10,7 +10,7 @@ accounts_router = APIRouter()
 
 @accounts_router.get('/api/accounts/get_username/{discord_id}', tags=['Unlogged'])
 async def get_username(discord_id: int):
-    user = Mongo_Config.accounts.find_one({"discord_id": discord_id})
+    user = Mongo_Config.accounts.find_one({'discord_id': discord_id})
 
     if user:
         username = user['username']

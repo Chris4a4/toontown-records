@@ -58,10 +58,13 @@ class SubmitView(discord.ui.View):
 
     async def select_callback(self, interaction):
         selected_record = self.select_menu.values[0]
+
         for record in self.records:
             record_name = record['record_name']
+
             if record_name == selected_record:
                 submit_string = f'/submit record:{record_name} evidence: '
+
                 if record['time_required']:
                     submit_string += 'time: '
                 if record['score_required']:
@@ -72,6 +75,3 @@ class SubmitView(discord.ui.View):
 
                 await interaction.response.send_message(f'```{submit_string}```', ephemeral=True)
                 break
-
-        else:
-            await interaction.response.send_message(f"Couldn't find the record :(", ephemeral=True)

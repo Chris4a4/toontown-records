@@ -3,8 +3,9 @@ from datetime import datetime, timezone
 import discord
 
 from misc.api_wrapper import get_leaderboard, get_username
+from misc.config import Config
 
-def leaderboard_embed(game, TOP_N=30):
+def leaderboard_embed(game):
     game_data = {
         'ttr': {
             'name': 'Toontown Rewritten',
@@ -43,7 +44,7 @@ def leaderboard_embed(game, TOP_N=30):
 
     # Populate placement list
     leaderboard_string = ''
-    for i, user in enumerate(leaderboard[:TOP_N]):
+    for i, user in enumerate(leaderboard[:Config.LEADERBOARD_TOP_N]):
         user_id, points = user['user_id'], user['points']
 
         username = get_username(user_id)
@@ -53,6 +54,6 @@ def leaderboard_embed(game, TOP_N=30):
     if leaderboard_string:
         leaderboard_string = 'Coming soon...'
 
-    embed.add_field(name=f'Top {TOP_N} users:', value=leaderboard_string, inline=False)
+    embed.add_field(name=f'Top {Config.LEADERBOARD_TOP_N} users:', value=leaderboard_string, inline=False)
 
     return embed

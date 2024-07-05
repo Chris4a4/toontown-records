@@ -5,6 +5,7 @@ import discord
 class Config:
     BASE_URL = ''
     UNKNOWN_THUMBNAIL = ''
+    LEADERBOARD_TOP_N = 0
     WELCOME_CHANNEL = 0
     GUILD = 0
     AUTHORIZED_ROLE = ''
@@ -25,6 +26,7 @@ class Config:
 
             cls.BASE_URL = data['BASE_URL']
             cls.UNKNOWN_THUMBNAIL = data['UNKNOWN_THUMBNAIL']
+            cls.LEADERBOARD_TOP_N = data['LEADERBOARD_TOP_N']
             cls.WELCOME_CHANNEL = data['WELCOME_CHANNEL']
             cls.GUILD = data['GUILD']
             cls.AUTHORIZED_ROLE = data['AUTHORIZED_ROLE']
