@@ -1,0 +1,16 @@
+ttr:
+  vp:
+    nr:
+      full: ['VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, 'nr.png']
+      cog: ['VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, 'nr.png']
+      pie: ['VP Pie Round Records', 'https://i.imgur.com/A3l0ctU.png', 7489641, 'nr.png']
+    rl:
+      full: ['Rewardless VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, 'rl.png']
+      cog: ['Rewardless VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, 'rl.png']
+    misc: ['Miscellaneous VP Records', 'https://i.imgur.com/zeaOZxO.png', 7489641, 'misc-vp.png']
+
+  activities:
+    golf: ['Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, 'racing.png']
+    racing: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, 'golf.png']
+
+~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, 'misc-vp.png']

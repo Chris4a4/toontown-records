@@ -1,41 +1,49 @@
-from functools import cache
-
 import discord
 import os
+import yaml
+from functools import cache
 
 
-TAGS_TO_DETAILS = {
-    ('ttr', 'vp', 'nr', 'full'): ('VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, 'nr.png'),
-    ('ttr', 'vp', 'nr', 'cog'): ('VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, 'nr.png'),
-    ('ttr', 'vp', 'nr', 'pie'): ('VP Pie Round Records', 'https://i.imgur.com/A3l0ctU.png', 7489641, 'nr.png'),
-    ('ttr', 'vp', 'rl', 'full'): ('Rewardless VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, 'rl.png'),
-    ('ttr', 'vp', 'rl', 'cog'): ('Rewardless VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, 'rl.png'),
-    ('ttr', 'vp', 'misc'): ('Miscellaneous VP Records', 'https://i.imgur.com/zeaOZxO.png', 7489641, 'misc-vp.png'),
+# Recursive function to flatten out the nested dictionary format in record_metadata.yaml
+def flatten_yaml(d):
+    if not isinstance(d, dict):
+        return [([], d)]
 
-    ('ttr', 'racing'): ('Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, 'racing.png'),
-    ('ttr', 'golf'): ('Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, 'golf.png')
-}
-UNKNOWN_DETAILS = 'Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, 'misc-vp.png'
+    result = []
+    for k, v in d.items():
+        new_tag = []
+        if k:
+            new_tag.append(k)
 
+        for sub_tags, record_data in flatten_yaml(v):
+            result.append((new_tag + sub_tags, record_data))
 
-def get_resource(file):
-    image_path = os.path.join(os.path.dirname(__file__), '..', 'resources',  file)
-
-    return discord.File(image_path, filename=file)
+    return result
 
 
-# Convert record_tags to a tuple so that @cache can hash it
-def get_metadata(record_tags):
-    return cached_get_metadata(tuple(record_tags))
-
-
+# Returns tuples of tags, details for all record groups, in order of importance
 @cache
-def cached_get_metadata(record_tags):
-    for check_tags, details in TAGS_TO_DETAILS.items():
+def tags_to_details():
+    config_path = os.path.join(os.path.dirname(__file__), 'data', 'record_metadata.yaml')
+
+    with open(config_path, 'r') as file:
+        data = yaml.safe_load(file)
+
+    return flatten_yaml(data)
+
+
+# Gets a resource file from the resource folder using its filename
+def get_resource(filename):
+    image_path = os.path.join(os.path.dirname(__file__), '..', 'resources',  filename)
+
+    return discord.File(image_path, filename=filename)
+
+
+# Gets the metadata associated with a set of record tags, found in record_metadata.yaml
+def get_metadata(record_tags):
+    for check_tags, details in tags_to_details():
         if set(record_tags) == set(check_tags) | set(record_tags):
             return details
-    
-    return UNKNOWN_DETAILS
 
 
 # Groups records into a group:[records] dictionary
@@ -43,7 +51,7 @@ def group_records(records):
     result = {}
 
     for record in records:
-        for check_tags, details in TAGS_TO_DETAILS.items():
+        for check_tags, details in tags_to_details():
             record_tags = record['tags']
 
             if set(record_tags) == set(check_tags) | set(record_tags):
@@ -92,15 +100,17 @@ def value_string(submission, tags=[]):
 
     if score is None:
         score_string = '???'
+        score_plural = 's'
     else:
         score_string = score
+        score_plural = '' if score == 1 else 's'
 
     # Format based on tags
     if 'golf' in tags:
-        return f'{score_string} swings, {time_string}'
+        return f'{score_string} swing{score_plural}, {time_string}'
     
     if 'min_rewards' in tags:
-        return f'{score_string} rewards, {time_string}'
+        return f'{score_string} reward{score_plural}, {time_string}'
 
     if tags:
         return time_string

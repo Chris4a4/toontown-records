@@ -1,8 +1,8 @@
 from datetime import datetime, timezone
 
 import discord
-import requests
 
+from misc.api_wrapper import get_leaderboard, get_username
 
 def leaderboard_embed(game, TOP_N=30):
     game_data = {
@@ -23,7 +23,7 @@ def leaderboard_embed(game, TOP_N=30):
         }
     }[game]
 
-    leaderboard_data = requests.get(f'http://backend:8000/api/records/get_leaderboard/{game}').json()['data']
+    leaderboard_data = get_leaderboard(game)
 
     embed = discord.Embed(
         title=f'{game_data['name']} Leaderboard',
@@ -46,7 +46,7 @@ def leaderboard_embed(game, TOP_N=30):
     for i, user in enumerate(leaderboard[:TOP_N]):
         user_id, points = user['user_id'], user['points']
 
-        username = requests.get(f'http://backend:8000/api/accounts/get_username/{user_id}').json()['data']
+        username = get_username(user_id)
 
         leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
     

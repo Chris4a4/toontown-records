@@ -1,7 +1,10 @@
 from discord.ext import commands
-from discord.commands import slash_command
-from discord import Option, SlashCommandGroup
-import requests
+from discord.utils import basic_autocomplete
+from discord import Option, SlashCommandGroup, Interaction, User, AutocompleteContext
+from misc.config import Config
+
+from embeds.all_submissions_embed import all_submissions
+from misc.api_wrapper import request_namechange, submit, edit_submission, approve_submission, deny_submission, get_all_users
 
 
 edit_fields = {
@@ -12,21 +15,32 @@ edit_fields = {
     'evidence': str
 }
 
+async def users_autocomplete(ctx: AutocompleteContext):
+    return get_all_users()
+
+
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    # Get a user's submissions
+    @commands.user_command(name='Get submissions', description='Gets all submissions by a user')
+    async def get_submissions(self, interaction: Interaction, user: User):
+        if user.avatar:
+            embed = all_submissions(user.id, user.avatar.url)
+        else:
+            embed = all_submissions(user.id, Config.UNKNOWN_THUMBNAIL)
+
+        await interaction.response.send_message(embed=embed, ephemeral=True)
 
     # Namechange
     @commands.slash_command(name='username', description='Requests a namechange')
     async def request_namechange(self, ctx,
         username: Option(str, 'New username', required=True)
     ):
-        params = {
-            'audit_id': {ctx.author.id}
-        }
-        result = requests.get(f'http://backend:8000/api/namechange/request/{ctx.author.id}/{username}', params=params).json()
+        result = request_namechange(ctx.author.id, username, ctx.author.id)
 
-        await ctx.respond(result['message'], ephemeral=True)
+        await ctx.respond(result, ephemeral=True)
     
     # Submit
     @commands.slash_command(name='submit', description='Submits a record')
@@ -35,22 +49,19 @@ class Commands(commands.Cog):
         evidence: Option(str, 'Link to record proof', required=True),
         time: Option(str, 'Record time in H:M:S form', required=False),
         score: Option(int, 'Record score', required=False),
-        user1: Option(str, 'Record participants', required=False),
-        user2: Option(str, 'Record participants', required=False),
-        user3: Option(str, 'Record participants', required=False),
-        user4: Option(str, 'Record participants', required=False),
-        user5: Option(str, 'Record participants', required=False),
-        user6: Option(str, 'Record participants', required=False),
-        user7: Option(str, 'Record participants', required=False),
-        user8: Option(str, 'Record participants', required=False)
+        user1: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user2: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user3: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user4: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user5: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user6: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user7: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False),
+        user8: Option(str, 'Record participants', autocomplete=basic_autocomplete(users_autocomplete), required=False)
     ):
         # Convert usernames to list
         usernames = [user1, user2, user3, user4, user5, user6, user7, user8]
         usernames = [u for u in usernames if u]
-        
-        params = {
-            'audit_id': ctx.author.id
-        }
+
         data = {
             'record_name': record,
             'usernames': usernames,
@@ -58,9 +69,9 @@ class Commands(commands.Cog):
             'value_time': time,
             'evidence': evidence
         }
-        result = requests.post(f'http://backend:8000/api/submissions/submit', params=params, json=data).json()
+        result = submit(data, ctx.author.id)
 
-        await ctx.respond(result['message'], ephemeral=True)
+        await ctx.respond(result, ephemeral=True)
 
     # Edit
     records = SlashCommandGroup('submissions', 'Manage submissions')
@@ -81,13 +92,9 @@ class Commands(commands.Cog):
             else:
                 value_cast = value_type(value)
 
-            params = {
-                'audit_id': ctx.author.id
-            }
-            data = {field: value_cast}
-            result = requests.post(f'http://backend:8000/api/submissions/edit/{sid}', params=params, json=data).json()
+            result = edit_submission(sid, field, value_cast, ctx.author.id)
             
-            await ctx.respond(result['message'], ephemeral=True)
+            await ctx.respond(result, ephemeral=True)
 
         except ValueError:
             await ctx.respond("Couldn't decipher that value", ephemeral=True)
@@ -96,23 +103,17 @@ class Commands(commands.Cog):
     async def approve_submission(self, ctx,
         sid: Option(str, 'Submission ID', required=True)
     ):
-        params = {
-            'audit_id': {ctx.author.id}
-        }
-        result = requests.get(f'http://backend:8000/api/submissions/approve/{sid}', params=params).json()
+        result = approve_submission(sid, ctx.author.id)
 
-        await ctx.respond(result['message'], ephemeral=True)
+        await ctx.respond(result, ephemeral=True)
     
     @records.command(name='deny', description='Denies a submission')
     async def deny_submission(self, ctx,
         sid: Option(str, 'Submission ID', required=True)
     ):
-        params = {
-            'audit_id': {ctx.author.id}
-        }
-        result = requests.get(f'http://backend:8000/api/submissions/deny/{sid}', params=params).json()
+        result = deny_submission(sid, ctx.author.id)
 
-        await ctx.respond(result['message'], ephemeral=True)
+        await ctx.respond(result, ephemeral=True)
 
 
 def setup(bot):

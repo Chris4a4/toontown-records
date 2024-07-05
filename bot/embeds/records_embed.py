@@ -1,7 +1,7 @@
 import discord
-import requests
 
 from misc.record_metadata import get_metadata, value_string
+from misc.api_wrapper import get_username
 
 
 def records_embed(records):
@@ -30,7 +30,7 @@ def records_embed(records):
                 # Names
                 names = []
                 for user_id in submission['user_ids']:
-                    username = requests.get(f'http://backend:8000/api/accounts/get_username/{user_id}').json()['data']
+                    username = get_username(user_id)
 
                     names.append(username)
 

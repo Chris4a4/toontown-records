@@ -1,42 +1,37 @@
 from discord.ext import commands, tasks
 import discord
-import requests
+
+from misc.api_wrapper import get_all_users
+from misc.config import Config
 
 
 class Usernames(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.role = discord.utils.get(Config.GUILD.roles, name=Config.AUTHORIZED_ROLE)
 
         self.check_display_names.start()
     
     def cog_unload(self):
         self.check_display_names.cancel()
     
-    # Assign role to users in the 
+    # Assign role + change name to users in the discord
     @tasks.loop(minutes=1)
     async def check_display_names(self):
-        guild = self.bot.guilds[0]
+        name_dict = get_all_users()
 
-        name_dict = requests.get(f'http://backend:8000/api/accounts/get_all_users').json()['data']
-
-        role_name = 'basic rights'
-        role = discord.utils.get(guild.roles, name=role_name)
-
-        for member in guild.members:
+        for member in Config.GUILD.members:
             if member.id not in name_dict:
                 continue
 
             if member.display_name != name_dict[member.id]:
                 try:
                     await member.edit(nick=name_dict[member.id])
-                    print(f'Changed nickname for {member.name}')
                 except discord.Forbidden:
-                    print(f'Could not change nickname for {member.name}: Missing permissions')
+                    pass
             else:
-                if role and role not in member.roles:
-
-                    await member.add_roles(role)
-                    print(f'Assigned {role.name} to {member.name}')
+                if self.role not in member.roles:
+                    await member.add_roles(self.role)
 
 
 def setup(bot):

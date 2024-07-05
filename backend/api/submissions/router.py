@@ -238,6 +238,13 @@ async def get_submissions(user_id: int):
     query = {'user_ids': user_id}
 
     documents = Mongo_Config.submissions.find(query)
+    if not documents:
+        return {
+            'success': False,
+            'message': 'User not found',
+            'data': []
+        }
+
     to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
 
     return {

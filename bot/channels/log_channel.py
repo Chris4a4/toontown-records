@@ -1,7 +1,7 @@
-import requests
 from embeds.namechange_embed import namechange_embed
 from embeds.submission_embed import submission_embed
 from channels.auto_channel import AutoChannel
+from misc.api_wrapper import get_logs
 
 class LogChannelManager:
     def __init__(self, bot, category, channel):
@@ -9,10 +9,8 @@ class LogChannelManager:
         self.auto_channel = AutoChannel(bot, category, channel)
     
     async def update(self):
-        logs = requests.get(f'http://backend:8000/api/logging/get_logs').json()['data']
-
         result = []
-        for log in logs:
+        for log in get_logs():
             if log['type'] == 'namechange':
                 embed = namechange_embed(log['document'])
             else:

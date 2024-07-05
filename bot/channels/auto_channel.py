@@ -1,6 +1,8 @@
 import re
 import discord
 
+from misc.config import Config
+
 
 # Compares message's content to the new content
 def has_changed(message, new_text, new_embed, new_view, new_files):
@@ -68,38 +70,26 @@ class AutoChannel:
         
         self.first_load = False
 
-    # Gets the record bot's associated discord server object
-    # Throws an error if the bot is not in exactly one server
-    def get_guild(self):
-        guilds = self.bot.guilds
-
-        if len(guilds) > 1:
-            print('ERROR: Bot is in more than one discord server')
-        elif len(guilds) == 0:
-            print('ERROR: Bot is not in a discord server')
-        else:
-            return guilds[0]
-
     # Gets a category by name, if it exists. Otherwise creates it
     async def get_category(self, desired_category):
-        for category in self.get_guild().categories:
+        for category in Config.GUILD.categories:
             if category.name == desired_category:
                 return category
 
         print(f'WARNING: Category {desired_category} did not exist')
-        return await self.get_guild().create_category(desired_category)
+        return await Config.GUILD.create_category(desired_category)
 
     # Gets a channel by name + category name, if it exists. Otherwise creates it
     async def get_channel(self, desired_category, desired_channel):
         category = await self.get_category(desired_category)
 
         actual_name = re.sub(r'[^A-Za-z0-9 _\-]', '', desired_channel.lower().replace(' ', '-'))
-        for channel in self.get_guild().channels:
+        for channel in Config.GUILD.channels:
             if channel.category == category and channel.name == actual_name:
                 return channel
 
         print(f'WARNING: Channel {desired_category}/#{actual_name} did not exist')
-        return await self.get_guild().create_text_channel(actual_name, category=category)
+        return await Config.GUILD.create_text_channel(actual_name, category=category)
 
     # Constructs a message iterator for the specified channel
     async def get_iterator(self):

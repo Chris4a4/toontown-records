@@ -1,12 +1,12 @@
 import discord
-import requests
 
 from misc.record_metadata import get_metadata, value_string
+from misc.api_wrapper import get_record_info, get_username
 
 
 def submission_embed(submission):
     record_name = submission['record_name']
-    record_info = requests.get(f'http://backend:8000/api/records/get_info/{record_name}').json()['data']
+    record_info = get_record_info(record_name)
 
     # Actual record
     if record_info:
@@ -23,7 +23,7 @@ def submission_embed(submission):
     # Names
     names = []
     for user_id in submission['user_ids']:
-        username = requests.get(f'http://backend:8000/api/accounts/get_username/{user_id}').json()['data']
+        username = get_username(user_id)
 
         names.append(username)
 

@@ -1,8 +1,8 @@
-import requests
 from misc.record_metadata import get_metadata, group_records, get_resource
 from embeds.records_embed import records_embed
 from channels.auto_channel import AutoChannel
 import discord
+from misc.api_wrapper import get_all_records
 
 
 class RecordChannelManager:
@@ -12,10 +12,8 @@ class RecordChannelManager:
         self.auto_channel = AutoChannel(bot, game, channel)
     
     async def update(self):
-        all_records = requests.get(f'http://backend:8000/api/records/get_all_records').json()['data']
-
         matching_records = []
-        for record in all_records:
+        for record in get_all_records():
             if set(record['tags']) == set(self.tags) | set(record['tags']):
                 matching_records.append(record)
 
@@ -33,7 +31,7 @@ class RecordChannelManager:
 
 class SubmitView(discord.ui.View):
     def __init__(self, records):
-        super().__init__()
+        super().__init__(timeout=None)
         self.records = records
 
         options = []

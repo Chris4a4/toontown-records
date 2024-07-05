@@ -1,7 +1,7 @@
 from embeds.namechange_embed import namechange_embed
 from channels.auto_channel import AutoChannel
 import discord
-import requests
+from misc.api_wrapper import get_pending_namechanges, approve_namechange, deny_namechange
 
 class NamechangeChannelManager:
     def __init__(self, bot, category, channel):
@@ -9,7 +9,7 @@ class NamechangeChannelManager:
         self.auto_channel = AutoChannel(bot, category, channel)
     
     async def update(self):
-        pending_namechanges = requests.get(f'http://backend:8000/api/namechange/get_pending').json()['data']
+        pending_namechanges = get_pending_namechanges()
 
         result = []
         for namechange in pending_namechanges:
@@ -22,25 +22,19 @@ class NamechangeChannelManager:
 
 class NamechangeView(discord.ui.View):
     def __init__(self, namechange):
-        super().__init__()
+        super().__init__(timeout=None)
         self.namechange_id = namechange['_id']
 
     @discord.ui.button(label='Approve', style=discord.ButtonStyle.green)
     async def approve_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
-        params = {
-            'audit_id': {interaction.user.id}
-        }
-        result = requests.get(f'http://backend:8000/api/namechange/approve/{self.namechange_id}', params=params).json()
+        result = approve_namechange(self.namechange_id, interaction.user.id)
 
         await self.message.delete()
-        await interaction.response.send_message(result['message'], ephemeral=True)
+        await interaction.response.send_message(result, ephemeral=True)
 
     @discord.ui.button(label='Deny', style=discord.ButtonStyle.red)
     async def deny_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
-        params = {
-            'audit_id': {interaction.user.id}
-        }
-        result = requests.get(f'http://backend:8000/api/namechange/deny/{self.namechange_id}', params=params).json()
+        result = deny_namechange(self.namechange_id, interaction.user.id)
 
         await self.message.delete()
-        await interaction.response.send_message(result['message'], ephemeral=True)
+        await interaction.response.send_message(result, ephemeral=True)
