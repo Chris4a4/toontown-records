@@ -1,18 +1,19 @@
 from datetime import datetime, timezone
 
 import discord
+import requests
 
 
-def leaderboard_embed(leaderboard_data, game, TOP_N=30):
+def leaderboard_embed(game, TOP_N=30):
     game_data = {
         'ttr': {
             'name': 'Toontown Rewritten',
-            'icon': 'https://discord.do/wp-content/uploads/2023/08/Toontown-Rewritten.jpg',
+            'icon': 'https://i.imgur.com/dRbZlGH.png',
             'color': discord.Colour.blurple()
         },
         'ttcc': {
             'name': 'Corporate Clash',
-            'icon': 'https://cdn2.steamgriddb.com/icon_thumb/0cddee771b707457d155f0cdc477aef8.png',
+            'icon': 'https://i.imgur.com/5My7E8U.png',
             'color': discord.Colour.dark_red()
         },
         'overall': {
@@ -21,6 +22,8 @@ def leaderboard_embed(leaderboard_data, game, TOP_N=30):
             'color': discord.Colour.yellow()
         }
     }[game]
+
+    leaderboard_data = requests.get(f'http://backend:8000/api/records/get_leaderboard/{game}').json()['data']
 
     embed = discord.Embed(
         title=f'{game_data['name']} Leaderboard',
@@ -39,19 +42,15 @@ def leaderboard_embed(leaderboard_data, game, TOP_N=30):
         embed.description = f'This category has {max_points} available points and {num_users} unique users'
 
     # Populate placement list
-    placement = 0
     leaderboard_string = ''
-    for user in leaderboard[:TOP_N]:
-        username = user['username']
-        points = user['points']
+    for i, user in enumerate(leaderboard[:TOP_N]):
+        user_id, points = user['user_id'], user['points']
 
-        placement += 1
-        if username:
-            leaderboard_string += f'**{placement}.** {username} - {points} points\n'
-        else:
-            leaderboard_string += f'**{placement}.** ??? - {points} points\n'
+        username = requests.get(f'http://backend:8000/api/accounts/get_username/{user_id}').json()['data']
+
+        leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
     
-    if not leaderboard_string:
+    if leaderboard_string:
         leaderboard_string = 'Coming soon...'
 
     embed.add_field(name=f'Top {TOP_N} users:', value=leaderboard_string, inline=False)

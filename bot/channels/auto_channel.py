@@ -36,6 +36,12 @@ def has_changed(message, new_text, new_embed, new_view, new_files):
     if new_files:
         new_message['file'] = new_files[0].filename
 
+    if cur_message != new_message:
+        print('MESSAGE DIFFERENT')
+        print(cur_message)
+        print(new_message)
+        print()
+
     # Compare contents and edit if necessary
     return cur_message != new_message
 
@@ -55,11 +61,8 @@ class AutoChannel:
             content, embed, view, files = desired_content
             message = await anext(iter)
 
-            print('checking message')
             if (self.first_load and view) or has_changed(message, content, embed, view, files):
-                print('updating', embed.to_dict())
                 await message.edit(content=content, embed=embed, view=view, attachments=[], files=files)
-            print()
         
         await iter.aclose()
         

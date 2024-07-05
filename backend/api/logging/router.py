@@ -1,5 +1,4 @@
 from bson.objectid import ObjectId
-from pydantic import BaseModel
 from api.database.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
 

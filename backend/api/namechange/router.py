@@ -1,3 +1,4 @@
+import re
 from fastapi import APIRouter
 from bson.objectid import ObjectId
 from json import dumps, loads
@@ -84,14 +85,41 @@ async def obsolete_namechange(namechange_id: str, audit_id: int):
 # Creates a namechange request for the user
 @namechange_router.get('/api/namechange/request/{discord_id}/{username}', tags=['Logged'])
 async def request_namechange(discord_id: int, username: str, audit_id: int):
+    # Validate username
+    MAX_LEN = 20
+    if len(username) > MAX_LEN:
+        return {
+            'success': False,
+            'message': f'Names cannot be longer than {MAX_LEN} characters'
+        }
+
+    pattern = r'[^a-zA-Z0-9 ]'
+    if re.search(pattern, username):
+        return {
+            'success': False,
+            'message': 'Usernames can only contain letters, numbers, and spaces'
+        }
+
+    if '  ' in username:
+        return {
+            'success': False,
+            'message': 'Usernames cannot have double spaces'
+        }
+
+    if username.startswith(' ') or username.endswith(' '):
+        return {
+            'success': False,
+            'message': 'Usernames cannot start or end with spaces'
+        }
+
     user = create_user(discord_id)
 
     # Verify that no one else has the name or has a pending namechange request for it
-    taken_by_user = {'username': username}
+    taken_by_user = {'username': re.compile(username, re.IGNORECASE)}
     result_user = Mongo_Config.accounts.find(taken_by_user)
 
     taken_by_namechange = {
-        'new_username': username,
+        'new_username': re.compile(username, re.IGNORECASE),
         'status': 'PENDING'
     }
     result_namechange = Mongo_Config.accounts.find(taken_by_namechange)
@@ -101,7 +129,7 @@ async def request_namechange(discord_id: int, username: str, audit_id: int):
         if document['discord_id'] != discord_id:
             return {
                 'success': False,
-                'message': f'Sorry, {username} is already in use'
+                'message': 'That name is already in use'
             }
 
     # Obsolete any prior namechange requests
@@ -126,7 +154,7 @@ async def request_namechange(discord_id: int, username: str, audit_id: int):
     audit_log('request_namechange', str(result.inserted_id), audit_id)
     return {
         'success': True,
-        'message': f'Request to change name to {username} submitted',
+        'message': 'Request to change name submitted',
         'result_id': str(result.inserted_id)
     }
 

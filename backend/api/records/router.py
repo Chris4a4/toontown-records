@@ -1,6 +1,5 @@
 from collections import Counter
 from .records import lookup_all_record_info, lookup_record_info, get_top_N
-from api.accounts.router import get_username
 from fastapi import APIRouter
 
 records_router = APIRouter()
@@ -14,13 +13,13 @@ async def get_record_info(record_name: str):
     if record_data:
         return {
             'success': True,
-            'message': f'Looked up information for {record_name}',
+            'message': f'Got record information',
             'data': record_data
         }
 
     return {
         'success': False,
-        'message': f'Could not find information for {record_name}',
+        'message': 'Could not find given record',
         'data': None
     }
 
@@ -32,7 +31,7 @@ async def get_all_record_info():
 
     return {
         'success': True,
-        'message': 'Looked up information for all records',
+        'message': 'Got data for all records',
         'data': all_data
     }
 
@@ -44,7 +43,11 @@ async def get_all_records():
     for record in records:
         record['top3'] = get_top_N(record, 3)
 
-    return records
+    return {
+        'success': True,
+        'message': 'Got all record data',
+        'data': records
+    }
 
 
 @records_router.get('/api/records/get_leaderboard/{game_id}', tags=['Unlogged'])
@@ -56,10 +59,8 @@ async def get_leaderboard(game_id):
     max_points = 0
 
     # Accumulate points for each record defined in records.yaml
-    records = lookup_all_record_info()
-    for record in records:
-        points = record['points']
-        tags = record['tags']
+    for record in lookup_all_record_info():
+        points, tags = record['points'], record['tags']
 
         including_game = ('ttr' in tags and include_ttr) or ('ttcc' in tags and include_ttcc)
         if not including_game:
@@ -77,15 +78,19 @@ async def get_leaderboard(game_id):
         for user in set(users):
             leaderboard.update({user: points})
     
-    result = []
+    # Sort and tally results
+    result = {
+        'max_points': max_points,
+        'leaderboard': []
+    }
     for user_id, user_points in leaderboard.most_common():
-        result.append({
+        result['leaderboard'].append({
             'user_id': user_id,
-            'username': await get_username(user_id),
             'points': user_points
         })
 
     return {
-        'max_points': max_points,
-        'leaderboard': result
+        'success': True,
+        'message': 'Populated leaderboard',
+        'data': result
     }

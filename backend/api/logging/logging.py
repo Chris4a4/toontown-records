@@ -5,10 +5,10 @@ from time import time
 
 
 LOGGED_FUNCTIONS = [
-    'submit_record',
-    'edit_record',
-    'approve_record',
-    'deny_record',
+    'submit',
+    'edit_submission',
+    'approve_submission',
+    'deny_submission',
     'request_namechange',
     'approve_namechange',
     'deny_namechange',
@@ -16,7 +16,7 @@ LOGGED_FUNCTIONS = [
 ]
 
 FUNCTION_TO_TYPE = {
-    'submit_record': 'submission',
+    'submit': 'submission',
     'request_namechange': 'namechange'
 }
 

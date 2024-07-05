@@ -12,7 +12,7 @@ class RecordChannelManager:
         self.auto_channel = AutoChannel(bot, game, channel)
     
     async def update(self):
-        all_records = requests.get(f'http://backend:8000/api/records/get_all_records').json()
+        all_records = requests.get(f'http://backend:8000/api/records/get_all_records').json()['data']
 
         matching_records = []
         for record in all_records:

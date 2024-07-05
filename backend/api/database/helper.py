@@ -1,12 +1,11 @@
 import json
 
-from typing import Any
 from bson import ObjectId
 
 
 # Custom Mongo -> JSON encoder since none of the included ones work
 class MongoJSONEncoder(json.JSONEncoder):
-    def default(self, o: Any) -> Any:
+    def default(self, o):
         if isinstance(o, ObjectId):
             return str(o)
 

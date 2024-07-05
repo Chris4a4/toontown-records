@@ -26,16 +26,13 @@ def records_embed(records):
             embed.add_field(name=title, value='N/A', inline=False)
         else:
             descriptions = []
-            for submission in top_3:
+            for i, submission in enumerate(top_3):
                 # Names
                 names = []
-                for i, user_id in enumerate(submission['user_ids']):
-                    username = requests.get(f'http://backend:8000/api/accounts/get_username/{user_id}').json()
+                for user_id in submission['user_ids']:
+                    username = requests.get(f'http://backend:8000/api/accounts/get_username/{user_id}').json()['data']
 
-                    if username:
-                        names.append(username)
-                    else:
-                        names.append('???')
+                    names.append(username)
 
                 names_string = ', '.join(names)
 

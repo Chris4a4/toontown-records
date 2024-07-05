@@ -12,18 +12,19 @@ class Usernames(commands.Cog):
     def cog_unload(self):
         self.check_display_names.cancel()
     
+    # Assign role to users in the 
     @tasks.loop(minutes=1)
     async def check_display_names(self):
-        name_dict = requests.get(f'http://backend:8000/api/accounts/get_all_users').json()
-        name_dict = {int(k): v for k, v in name_dict.items()}
-
         guild = self.bot.guilds[0]
+
+        name_dict = requests.get(f'http://backend:8000/api/accounts/get_all_users').json()['data']
+
+        role_name = 'basic rights'
+        role = discord.utils.get(guild.roles, name=role_name)
+
         for member in guild.members:
             if member.id not in name_dict:
-                requests.get(f'http://backend:8000/api/accounts/create/{member.id}')
-                print(f'created a user for {member.name}')
-                name_dict = requests.get(f'http://backend:8000/api/accounts/get_all_users').json()
-                name_dict = {int(k): v for k, v in name_dict.items()}
+                continue
 
             if member.display_name != name_dict[member.id]:
                 try:
@@ -31,6 +32,11 @@ class Usernames(commands.Cog):
                     print(f'Changed nickname for {member.name}')
                 except discord.Forbidden:
                     print(f'Could not change nickname for {member.name}: Missing permissions')
+            else:
+                if role and role not in member.roles:
+
+                    await member.add_roles(role)
+                    print(f'Assigned {role.name} to {member.name}')
 
 
 def setup(bot):

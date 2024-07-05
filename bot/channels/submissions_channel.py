@@ -9,7 +9,7 @@ class SubmissionsChannelManager:
         self.auto_channel = AutoChannel(bot, category, channel)
     
     async def update(self):
-        submissions = requests.get(f'http://backend:8000/api/submissions/get_pending').json()
+        submissions = requests.get(f'http://backend:8000/api/submissions/get_pending').json()['data']
 
         result = []
         for submission in submissions:
@@ -30,17 +30,17 @@ class SubmmissionView(discord.ui.View):
         params = {
             'audit_id': interaction.user.id
         }
-        requests.get(f'http://backend:8000/api/submissions/approve/{self.submission_id}', params=params).json()
+        result = requests.get(f'http://backend:8000/api/submissions/approve/{self.submission_id}', params=params).json()
 
         await self.message.delete()
-        await interaction.response.send_message(f'You Approved:\n```{self.record_name}\nid={self.submission_id}```', ephemeral=True)
+        await interaction.response.send_message(result['message'], ephemeral=True)
 
     @discord.ui.button(label='Deny', style=discord.ButtonStyle.red)
     async def deny_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
         params = {
             'audit_id': interaction.user.id
         }
-        requests.get(f'http://backend:8000/api/submissions/deny/{self.submission_id}', params=params).json()
+        result = requests.get(f'http://backend:8000/api/submissions/deny/{self.submission_id}', params=params).json()
 
         await self.message.delete()
-        await interaction.response.send_message(f'You Denied:\n```{self.record_name}\nid={self.submission_id}```', ephemeral=True)
+        await interaction.response.send_message(result['message'], ephemeral=True)
