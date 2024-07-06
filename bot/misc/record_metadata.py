@@ -41,7 +41,7 @@ def get_banner(banner_text, text_color):
         filename = filename.replace(' ', '')
 
         # Check if it already exists
-        image_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'banners',  filename)
+        image_path = os.path.join(os.path.dirname(__file__), '..', 'resources',  filename)
         if os.path.exists(image_path):
             return discord.File(image_path, filename=filename)
 
