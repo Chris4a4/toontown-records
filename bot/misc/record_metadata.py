@@ -35,34 +35,37 @@ def tags_to_details():
 
 # Draws a banner and saves it to a file
 def get_banner(banner_text, text_color):
-    text_color = tuple(text_color)
-    filename = banner_text + '.png'
+    try:
+        text_color = tuple(text_color)
+        filename = banner_text + '.png'
 
-    # Check if it already exists
-    image_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'banners',  filename)
-    if os.path.exists(image_path):
-        return discord.File(image_path, filename=filename)
+        # Check if it already exists
+        image_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'banners',  filename)
+        if os.path.exists(image_path):
+            return discord.File(image_path, filename=filename)
 
-    # Base image
-    base_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'base',  'banner_base.png')
-    base = Image.open(base_path)
-    draw = ImageDraw.Draw(base)
+        # Base image
+        base_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'base',  'banner_base.png')
+        base = Image.open(base_path)
+        draw = ImageDraw.Draw(base)
 
-    # Font
-    font_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'font',  'Minnie.ttf')
-    font_size = 36
-    text_font = ImageFont.truetype(font_path, font_size)
-    outline_width = 2
-    outline_color = int(text_color[0] / 3), int(text_color[1] / 3), int(text_color[2] / 3)
+        # Font
+        font_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'font',  'Minnie.ttf')
+        font_size = 36
+        text_font = ImageFont.truetype(font_path, font_size)
+        outline_width = 2
+        outline_color = int(text_color[0] / 3), int(text_color[1] / 3), int(text_color[2] / 3)
 
-    # Draw over base image
-    if banner_text.endswith(' Records'):
-        banner_text = banner_text[:-8]
-    banner_text = '• ' + banner_text + ' •'
-    draw.text((3, 0), banner_text, font=text_font, fill=text_color, stroke_width=outline_width, stroke_fill=outline_color)
+        # Draw over base image
+        if banner_text.endswith(' Records'):
+            banner_text = banner_text[:-8]
+        banner_text = '• ' + banner_text + ' •'
+        draw.text((3, 0), banner_text, font=text_font, fill=text_color, stroke_width=outline_width, stroke_fill=outline_color)
 
-    # Save
-    base.save(image_path) 
+        # Save
+        base.save(image_path)
+    except Exception as e:
+        print(e)
 
     return discord.File(image_path, filename=filename)
 
