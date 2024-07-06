@@ -38,6 +38,7 @@ def get_banner(banner_text, text_color):
     try:
         text_color = tuple(text_color)
         filename = banner_text + '.png'
+        filename = filename.replace(' ', '')
 
         # Check if it already exists
         image_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'banners',  filename)
