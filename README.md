@@ -7,9 +7,9 @@ Website:
 
 ## Install/Run (requires docker installed):
 
-1. Pull the github repository
+1. Clone the github repository
 ```
-git pull https://github.com/Chris4a4/toontown-records
+git clone https://github.com/Chris4a4/toontown-records
 ```
 
 2. Create a file for installation-specific information at ``toontown-records/bot/private_config.yaml``. Be sure to change token to the bot's actual token:
