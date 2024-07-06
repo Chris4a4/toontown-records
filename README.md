@@ -10,8 +10,7 @@ known issue: not checking the lengths of embeds
 git pull https://github.com/Chris4a4/toontown-records
 ```
 
-2. Add in local config
-Create a file named private_config.yaml at toontown-records/bot/private_config.yaml:
+2. Create a file named private_config.yaml at toontown-records/bot/private_config.yaml:
 ```
 WELCOME_CHANNEL: 1257178370408583288
 GUILD: 1254667676630913044
