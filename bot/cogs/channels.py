@@ -13,9 +13,9 @@ class Channels(commands.Cog):
         self.bot = bot
 
         self.mod_channels = [
-            LogChannelManager(bot, 'mods', 'logs'),
-            SubmissionsChannelManager(bot, 'mods', 'pending-records'),
-            NamechangeChannelManager(bot, 'mods', 'pending-namechanges')
+            LogChannelManager(bot, 'staff', 'logs'),
+            SubmissionsChannelManager(bot, 'staff', 'pending-records'),
+            NamechangeChannelManager(bot, 'staff', 'pending-namechanges')
         ]
         self.user_channels = [
             UserActionChannelManager(bot, 'information', 'user-guide'),
