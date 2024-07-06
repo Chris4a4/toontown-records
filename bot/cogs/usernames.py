@@ -19,17 +19,16 @@ class Usernames(commands.Cog):
     @tasks.loop(minutes=1)
     async def check_display_names(self):
         print('Updating users...')
-        name_dict = get_all_users()
-
-        print(Config.GUILD.members)
-        print(name_dict)
+        name_to_id = get_all_users()
+        id_to_name = {v: k for k, v in name_to_id.items()}
 
         for member in Config.GUILD.members:
-            if member.id not in name_dict:
+            if member.id not in id_to_name:
                 continue
 
-            target_name = name_dict[member.id]
+            target_name = id_to_name[member.id]
             if member.display_name != target_name:
+                print(f'Need to change {member.display_name} name')
                 try:
                     print(f'Changing name for {member.display_name} -> {target_name}')
                     await member.edit(nick=target_name)
