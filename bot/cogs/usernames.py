@@ -22,6 +22,7 @@ class Usernames(commands.Cog):
         name_dict = get_all_users()
 
         print(Config.GUILD.members)
+        print(name_dict)
 
         for member in Config.GUILD.members:
             if member.id not in name_dict:
