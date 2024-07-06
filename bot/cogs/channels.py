@@ -5,6 +5,7 @@ from channels.log_channel import LogChannelManager
 from channels.namechange_channel import NamechangeChannelManager
 from channels.records_channel import RecordChannelManager
 from channels.submissions_channel import SubmissionsChannelManager
+from channels.user_action_channel import UserActionChannelManager
 
 
 class Channels(commands.Cog):
@@ -17,6 +18,7 @@ class Channels(commands.Cog):
             NamechangeChannelManager(bot, 'mods', 'pending-namechanges')
         ]
         self.user_channels = [
+            UserActionChannelManager(bot, 'greetings', 'user-actions'),
             LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
 
             RecordChannelManager(bot, 'ttr', 'vp'),

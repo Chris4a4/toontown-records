@@ -32,15 +32,6 @@ class Commands(commands.Cog):
             embed = all_submissions(user.id, Config.UNKNOWN_THUMBNAIL)
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
-
-    # Namechange
-    @commands.slash_command(name='username', description='Requests a namechange')
-    async def request_namechange(self, ctx,
-        username: Option(str, 'New username', required=True)
-    ):
-        result = request_namechange(ctx.author.id, username, ctx.author.id)
-
-        await ctx.respond(result, ephemeral=True)
     
     # Submit
     @commands.slash_command(name='submit', description='Submits a record')
