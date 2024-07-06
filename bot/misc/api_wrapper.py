@@ -37,14 +37,14 @@ def approve_submission(submission_id, audit_id):
     params = {
         'audit_id': audit_id
     }
-    return requests.get(f'{Config.BASE_URL}/submissions/approve/{submission_id}', params=params).json()['data']
+    return requests.get(f'{Config.BASE_URL}/submissions/approve/{submission_id}', params=params).json()['message']
 
 
 def deny_submission(submission_id, audit_id):
     params = {
         'audit_id': audit_id
     }
-    return requests.get(f'{Config.BASE_URL}/submissions/deny/{submission_id}', params=params).json()['data']
+    return requests.get(f'{Config.BASE_URL}/submissions/deny/{submission_id}', params=params).json()['message']
 
 
 def get_pending_submissions():
