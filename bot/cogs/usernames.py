@@ -8,7 +8,6 @@ from misc.config import Config
 class Usernames(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.role = discord.utils.get(Config.GUILD.roles, name=Config.AUTHORIZED_ROLE)
 
         self.check_display_names.start()
     
@@ -35,9 +34,9 @@ class Usernames(commands.Cog):
                 except discord.Forbidden:
                     print(f'Could not change name {member.display_name} -> {target_name}: No permission')
 
-            if self.role not in member.roles:
+            if Config.AUTHORIZED_ROLE not in member.roles:
                 print(f'a')
-                await member.add_roles(self.role)
+                await member.add_roles(Config.AUTHORIZED_ROLE)
                 print(f'b')
         
         print('Finished updating users...')
