@@ -64,7 +64,11 @@ async def submit(data: Submission, audit_id: int):
             'message': 'Evidence must start with "https://"'
         }
     
-    if not (evidence.startswith('https://www.youtube.com/') or evidence.startswith('https://www.youtu.be/')):
+    VALID_STARTS = ['https://www.youtube.com/', 'https://www.youtu.be/', 'https://youtube.com/', 'https://youtu.be/']
+    for start in VALID_STARTS:
+        if evidence.startswith(start):
+            break
+    else:
         return {
             'success': False,
             'message': 'Evidence must be a YouTube link'
