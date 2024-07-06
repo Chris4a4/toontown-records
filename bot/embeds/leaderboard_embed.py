@@ -9,18 +9,18 @@ def leaderboard_embed(game):
     game_data = {
         'ttr': {
             'name': 'Toontown Rewritten',
-            'icon': 'https://i.imgur.com/dRbZlGH.png',
-            'color': discord.Colour.blurple()
+            'icon': Config.TTR_ICON,
+            'color': Config.TTR_ICON
         },
         'ttcc': {
             'name': 'Corporate Clash',
-            'icon': 'https://i.imgur.com/5My7E8U.png',
-            'color': discord.Colour.dark_red()
+            'icon': Config.TTCC_ICON,
+            'color': Config.TTCC_COLOR
         },
         'overall': {
             'name': 'Overall',
-            'icon': 'https://i.imgur.com/kEFU1YQ.png',
-            'color': discord.Colour.yellow()
+            'icon': Config.OVERALL_ICON,
+            'color': Config.OVERALL_COLOR
         }
     }[game]
 
