@@ -18,20 +18,27 @@ class Usernames(commands.Cog):
     # Assign role + change name to users in the discord
     @tasks.loop(minutes=1)
     async def check_display_names(self):
+        print('Updating users...')
         name_dict = get_all_users()
 
         for member in Config.GUILD.members:
             if member.id not in name_dict:
                 continue
 
-            if member.display_name != name_dict[member.id]:
+            target_name = name_dict[member.id]
+            if member.display_name != target_name:
                 try:
-                    await member.edit(nick=name_dict[member.id])
+                    print(f'Changing name for {member.display_name} -> {target_name}')
+                    await member.edit(nick=target_name)
                 except discord.Forbidden:
-                    pass
-            else:
-                if self.role not in member.roles:
-                    await member.add_roles(self.role)
+                    print(f'Could not change name {member.display_name} -> {target_name}: No permission')
+
+            if self.role not in member.roles:
+                print(f'a')
+                await member.add_roles(self.role)
+                print(f'b')
+        
+        print('Finished updating users...')
 
 
 def setup(bot):

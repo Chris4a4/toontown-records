@@ -39,14 +39,17 @@ class Channels(commands.Cog):
 
     @tasks.loop(minutes=1)
     async def frequent_update(self):
+        print('Updating mod channels...')
         for channel_manager in self.mod_channels:
             await channel_manager.update()
     
     @tasks.loop(minutes=15)
     async def infrequent_update(self):
+        print('Updating user channels...')
         for channel_manager in self.user_channels:
             await channel_manager.update()
 
 
 def setup(bot):
+
     bot.add_cog(Channels(bot))
