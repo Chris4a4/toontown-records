@@ -10,7 +10,7 @@ def leaderboard_embed(game):
         'ttr': {
             'name': 'Toontown Rewritten',
             'icon': Config.TTR_ICON,
-            'color': Config.TTR_ICON
+            'color': Config.TTR_COLOR
         },
         'ttcc': {
             'name': 'Corporate Clash',
@@ -34,13 +34,13 @@ def leaderboard_embed(game):
     embed.set_thumbnail(url=game_data['icon'])
 
     leaderboard = leaderboard_data['leaderboard']
-    max_points = leaderboard_data['max_points']
+    num_records = leaderboard_data['num_records']
 
     num_users = len(leaderboard)
     if num_users == 1:
-        embed.description = f'This category has {max_points} available points and {num_users} unique user'
+        embed.description = f'This category has {num_records} available records and {num_users} scoring user'
     else:
-        embed.description = f'This category has {max_points} available points and {num_users} unique users'
+        embed.description = f'This category has {num_records} available records and {num_users} scoring users'
 
     # Populate placement list
     leaderboard_string = ''
@@ -51,7 +51,7 @@ def leaderboard_embed(game):
 
         leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
     
-    if leaderboard_string:
+    if not leaderboard_string:
         leaderboard_string = 'Coming soon...'
 
     embed.add_field(name=f'Top {Config.LEADERBOARD_TOP_N} users:', value=leaderboard_string, inline=False)

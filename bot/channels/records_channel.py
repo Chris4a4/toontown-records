@@ -1,4 +1,4 @@
-from misc.record_metadata import get_metadata, group_records, get_resource
+from misc.record_metadata import get_metadata, group_records, get_banner
 from embeds.records_embed import records_embed
 from channels.auto_channel import AutoChannel
 import discord
@@ -21,8 +21,9 @@ class RecordChannelManager:
         for records in group_records(matching_records).values():
             embed = records_embed(records)
 
-            category, thumbnail, color, banner = get_metadata(records[0]['tags'])
-            file = get_resource(banner)
+            category, thumbnail, color, banner_color = get_metadata(records[0]['tags'])
+
+            file = get_banner(category, banner_color)
 
             result.append(('', embed, SubmitView(records), [file]))
 

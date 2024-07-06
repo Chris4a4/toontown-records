@@ -52,11 +52,13 @@ async def get_all_records():
 
 @records_router.get('/api/records/get_leaderboard/{game_id}', tags=['Unlogged'])
 async def get_leaderboard(game_id):
+    FIRST_PLACE_BONUS_POINTS = 1
+
     include_ttr = game_id == 'ttr' or game_id == 'overall'
     include_ttcc = game_id == 'ttcc' or game_id == 'overall'
 
     leaderboard = Counter()
-    max_points = 0
+    num_records = 0
 
     # Accumulate points for each record defined in records.yaml
     for record in lookup_all_record_info():
@@ -65,22 +67,31 @@ async def get_leaderboard(game_id):
         including_game = ('ttr' in tags and include_ttr) or ('ttcc' in tags and include_ttcc)
         if not including_game:
             continue
-        max_points += points
+        num_records += 1
 
-        # Get the best placement if it exists
+        # First place bonus points
         best = get_top_N(record, 1)
         if not best:
             continue
         best = best[0]
 
-        # Loop through users and add points for them
         users = best['user_ids']
         for user in set(users):
+            leaderboard.update({user: FIRST_PLACE_BONUS_POINTS})
+        
+        # Top 3 get points
+        top3 = get_top_N(record, 3)
+
+        top3_users = []
+        for submission in top3:
+            top3_users.extend(submission['user_ids'])
+
+        for user in set(top3_users):
             leaderboard.update({user: points})
     
     # Sort and tally results
     result = {
-        'max_points': max_points,
+        'num_records': num_records,
         'leaderboard': []
     }
     for user_id, user_points in leaderboard.most_common():

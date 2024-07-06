@@ -56,6 +56,20 @@ async def submit(data: Submission, audit_id: int):
     new_submission['user_ids'] = []
     del new_submission['usernames']
 
+    # Check evidence
+    evidence = new_submission['evidence']
+    if not evidence.startswith('https://'):
+        return {
+            'success': False,
+            'message': 'Evidence must start with "https://"'
+        }
+    
+    if not (evidence.startswith('https://www.youtube.com/') or evidence.startswith('https://www.youtu.be/')):
+        return {
+            'success': False,
+            'message': 'Evidence must be a YouTube link'
+        }
+
     # Lookup record
     record = lookup_record_info(new_submission['record_name'])
     if not record:
@@ -72,6 +86,18 @@ async def submit(data: Submission, audit_id: int):
         return {
             'success': False,
             'message': f'Max of {max_players} users for this record'
+        }
+    
+    if len(usernames) == 0:
+        return {
+            'success': False,
+            'message': 'Need to add at least one user'
+        }
+
+    if len(usernames) != len(set(usernames)):
+        return {
+            'success': False,
+            'message': 'Each user can only be added once'
         }
 
     for username in usernames:

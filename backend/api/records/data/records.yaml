@@ -38,6 +38,45 @@ ttr:
       min_rewards:
         1: [Fewest Rewards Used in a VP Solo, 1]
 
+  cfo:
+    nr:
+      full:
+        8: [Fastest CFO, 1]
+        6: [Fastest 6-Toon CFO, 1]
+        4: [Fastest 4-Toon CFO, 1]
+        2: [Fastest Duo CFO, 1]
+        1:
+          ~: [Fastest Solo CFO, 1]
+          hl: [Fastest Hitless Solo CFO, 1]
+      cog:
+        8: [Fastest CFO Cog Round, 1]
+        6: [Fastest 6-Toon CFO Cog Round, 1]
+        4: [Fastest 4-Toon CFO Cog Round, 1]
+        2: [Fastest Duo CFO Cog Round, 1]
+        1:
+          ~: [Fastest Solo CFO Cog Round, 1]
+          hl: [Fastest Hitless Solo CFO Cog Round, 1]
+      crane:
+        8: [Fastest Crane Round, 1]
+        6: [Fastest 6-Toon Crane Round, 1]
+        4: [Fastest 4-Toon Crane Round, 1]
+        2: [Fastest Duo Crane Round, 1]
+        1:
+          ~: [Fastest Solo Crane Round, 1]
+          hl: [Fastest Hitless Solo Crane Round, 1]
+    rl:
+      full:
+        8: [Fastest Rewardless CFO, 1]
+        6: [Fastest 6-Toon Rewardless CFO, 1]
+        4: [Fastest 4-Toon Rewardless CFO, 1]
+      cog:
+        8: [Fastest Rewardless CFO Cog Round, 1]
+        6: [Fastest 6-Toon Rewardless CFO Cog Round, 1]
+        4: [Fastest 4-Toon Rewardless CFO Cog Round, 1]
+    misc:
+      min_rewards:
+        1: [Fewest Rewards Used in a CFO Solo, 1]
+
   activities:
     1:
       golf:

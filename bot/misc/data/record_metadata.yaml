@@ -1,16 +1,26 @@
 ttr:
   vp:
     nr:
-      full: ['VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, 'nr.png']
-      cog: ['VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, 'nr.png']
-      pie: ['VP Pie Round Records', 'https://i.imgur.com/A3l0ctU.png', 7489641, 'nr.png']
+      full: ['VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [250, 216, 120]]
+      cog: ['VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, [250, 216, 120]]
+      pie: ['Pie Round Records', 'https://i.imgur.com/A3l0ctU.png', 7489641, [250, 216, 120]]
     rl:
-      full: ['Rewardless VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, 'rl.png']
-      cog: ['Rewardless VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, 'rl.png']
-    misc: ['Miscellaneous VP Records', 'https://i.imgur.com/zeaOZxO.png', 7489641, 'misc-vp.png']
+      full: ['Rewardless VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [93, 212, 155]]
+      cog: ['Rewardless VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, [93, 212, 155]]
+    misc: ['Miscellaneous VP Records', 'https://i.imgur.com/zeaOZxO.png', 7489641, [200, 205, 212]]
+
+  cfo:
+    nr:
+      full: ['CFO Records', 'https://i.imgur.com/SUwPXpi.png', 6660217, [250, 216, 120]]
+      cog: ['CFO Cog Round Records', 'https://i.imgur.com/1h5yoOa.png', 6660217, [250, 216, 120]]
+      crane: ['Crane Round Records', 'https://i.imgur.com/plhYQt3.png', 6660217, [250, 216, 120]]
+    rl:
+      full: ['Rewardless CFO Records', 'https://i.imgur.com/SUwPXpi.png', 6660217, [93, 212, 155]]
+      cog: ['Rewardless CFO Cog Round Records', 'https://i.imgur.com/1h5yoOa.png', 6660217, [93, 212, 155]]
+    misc: ['Miscellaneous CFO Records', 'https://i.imgur.com/u9Hn209.png', 6660217, [200, 205, 212]]
 
   activities:
-    golf: ['Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, 'racing.png']
-    racing: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, 'golf.png']
+    golf: ['Golfing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, [55, 181, 27]]
+    racing: ['Racing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [207, 43, 31]]
 
-~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, 'misc-vp.png']
+~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, [200, 205, 212]]

@@ -22,6 +22,7 @@ class Channels(commands.Cog):
             LeaderboardChannelManager(bot, 'leaderboards', 'overall'),
 
             RecordChannelManager(bot, 'ttr', 'vp'),
+            RecordChannelManager(bot, 'ttr', 'cfo'),
             RecordChannelManager(bot, 'ttr', 'activities'),
         ]
 
@@ -37,7 +38,7 @@ class Channels(commands.Cog):
         for channel_manager in self.mod_channels:
             await channel_manager.update()
     
-    @tasks.loop(minutes=15)
+    @tasks.loop(minutes=1)
     async def infrequent_update(self):
         for channel_manager in self.user_channels:
             await channel_manager.update()

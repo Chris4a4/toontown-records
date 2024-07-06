@@ -5,7 +5,7 @@ from misc.api_wrapper import get_username
 
 
 def records_embed(records):
-    category, thumbnail, color, banner = get_metadata(records[0]['tags'])
+    category, thumbnail, color, banner_color = get_metadata(records[0]['tags'])
 
     embed = discord.Embed(
         title=category,
@@ -17,7 +17,7 @@ def records_embed(records):
     for record in records:
         points = record['points']
         if points == 1:
-            title = f'{record['record_name']} - ``{points} point``'
+            title = f'{record['record_name']}'
         else:
             title = f'{record['record_name']} - ``{points} points``'
 
