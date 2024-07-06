@@ -18,11 +18,11 @@ class Channels(commands.Cog):
         ]
         self.user_channels = [
             LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
-            LeaderboardChannelManager(bot, 'leaderboards', 'ttcc'),
-            LeaderboardChannelManager(bot, 'leaderboards', 'overall'),
 
             RecordChannelManager(bot, 'ttr', 'vp'),
             RecordChannelManager(bot, 'ttr', 'cfo'),
+            RecordChannelManager(bot, 'ttr', 'cj'),
+            RecordChannelManager(bot, 'ttr', 'ceo'),
             RecordChannelManager(bot, 'ttr', 'activities'),
         ]
 

@@ -77,6 +77,84 @@ ttr:
       min_rewards:
         1: [Fewest Rewards Used in a CFO Solo, 1]
 
+  cj:
+    nr:
+      full:
+        8: [Fastest CJ, 1]
+        6: [Fastest 6-Toon CJ, 1]
+        4: [Fastest 4-Toon CJ, 1]
+        2: [Fastest Duo CJ, 1]
+        1:
+          ~: [Fastest Solo CJ, 1]
+          hl: [Fastest Hitless Solo CJ, 1]
+      cog:
+        8: [Fastest CJ Cog Round, 1]
+        6: [Fastest 6-Toon CJ Cog Round, 1]
+        4: [Fastest 4-Toon CJ Cog Round, 1]
+        2: [Fastest Duo CJ Cog Round, 1]
+        1:
+          ~: [Fastest Solo CJ Cog Round, 1]
+          hl: [Fastest Hitless Solo CJ Cog Round, 1]
+      scale:
+        8: [Fastest Scale Round, 1]
+        6: [Fastest 6-Toon Scale Round, 1]
+        4: [Fastest 4-Toon Scale Round, 1]
+        2: [Fastest Duo Scale Round, 1]
+        1:
+          ~: [Fastest Solo Scale Round, 1]
+          hl: [Fastest Hitless Solo Scale Round, 1]
+    rl:
+      full:
+        8: [Fastest Rewardless CJ, 1]
+        6: [Fastest 6-Toon Rewardless CJ, 1]
+        4: [Fastest 4-Toon Rewardless CJ, 1]
+      cog:
+        8: [Fastest Rewardless CJ Cog Round, 1]
+        6: [Fastest 6-Toon Rewardless CJ Cog Round, 1]
+        4: [Fastest 4-Toon Rewardless CJ Cog Round, 1]
+    misc:
+      min_rewards:
+        1: [Fewest Rewards Used in a CJ Solo, 1]
+
+  ceo:
+    nr:
+      full:
+        8: [Fastest CEO, 1]
+        6: [Fastest 6-Toon CEO, 1]
+        4: [Fastest 4-Toon CEO, 1]
+        2: [Fastest Duo CEO, 1]
+        1:
+          ~: [Fastest Solo CEO, 1]
+          hl: [Fastest Hitless Solo CEO, 1]
+      cog:
+        8: [Fastest CEO Cog Round, 1]
+        6: [Fastest 6-Toon CEO Cog Round, 1]
+        4: [Fastest 4-Toon CEO Cog Round, 1]
+        2: [Fastest Duo CEO Cog Round, 1]
+        1:
+          ~: [Fastest Solo CEO Cog Round, 1]
+          hl: [Fastest Hitless Solo CEO Cog Round, 1]
+      seltzer:
+        8: [Fastest Seltzer Round, 1]
+        6: [Fastest 6-Toon Seltzer Round, 1]
+        4: [Fastest 4-Toon Seltzer Round, 1]
+        2: [Fastest Duo Seltzer Round, 1]
+        1:
+          ~: [Fastest Solo Seltzer Round, 1]
+          hl: [Fastest Hitless Solo Seltzer Round, 1]
+    rl:
+      full:
+        8: [Fastest Rewardless CEO, 1]
+        6: [Fastest 6-Toon Rewardless CEO, 1]
+        4: [Fastest 4-Toon Rewardless CEO, 1]
+      cog:
+        8: [Fastest Rewardless CEO Cog Round, 1]
+        6: [Fastest 6-Toon Rewardless CEO Cog Round, 1]
+        4: [Fastest 4-Toon Rewardless CEO Cog Round, 1]
+    misc:
+      min_rewards:
+        1: [Fewest Rewards Used in a CEO Solo, 1]
+
   activities:
     1:
       golf:

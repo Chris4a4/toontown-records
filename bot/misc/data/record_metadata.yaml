@@ -19,8 +19,32 @@ ttr:
       cog: ['Rewardless CFO Cog Round Records', 'https://i.imgur.com/1h5yoOa.png', 6660217, [93, 212, 155]]
     misc: ['Miscellaneous CFO Records', 'https://i.imgur.com/u9Hn209.png', 6660217, [200, 205, 212]]
 
+  cj:
+    nr:
+      full: ['CJ Records', 'https://i.imgur.com/Q8ybUn2.png', 4278935, [250, 216, 120]]
+      cog: ['CJ Cog Round Records', 'https://i.imgur.com/iS95oLy.png', 4278935, [250, 216, 120]]
+      scale: ['Scale Round Records', 'https://i.imgur.com/1iq6EdF.png', 4278935, [250, 216, 120]]
+    rl:
+      full: ['Rewardless CJ Records', 'https://i.imgur.com/Q8ybUn2.png', 4278935, [93, 212, 155]]
+      cog: ['Rewardless CJ Cog Round Records', 'https://i.imgur.com/iS95oLy.png', 4278935, [93, 212, 155]]
+    misc: ['Miscellaneous CJ Records', 'https://i.imgur.com/Opsvg1Z.png', 4278935, [200, 205, 212]]
+
   activities:
     golf: ['Golfing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, [55, 181, 27]]
     racing: ['Racing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [207, 43, 31]]
+
+  ceo:
+    nr:
+      full: ['CEO Records', 'https://i.imgur.com/kEgb0SU.png', 3416590, [250, 216, 120]]
+      cog: ['CEO Cog Round Records', 'https://i.imgur.com/12L4krm.png', 3416590, [250, 216, 120]]
+      seltzer: ['Seltzer Round Records', 'https://i.imgur.com/TYn0kn8.png', 3416590, [250, 216, 120]]
+    rl:
+      full: ['Rewardless CEO Records', 'https://i.imgur.com/kEgb0SU.png', 3416590, [93, 212, 155]]
+      cog: ['Rewardless CEO Cog Round Records', 'https://i.imgur.com/12L4krm.png', 3416590, [93, 212, 155]]
+    misc: ['Miscellaneous CEO Records', 'https://i.imgur.com/YgBOb5j.png', 3416590, [200, 205, 212]]
+
+  activities:
+    golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [207, 43, 31]]
+    racing: ['Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, [55, 181, 27]]
 
 ~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, [200, 205, 212]]
