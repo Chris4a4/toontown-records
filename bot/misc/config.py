@@ -12,6 +12,7 @@ class Config:
     TTCC_COLOR = 0
     OVERALL_ICON = ''
     OVERALL_COLOR = 0
+    SUBMIT_CHANNEL_ID = 0
     WELCOME_CHANNEL_ID = 0
     GUILD = 0
     AUTHORIZED_ROLE = ''
@@ -44,6 +45,7 @@ class Config:
         with open(filepath, 'r') as file:
             data = yaml.safe_load(file)
             
+            cls.SUBMIT_CHANNEL_ID = data['SUBMIT_CHANNEL_ID']
             cls.WELCOME_CHANNEL_ID = data['WELCOME_CHANNEL_ID']
             cls.GUILD = data['GUILD']
             cls.AUTHORIZED_ROLE = data['AUTHORIZED_ROLE']

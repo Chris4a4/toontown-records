@@ -3,6 +3,7 @@ from embeds.records_embed import records_embed
 from channels.auto_channel import AutoChannel
 import discord
 from misc.api_wrapper import get_all_records
+from misc.config import Config
 
 
 class RecordChannelManager:
@@ -58,6 +59,8 @@ class SubmitView(discord.ui.View):
         self.add_item(self.select_menu)
 
     async def select_callback(self, interaction):
+        base_text = f'Copy the command below, and go to <#{Config.SUBMIT_CHANNEL_ID}> to submit your record:'
+
         selected_record = self.select_menu.values[0]
 
         for record in self.records:
@@ -74,5 +77,5 @@ class SubmitView(discord.ui.View):
                 for i in range(0, record['max_players']):
                     submit_string += f'user{i + 1}: '
 
-                await interaction.response.send_message(f'```{submit_string}```', ephemeral=True)
+                await interaction.response.send_message(f'{base_text}\n```{submit_string}```', ephemeral=True)
                 break

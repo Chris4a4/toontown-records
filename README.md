@@ -14,10 +14,11 @@ git clone https://github.com/Chris4a4/toontown-records
 
 2. Create a file for installation-specific information at ``toontown-records/bot/private_config.yaml``. Be sure to change token to the bot's actual token:
 ```
-WELCOME_CHANNEL: 1257178370408583288
+SUBMIT_CHANNEL_ID: 1254667676630913047
+WELCOME_CHANNEL_ID: 1259239130068553810
 GUILD: 1254667676630913044
 AUTHORIZED_ROLE: basic rights
-TOKEN: token
+TOKEN: asdf
 ```
 
 3. Run docker-compose in the toontown-records directory
