@@ -38,7 +38,7 @@ class Channels(commands.Cog):
         for channel_manager in self.mod_channels:
             await channel_manager.update()
     
-    @tasks.loop(minutes=1)
+    @tasks.loop(minutes=15)
     async def infrequent_update(self):
         for channel_manager in self.user_channels:
             await channel_manager.update()
