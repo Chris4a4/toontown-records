@@ -27,7 +27,6 @@ class Usernames(commands.Cog):
 
             target_name = id_to_name[member.id]
             if member.display_name != target_name:
-                print(f'Need to change {member.display_name} name')
                 try:
                     print(f'Changing name for {member.display_name} -> {target_name}')
                     await member.edit(nick=target_name)
@@ -35,11 +34,7 @@ class Usernames(commands.Cog):
                     print(f'Could not change name {member.display_name} -> {target_name}: No permission')
 
             if Config.AUTHORIZED_ROLE not in member.roles:
-                print(f'a')
                 await member.add_roles(Config.AUTHORIZED_ROLE)
-                print(f'b')
-        
-        print('Finished updating users...')
 
 
 def setup(bot):
