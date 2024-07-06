@@ -39,9 +39,9 @@ class Channels(commands.Cog):
             category = channel_manager.auto_channel.category
             channel = channel_manager.auto_channel.channel
 
-            print(f'Updating {category}-{channel}')
+            #print(f'Updating {category}-{channel}')
             await channel_manager.update()
-            print(f'Finished Updating {category}-{channel}')
+            #print(f'Finished Updating {category}-{channel}')
     
     @tasks.loop(minutes=15)
     async def infrequent_update(self):

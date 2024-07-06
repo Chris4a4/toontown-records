@@ -17,13 +17,23 @@ class RecordChannelManager:
             if set(record['tags']) == set(self.tags) | set(record['tags']):
                 matching_records.append(record)
 
+        print('i')
+
         result = []
         for records in group_records(matching_records).values():
+            print('j')
+
             embed = records_embed(records)
+
+            print('k')
 
             category, thumbnail, color, banner_color = get_metadata(records[0]['tags'])
 
+            print('l')
+
             file = get_banner(category, banner_color)
+
+            print('m')
 
             result.append(('', embed, SubmitView(records), [file]))
 
