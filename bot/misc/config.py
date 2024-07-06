@@ -43,9 +43,11 @@ class Config:
             cls.GUILD = data['GUILD']
             cls.AUTHORIZED_ROLE = data['AUTHORIZED_ROLE']
     
+    @classmethod
     def load_token(cls, filepath):
         with open(filepath, 'r') as file:
             cls.TOKEN = file.read()
+
 
 config_path = os.path.join(os.path.dirname(__file__), '..',  'config.yaml')
 Config.load_config(config_path)
