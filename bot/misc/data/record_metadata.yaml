@@ -44,7 +44,7 @@ ttr:
     misc: ['Miscellaneous CEO Records', 'https://i.imgur.com/YgBOb5j.png', 3416590, [200, 205, 212]]
 
   activities:
-    golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [207, 43, 31]]
-    racing: ['Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, [55, 181, 27]]
+    golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [55, 181, 27]]
+    racing: ['Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, [207, 43, 31]]
 
 ~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, [200, 205, 212]]
