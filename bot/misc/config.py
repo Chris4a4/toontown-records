@@ -26,7 +26,7 @@ class Config:
 
     # Can be populated immediately
     @classmethod
-    def load_config(cls, filepath):
+    def public_config(cls, filepath):
         with open(filepath, 'r') as file:
             data = yaml.safe_load(file)
 
@@ -39,18 +39,21 @@ class Config:
             cls.TTCC_COLOR = data['TTCC_COLOR']
             cls.OVERALL_ICON = data['OVERALL_ICON']
             cls.OVERALL_COLOR = data['OVERALL_COLOR']
+
+    
+    @classmethod
+    def private_config(cls, filepath):
+        with open(filepath, 'r') as file:
+            data = yaml.safe_load(file)
+            
             cls.WELCOME_CHANNEL = data['WELCOME_CHANNEL']
             cls.GUILD = data['GUILD']
             cls.AUTHORIZED_ROLE = data['AUTHORIZED_ROLE']
-    
-    @classmethod
-    def load_token(cls, filepath):
-        with open(filepath, 'r') as file:
-            cls.TOKEN = file.read()
+            cls.TOKEN = data['TOKEN']
 
 
-config_path = os.path.join(os.path.dirname(__file__), '..',  'config.yaml')
-Config.load_config(config_path)
+public_path = os.path.join(os.path.dirname(__file__), '..',  'public_config.yaml')
+Config.public_config(public_path)
 
-token_path = os.path.join(os.path.dirname(__file__), '..',  'token.txt')
-Config.load_token(token_path)
+private_path = os.path.join(os.path.dirname(__file__), '..',  'private_config.yaml')
+Config.private_config(private_path)
