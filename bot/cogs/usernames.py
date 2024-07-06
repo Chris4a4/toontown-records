@@ -21,6 +21,8 @@ class Usernames(commands.Cog):
         print('Updating users...')
         name_dict = get_all_users()
 
+        print(Config.GUILD.members)
+
         for member in Config.GUILD.members:
             if member.id not in name_dict:
                 continue
