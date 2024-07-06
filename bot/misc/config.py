@@ -12,7 +12,7 @@ class Config:
     TTCC_COLOR = 0
     OVERALL_ICON = ''
     OVERALL_COLOR = 0
-    WELCOME_CHANNEL = 0
+    WELCOME_CHANNEL_ID = 0
     GUILD = 0
     AUTHORIZED_ROLE = ''
     TOKEN = ''
@@ -21,7 +21,6 @@ class Config:
     @classmethod
     def add_context(cls, bot):
         cls.GUILD = bot.get_guild(cls.GUILD)
-        cls.WELCOME_CHANNEL = bot.get_channel(cls.WELCOME_CHANNEL)
         cls.AUTHORIZED_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.AUTHORIZED_ROLE)
 
     # Can be populated immediately
@@ -39,14 +38,13 @@ class Config:
             cls.TTCC_COLOR = data['TTCC_COLOR']
             cls.OVERALL_ICON = data['OVERALL_ICON']
             cls.OVERALL_COLOR = data['OVERALL_COLOR']
-
     
     @classmethod
     def private_config(cls, filepath):
         with open(filepath, 'r') as file:
             data = yaml.safe_load(file)
             
-            cls.WELCOME_CHANNEL = data['WELCOME_CHANNEL']
+            cls.WELCOME_CHANNEL_ID = data['WELCOME_CHANNEL_ID']
             cls.GUILD = data['GUILD']
             cls.AUTHORIZED_ROLE = data['AUTHORIZED_ROLE']
             cls.TOKEN = data['TOKEN']

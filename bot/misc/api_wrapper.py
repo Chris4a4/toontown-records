@@ -1,6 +1,7 @@
 import requests
 
 from misc.config import Config
+import re
 
 
 ########## RECORDS ##########
@@ -78,6 +79,10 @@ def deny_namechange(namechange_id, audit_id):
 
 
 def request_namechange(user_id, username, audit_id):
+    pattern = r'[^a-zA-Z0-9 ]'
+    if re.search(pattern, username):
+        return 'Usernames can only contain letters, numbers, and spaces'
+
     params = {
         'audit_id': audit_id
     }

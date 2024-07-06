@@ -18,7 +18,7 @@ class Channels(commands.Cog):
             NamechangeChannelManager(bot, 'mods', 'pending-namechanges')
         ]
         self.user_channels = [
-            UserActionChannelManager(bot, 'greetings', 'user-actions'),
+            UserActionChannelManager(bot, 'information', 'user-guide'),
             LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
 
             RecordChannelManager(bot, 'ttr', 'vp'),
