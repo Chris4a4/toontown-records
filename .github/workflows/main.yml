@@ -15,5 +15,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd toontown-records
-          ${{ secrets.SCRIPT }}
+          git pull
           systemctl --user restart toontown-records
