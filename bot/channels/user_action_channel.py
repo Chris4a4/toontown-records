@@ -1,7 +1,7 @@
-from channels.auto_channel import AutoChannel
+from misc.auto_channel import AutoChannel
 import discord
 from misc.api_wrapper import request_namechange
-from misc.config import Config
+from singletons.config import Config
 
 class UserActionChannelManager:
     def __init__(self, bot, category, channel):

@@ -1,5 +1,5 @@
 from embeds.namechange_embed import namechange_embed
-from channels.auto_channel import AutoChannel
+from misc.auto_channel import AutoChannel
 import discord
 from misc.api_wrapper import get_pending_namechanges, approve_namechange, deny_namechange
 

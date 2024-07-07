@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import discord
 
 from misc.api_wrapper import get_leaderboard, get_username
-from misc.config import Config
+from singletons.config import Config
 
 def leaderboard_embed(game):
     game_data = {

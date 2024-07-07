@@ -42,7 +42,6 @@ class ChannelManagers:
 
     @classmethod
     async def force_update_all(cls):
-        print('Force updating all channels...')
         all_channels = cls.user_action_channel + cls.record_channels + cls.leaderboard_channels + cls.namechange_channel + cls.submission_channel + cls.log_channel
 
         for channel_manager in all_channels:
@@ -62,6 +61,5 @@ class ChannelManagers:
         }
         channels_to_update = update_schema[function_name] + cls.log_channel  # Always update the log channel
 
-        print('Updating channels from webhook')
         for channel_manager in channels_to_update:
             await channel_manager.update()

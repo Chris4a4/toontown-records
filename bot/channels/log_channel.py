@@ -1,6 +1,6 @@
 from embeds.namechange_embed import namechange_embed
 from embeds.submission_embed import submission_embed
-from channels.auto_channel import AutoChannel
+from misc.auto_channel import AutoChannel
 from misc.api_wrapper import get_logs
 
 class LogChannelManager:

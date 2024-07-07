@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
-from misc.config import Config
+
+from singletons.config import Config
+from singletons.channel_managers import ChannelManagers
 
 bot = commands.Bot(intents=discord.Intents.all())
 
@@ -10,10 +12,10 @@ async def on_ready():
     print('------')
 
     Config.add_context(bot)
-    bot.load_extension('cogs.channels')  # These cogs have to be loaded AFTER the bot knows which guilds its in
-    bot.load_extension('cogs.usernames')
+    ChannelManagers.initialize(bot)
+    bot.load_extension('cogs.force_update')  # This cog has to be loaded AFTER the bot knows which guilds its in
 
 
 bot.load_extension('cogs.commands')  # These cogs have to be loaded BEFORE bot.run in order to be registered with discord correctly
-bot.load_extension('cogs.webhooks')
+bot.load_extension('cogs.events')
 bot.run(Config.TOKEN)

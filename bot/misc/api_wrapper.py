@@ -1,6 +1,6 @@
 import requests
 
-from misc.config import Config
+from singletons.config import Config
 import re
 
 

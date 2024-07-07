@@ -1,15 +1,23 @@
 from discord.ext import commands
 import re
 import ast
-from channels.channel_managers import ChannelManagers
-from misc.config import Config
+from singletons.channel_managers import ChannelManagers
+from singletons.user_manager import UserManager
+from singletons.config import Config
 from embeds.submission_embed import submission_embed
 import discord
 
 
-class Webhooks(commands.Cog):
+class Events(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.Cog.listener()
+    async def on_member_join(member):
+        if member.guild != Config.GUILD:
+            return
+
+        UserManager.update_one(member)
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -35,8 +43,14 @@ class Webhooks(commands.Cog):
 
     # Given a valid webhook, update necessary channels and create a message
     async def process_webhook(self, params):
+        function_name = params['function']
+
+        print(f'Handling webhook: {function_name}')
         await self.send_update_message(params)
-        await ChannelManagers.update_from_function(params['function'])
+        await ChannelManagers.update_from_function(function_name)
+
+        if function_name == 'approve_namechange':
+            await UserManager.update_from_id(params['discord_id'])
     
     # Sends a message in the update channel informing the submitter that something has happened
     async def send_update_message(self, params):
@@ -85,4 +99,4 @@ class Webhooks(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Webhooks(bot))
+    bot.add_cog(Events(bot))

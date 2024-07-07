@@ -1,7 +1,7 @@
 from discord.ext import commands
 from discord.utils import basic_autocomplete
 from discord import Option, SlashCommandGroup, Interaction, User, AutocompleteContext
-from misc.config import Config
+from singletons.config import Config
 
 from embeds.all_submissions_embed import all_submissions
 from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users

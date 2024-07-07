@@ -1,7 +1,7 @@
 import re
 import discord
 
-from misc.config import Config
+from singletons.config import Config
 from discord.errors import HTTPException
 
 

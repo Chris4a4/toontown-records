@@ -1,9 +1,9 @@
 from misc.record_metadata import get_metadata, group_records, get_banner
 from embeds.records_embed import records_embed
-from channels.auto_channel import AutoChannel
+from misc.auto_channel import AutoChannel
 import discord
 from misc.api_wrapper import get_all_records
-from misc.config import Config
+from singletons.config import Config
 
 
 class RecordChannelManager:

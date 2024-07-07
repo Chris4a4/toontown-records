@@ -1,13 +1,12 @@
 from discord.ext import commands, tasks
 
-from channels.channel_managers import ChannelManagers
+from singletons.channel_managers import ChannelManagers
+from singletons.user_manager import UserManager
 
 
-class Channels(commands.Cog):
+class ForceUpdate(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
-        ChannelManagers.initialize(bot)
 
         self.force_update.start()
     
@@ -17,7 +16,8 @@ class Channels(commands.Cog):
     @tasks.loop(minutes=30)
     async def force_update(self):
         await ChannelManagers.force_update_all()
+        await UserManager.force_update_all()
 
 
 def setup(bot):
-    bot.add_cog(Channels(bot))
+    bot.add_cog(ForceUpdate(bot))
