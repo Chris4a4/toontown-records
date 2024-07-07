@@ -4,6 +4,10 @@ from misc.config import Config
 import re
 
 
+VALID_USER_INPUT = r'[^a-zA-Z0-9 ]'
+VALID_ID = r'[^a-zA-Z0-9]'
+
+
 ########## RECORDS ##########
 def get_record_info(record_name):
     return requests.get(f'{Config.BASE_URL}/records/get_info/{record_name}').json()['data']
@@ -26,6 +30,9 @@ def submit(submission_data, audit_id):
 
 
 def edit_submission(submission_id, field, value, audit_id):
+    if re.search(VALID_ID, submission_id):
+        return 'ID can only contain letters and numbers'
+
     params = {
         'audit_id': audit_id
     }
@@ -34,6 +41,9 @@ def edit_submission(submission_id, field, value, audit_id):
 
 
 def approve_submission(submission_id, audit_id):
+    if re.search(VALID_ID, submission_id):
+        return 'ID can only contain letters and numbers'
+
     params = {
         'audit_id': audit_id
     }
@@ -41,6 +51,9 @@ def approve_submission(submission_id, audit_id):
 
 
 def deny_submission(submission_id, audit_id):
+    if re.search(VALID_ID, submission_id):
+        return 'ID can only contain letters and numbers'
+
     params = {
         'audit_id': audit_id
     }
@@ -65,6 +78,9 @@ def get_all_users():
 
 ########## NAMECHANGES ##########
 def approve_namechange(namechange_id, audit_id):
+    if re.search(VALID_ID, namechange_id):
+        return 'ID can only contain letters and numbers'
+
     params = {
         'audit_id': audit_id
     }
@@ -72,6 +88,9 @@ def approve_namechange(namechange_id, audit_id):
 
 
 def deny_namechange(namechange_id, audit_id):
+    if re.search(VALID_ID, namechange_id):
+        return 'ID can only contain letters and numbers'
+
     params = {
         'audit_id': audit_id
     }
@@ -79,8 +98,7 @@ def deny_namechange(namechange_id, audit_id):
 
 
 def request_namechange(user_id, username, audit_id):
-    pattern = r'[^a-zA-Z0-9 ]'
-    if re.search(pattern, username):
+    if re.search(VALID_USER_INPUT, username):
         return 'Usernames can only contain letters, numbers, and spaces'
 
     params = {

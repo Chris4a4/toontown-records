@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from bson.objectid import ObjectId
 from json import dumps, loads
 from time import time
+from bson.errors import InvalidId
 
 from api.database.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
@@ -32,7 +33,14 @@ def create_user(discord_id: int):
 # Marks a namechange request as approved
 @namechange_router.get('/api/namechange/approve/{namechange_id}', tags=['Logged'])
 async def approve_namechange(namechange_id: str, audit_id: int):
-    namechange = Mongo_Config.namechanges.find_one({'_id': ObjectId(namechange_id)})
+    try:
+        namechange = Mongo_Config.namechanges.find_one({'_id': ObjectId(namechange_id)})
+    except InvalidId:
+        return {
+            'success': False,
+            'message': 'Not a valid ID'
+        }
+
     new_name = namechange['new_username']
     discord_id = namechange['discord_id']
 
@@ -57,7 +65,13 @@ async def approve_namechange(namechange_id: str, audit_id: int):
 # Marks a namechange request as denied
 @namechange_router.get('/api/namechange/deny/{namechange_id}', tags=['Logged'])
 async def deny_namechange(namechange_id: str, audit_id: int):
-    query = {'_id': ObjectId(namechange_id)}
+    try:
+        query = {'_id': ObjectId(namechange_id)}
+    except InvalidId:
+        return {
+            'success': False,
+            'message': 'Not a valid ID'
+        }
     update = {'$set': {'status': 'DENIED'}}
 
     Mongo_Config.namechanges.update_one(query, update)
@@ -71,7 +85,13 @@ async def deny_namechange(namechange_id: str, audit_id: int):
 # Marks a namechange request as obsolete
 @namechange_router.get('/api/namechange/obsolete/{namechange_id}', tags=['Logged'])
 async def obsolete_namechange(namechange_id: str, audit_id: int):
-    query = {'_id': ObjectId(namechange_id)}
+    try:
+        query = {'_id': ObjectId(namechange_id)}
+    except InvalidId:
+        return {
+            'success': False,
+            'message': 'Not a valid ID'
+        }
     update = {'$set': {'status': 'OBSOLETE'}}
 
     Mongo_Config.namechanges.update_one(query, update)

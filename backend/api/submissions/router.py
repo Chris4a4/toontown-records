@@ -8,6 +8,7 @@ from typing import List
 from bson.objectid import ObjectId
 from api.records.records import lookup_record_info
 from api.accounts.router import get_all_users
+from bson.errors import InvalidId
 
 from json import dumps, loads
 
@@ -36,28 +37,16 @@ def to_ms(value_string):
     raise ValueError
 
 
-class Submission(BaseModel):
-    record_name: str
-    usernames: List[str]
-    value_score: int | None = None
-    value_time: str | None = None
-    evidence: str
-
-
-@submissions_router.post('/api/submissions/submit', tags=['Logged'])
-async def submit(data: Submission, audit_id: int):
-    new_submission = data.model_dump()
-
-    new_submission['submitter_id'] = audit_id
-    new_submission['timestamp'] = int(time())
-    new_submission['status'] = 'PENDING'
-
-    usernames = new_submission['usernames']  # Get rid of username field and replace with user_ids in the database doc
-    new_submission['user_ids'] = []
-    del new_submission['usernames']
-
+# Validates a full submission object, with user IDs
+def validate_submission(submission, username_to_id):
     # Check evidence
-    evidence = new_submission['evidence']
+    evidence = submission['evidence']
+    if len(evidence) > 100:
+        return {
+            'success': False,
+            'message': 'Evidence must be 100 characters or less'
+        }
+
     if not evidence.startswith('https://'):
         return {
             'success': False,
@@ -75,7 +64,7 @@ async def submit(data: Submission, audit_id: int):
         }
 
     # Lookup record
-    record = lookup_record_info(new_submission['record_name'])
+    record = lookup_record_info(submission['record_name'])
     if not record:
         return {
             'success': False,
@@ -83,39 +72,37 @@ async def submit(data: Submission, audit_id: int):
         }
     
     # Check users
-    username_to_id = (await get_all_users())['data']
-
     max_players = record['max_players']
-    if len(usernames) > max_players:
+    user_ids = submission['user_ids']
+    if len(user_ids) > max_players:
         return {
             'success': False,
             'message': f'Max of {max_players} users for this record'
         }
     
-    if len(usernames) == 0:
+    if len(user_ids) == 0:
         return {
             'success': False,
             'message': 'Need to add at least one user'
         }
 
-    if len(usernames) != len(set(usernames)):
+    if len(user_ids) != len(set(user_ids)):
         return {
             'success': False,
             'message': 'Each user can only be added once'
         }
-
-    for username in usernames:
-        if username in username_to_id:
-            new_submission['user_ids'].append(username_to_id[username])
-        else:
+    
+    id_to_username = {v: k for k, v in username_to_id.items()}
+    for id in user_ids:
+        if id not in id_to_username:
             return {
                 'success': False,
-                'message': f'Could not find user: {username}'
+                'message': f'Could not find user id: {id}'
             }
-    
+
     # Check values/time
-    submitted_time = new_submission['value_time'] is not None
-    submitted_score = new_submission['value_score'] is not None
+    submitted_time = submission['value_time'] is not None
+    submitted_score = submission['value_score'] is not None
     score_required = record['score_required']
     time_required = record['time_required']
 
@@ -143,7 +130,57 @@ async def submit(data: Submission, audit_id: int):
             'message': 'You cannot submit a time for this record'
         }
     
-    if time_required:
+    if submitted_time and submission['value_time'] <= 0:
+        return {
+            'success': False,
+            'message': 'Time must be positive'
+        }
+
+    if submitted_score and submission['value_score'] < 0:
+        return {
+            'success': False,
+            'message': 'Score cannot be negative'
+        }
+    
+    return {
+        'success': True,
+        'message': 'Validated submission'
+    }
+
+
+class Submission(BaseModel):
+    record_name: str
+    usernames: List[str]
+    value_score: int | None = None
+    value_time: str | None = None
+    evidence: str
+
+
+@submissions_router.post('/api/submissions/submit', tags=['Logged'])
+async def submit(data: Submission, audit_id: int):
+    new_submission = data.model_dump()
+
+    new_submission['user_ids'] = []
+    new_submission['submitter_id'] = audit_id
+    new_submission['timestamp'] = int(time())
+    new_submission['status'] = 'PENDING'
+
+    # Get rid of username field and replace with user_ids in the database doc
+    usernames = new_submission['usernames']
+    del new_submission['usernames']
+
+    username_to_id = (await get_all_users())['data']
+    for username in usernames:
+        if username in username_to_id:
+            new_submission['user_ids'].append(username_to_id[username])
+        else:
+            return {
+                'success': False,
+                'message': f'Could not find user: {username[:20]}'
+            }
+
+    # Convert time if it was given
+    if new_submission['value_time']:
         try:
             new_submission['value_time'] = to_ms(new_submission['value_time'])  # Convert from string to int
         except ValueError:
@@ -151,19 +188,13 @@ async def submit(data: Submission, audit_id: int):
                 'success': False,
                 'message': 'Invalid time format provided. Accepted formats are (milleseconds optional): H:M:S, M:S, S'
             }
-        
-        if new_submission['value_time'] <= 0:
-            return {
-                'success': False,
-                'message': 'Time must be positive'
-            }
 
-    if score_required and new_submission['value_score'] < 0:
-        return {
-            'success': False,
-            'message': 'Score cannot be negative'
-        }
+    # Check validation result
+    validation_result = validate_submission(new_submission, username_to_id)
+    if not validation_result['success']:
+        return validation_result
 
+    # Write to database
     result = Mongo_Config.submissions.insert_one(new_submission)
 
     audit_log('submit', str(result.inserted_id), audit_id)
@@ -181,37 +212,66 @@ class EditSubmission(BaseModel):
     evidence: str | None = None
 
 
-# Intentionally light on error handling since it's always going to be a mod-only command and should be flexible
 @submissions_router.post('/api/submissions/edit/{submission_id}', tags=['Logged'])
 async def edit_submission(submission_id: str, data: EditSubmission, audit_id: int):
+    try:
+        original_submission = Mongo_Config.submissions.find_one({'_id': ObjectId(submission_id)})
+    except InvalidId:
+        return {
+            'success': False,
+            'message': 'Not a valid ID'
+        }
+
+    if not original_submission:
+        return {
+            'success': False,
+            'message': 'Could not find a submission with that ID'
+        }
+
+    # Determine what the record will look like after edits
+    editted_submission = loads(dumps(original_submission, cls=MongoJSONEncoder))
     edit_data = data.model_dump()
 
     to_edit = {}
     for key, value in edit_data.items():
         if value is not None:
             to_edit[key] = value
+            editted_submission[key] = value
 
+    # Check validation result
+    username_to_id = (await get_all_users())['data']
+    validation_result = validate_submission(editted_submission, username_to_id)
+    if not validation_result['success']:
+        return validation_result
+
+    # Attempt to write to database
     query = {'_id': ObjectId(submission_id)}
     update = {'$set': to_edit}
 
     result = Mongo_Config.submissions.update_one(query, update)
-
-    if result:
-        audit_log('edit_submission', submission_id, audit_id, additional_info=to_edit)
+    if not result:
         return {
-            'success': True,
-            'message': 'Successfully editted submission'
+            'success': False,
+            'message': 'Could not find a submission with that ID'
         }
-
+    
+    audit_log('edit_submission', submission_id, audit_id, additional_info=to_edit)
     return {
-        'success': False,
-        'message': 'Could not find a submission with that ID'
+        'success': True,
+        'message': 'Successfully editted submission'
     }
 
 
 @submissions_router.get('/api/submissions/approve/{submission_id}', tags=['Logged'])
 async def approve_submission(submission_id: str, audit_id: int):
-    query = {'_id': ObjectId(submission_id)}
+    try:
+        query = {'_id': ObjectId(submission_id)}
+    except InvalidId:
+        return {
+            'success': False,
+            'message': 'Not a valid ID'
+        }
+
     update = {'$set': {'status': 'APPROVED'}}
 
     result = Mongo_Config.submissions.update_one(query, update)
@@ -231,7 +291,14 @@ async def approve_submission(submission_id: str, audit_id: int):
 
 @submissions_router.get('/api/submissions/deny/{submission_id}', tags=['Logged'])
 async def deny_submission(submission_id: str, audit_id: int):
-    query = {'_id': ObjectId(submission_id)}
+    try:
+        query = {'_id': ObjectId(submission_id)}
+    except InvalidId:
+        return {
+            'success': False,
+            'message': 'Not a valid ID'
+        }
+
     update = {'$set': {'status': 'DENIED'}}
 
     result = Mongo_Config.submissions.update_one(query, update)
