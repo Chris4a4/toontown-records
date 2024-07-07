@@ -4,6 +4,7 @@ import ast
 from channels.channel_managers import ChannelManagers
 from misc.config import Config
 from embeds.submission_embed import submission_embed
+import discord
 
 
 class Webhooks(commands.Cog):
@@ -42,21 +43,43 @@ class Webhooks(commands.Cog):
         function = params['function']
 
         embed = None
+        prioritize_dm = False
         if function == 'approve_namechange':
-            message = f'<@{params['discord_id']}> your namechange was approved! You are now {params['new_name']}.'
+            user_id = params['discord_id']
+            message = f'<@{user_id}> your namechange was approved! You are now {params['new_name']}.'
         
         elif function == 'deny_namechange':
-            message = f'<@{params['discord_id']}> your namechange was denied.'
+            user_id = params['discord_id']
+            message = f'<@{user_id}> your namechange was denied.'
+            prioritize_dm = True
 
         elif function == 'approve_submission':
-            message = f'<@{params['submitter_id']}> your record was approved!'
+            user_id = params['submitter_id']
+            message = f'<@{user_id}> your record was approved!'
             embed = submission_embed(params, mod=False)
 
         elif function == 'deny_submission':
-            message = f'<@{params['submitter_id']}> your submission for "{params['record_name']}" was denied.'
+            user_id = params['submitter_id']
+            message = f'<@{user_id}> your submission for "{params['record_name']}" was denied.'
+            prioritize_dm = True
 
         else:
             return
+        
+        # If the user isn't in the server, don't do anything at all
+        user_ids = [member.id for member in Config.GUILD.members]
+        if user_id not in user_ids:
+            return
+
+        # Prioritize sending a DM if the method type calls for it
+        if prioritize_dm:
+            try:
+                user = self.bot.get_user(user_id)
+                await user.send(message, embed=embed)
+                return
+
+            except discord.Forbidden:
+                pass
 
         await Config.UPDATE_CHANNEL.send(message, embed=embed)
 

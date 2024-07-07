@@ -66,7 +66,7 @@ def validate_submission(submission, username_to_id):
             'message': 'Evidence must be a YouTube link'
         }
     
-    if '|' in evidence:
+    if '|' in evidence:  # | is a special character in the webhooks
         return {
             'success': False,
             'message': 'Evidence must be a valid YouTube link'
