@@ -12,8 +12,11 @@ class Config:
     TTCC_COLOR = 0
     OVERALL_ICON = ''
     OVERALL_COLOR = 0
+
     SUBMIT_CHANNEL_ID = 0
     WELCOME_CHANNEL_ID = 0
+    UPDATE_CHANNEL = 0
+    WEBHOOK_CHANNEL_ID = 0
     GUILD = 0
     AUTHORIZED_ROLE = ''
     TOKEN = ''
@@ -22,6 +25,7 @@ class Config:
     @classmethod
     def add_context(cls, bot):
         cls.GUILD = bot.get_guild(cls.GUILD)
+        cls.UPDATE_CHANNEL = bot.get_channel(cls.UPDATE_CHANNEL)
         cls.AUTHORIZED_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.AUTHORIZED_ROLE)
 
     # Can be populated immediately
@@ -45,6 +49,8 @@ class Config:
         with open(filepath, 'r') as file:
             data = yaml.safe_load(file)
             
+            cls.UPDATE_CHANNEL = data['UPDATE_CHANNEL']
+            cls.WEBHOOK_CHANNEL_ID = data['WEBHOOK_CHANNEL_ID']
             cls.SUBMIT_CHANNEL_ID = data['SUBMIT_CHANNEL_ID']
             cls.WELCOME_CHANNEL_ID = data['WELCOME_CHANNEL_ID']
             cls.GUILD = data['GUILD']

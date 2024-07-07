@@ -17,7 +17,7 @@ class Usernames(commands.Cog):
     # Assign role + change name to users in the discord
     @tasks.loop(minutes=1)
     async def check_display_names(self):
-        print('Updating users...')
+        print('Force updating users...')
         name_to_id = get_all_users()
         id_to_name = {v: k for k, v in name_to_id.items()}
 

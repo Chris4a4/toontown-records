@@ -107,7 +107,7 @@ def to_time(ms):
     else:
         ms_part = f'.{ms:03d}'
 
-    # Print the string depending on what kind of time it is
+    # Format the string depending on what kind of time it is
     if not h == 0:
         return f'{h}:{m:02d}:{s:02d}{ms_part}'
     elif not m == 0:

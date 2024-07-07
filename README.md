@@ -1,9 +1,9 @@
 # Toontown Records
 Database, API, Discord Bot, and Website for Toontown Records project.
 
-Discord: 
+Discord: coming soon...
 
-Website: 
+Website: coming less soon...
 
 ## Install/Run (requires docker installed):
 

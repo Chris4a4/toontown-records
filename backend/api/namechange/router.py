@@ -5,9 +5,11 @@ from json import dumps, loads
 from time import time
 from bson.errors import InvalidId
 
-from api.database.mongo_config import Mongo_Config
+from api.config.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
 from api.logging.logging import audit_log
+from api.logging.webhooks import send_webhook
+from api.config.config import Config
 
 
 namechange_router = APIRouter()
@@ -34,28 +36,35 @@ def create_user(discord_id: int):
 @namechange_router.get('/api/namechange/approve/{namechange_id}', tags=['Logged'])
 async def approve_namechange(namechange_id: str, audit_id: int):
     try:
-        namechange = Mongo_Config.namechanges.find_one({'_id': ObjectId(namechange_id)})
+        namechange_query = {'_id': ObjectId(namechange_id)}
     except InvalidId:
         return {
             'success': False,
             'message': 'Not a valid ID'
         }
 
+    namechange = Mongo_Config.namechanges.find_one(namechange_query)
+    if not namechange:
+        return {
+            'success': False,
+            'message': 'Could not find a namechange with that ID'
+        }
+
+    old_name = namechange['current_username']
     new_name = namechange['new_username']
     discord_id = namechange['discord_id']
 
     # Update account document
-    query = {'discord_id': discord_id}
+    user_query = {'discord_id': discord_id}
     update = {'$set': {'username': new_name}}
-
-    Mongo_Config.accounts.update_one(query, update)
+    Mongo_Config.accounts.update_one(user_query, update)
 
     # Set namechange object to approved and log
-    query = {'_id': ObjectId(namechange_id)}
     update = {'$set': {'status': 'APPROVED'}}
+    Mongo_Config.namechanges.update_one(namechange_query, update)
 
-    Mongo_Config.namechanges.update_one(query, update)
     audit_log('approve_namechange', namechange_id, audit_id)
+    send_webhook('approve_namechange', audit_id, discord_id, old_name, new_name)
     return {
         'success': True,
         'message': 'Namechange request accepted'
@@ -66,16 +75,25 @@ async def approve_namechange(namechange_id: str, audit_id: int):
 @namechange_router.get('/api/namechange/deny/{namechange_id}', tags=['Logged'])
 async def deny_namechange(namechange_id: str, audit_id: int):
     try:
-        query = {'_id': ObjectId(namechange_id)}
+        namechange_query = {'_id': ObjectId(namechange_id)}
     except InvalidId:
         return {
             'success': False,
             'message': 'Not a valid ID'
         }
-    update = {'$set': {'status': 'DENIED'}}
 
-    Mongo_Config.namechanges.update_one(query, update)
+    namechange = Mongo_Config.namechanges.find_one(namechange_query)
+    if not namechange:
+        return {
+            'success': False,
+            'message': 'Could not find a namechange with that ID'
+        }
+
+    update = {'$set': {'status': 'DENIED'}}
+    Mongo_Config.namechanges.update_one(namechange_query, update)
+
     audit_log('deny_namechange', namechange_id, audit_id)
+    send_webhook('deny_namechange', audit_id, namechange['discord_id'], namechange['current_username'], namechange['new_username'])
     return {
         'success': True,
         'message': 'Namechange request denied'
@@ -92,10 +110,19 @@ async def obsolete_namechange(namechange_id: str, audit_id: int):
             'success': False,
             'message': 'Not a valid ID'
         }
+
+    namechange = Mongo_Config.namechanges.find_one(query)
+    if not namechange:
+        return {
+            'success': False,
+            'message': 'Could not find a namechange with that ID'
+        }
+
     update = {'$set': {'status': 'OBSOLETE'}}
 
     Mongo_Config.namechanges.update_one(query, update)
     audit_log('obsolete_namechange', namechange_id, audit_id)
+    send_webhook('obsolete_namechange', audit_id, namechange['discord_id'], namechange['current_username'], namechange['new_username'])
     return {
         'success': True,
         'message': 'Namechange request obsoleted'
@@ -106,18 +133,16 @@ async def obsolete_namechange(namechange_id: str, audit_id: int):
 @namechange_router.get('/api/namechange/request/{discord_id}/{username}', tags=['Logged'])
 async def request_namechange(discord_id: int, username: str, audit_id: int):
     # Validate username
-    MAX_LEN = 20
-    if len(username) > MAX_LEN:
+    if len(username) > Config.MAX_NAME_LEN:
         return {
             'success': False,
-            'message': f'Names cannot be longer than {MAX_LEN} characters'
+            'message': f'Names cannot be longer than {Config.MAX_NAME_LEN} characters'
         }
     
-    MIN_LEN = 2
-    if len(username) < MIN_LEN:
+    if len(username) < Config.MIN_NAME_LEN:
         return {
             'success': False,
-            'message': f'Names cannot be shorter than {MIN_LEN} characters'
+            'message': f'Names cannot be shorter than {Config.MIN_NAME_LEN} characters'
         }
 
     pattern = r'[^a-zA-Z0-9 ]'
@@ -179,6 +204,7 @@ async def request_namechange(discord_id: int, username: str, audit_id: int):
     result = Mongo_Config.namechanges.insert_one(namechange_request)
 
     audit_log('request_namechange', str(result.inserted_id), audit_id)
+    send_webhook('request_namechange', audit_id, discord_id, user['username'], username)
     return {
         'success': True,
         'message': 'Request to change name submitted',

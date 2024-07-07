@@ -1,4 +1,4 @@
-from api.database.mongo_config import Mongo_Config
+from api.config.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
 from api.logging.logging import audit_log
 
@@ -9,11 +9,14 @@ from bson.objectid import ObjectId
 from api.records.records import lookup_record_info
 from api.accounts.router import get_all_users
 from bson.errors import InvalidId
+from api.config.config import Config
 
 from json import dumps, loads
 
 from time import time
 from datetime import datetime
+
+from api.logging.webhooks import send_webhook
 
 submissions_router = APIRouter()
 
@@ -97,7 +100,7 @@ def validate_submission(submission, username_to_id):
         if id not in id_to_username:
             return {
                 'success': False,
-                'message': f'Could not find user id: {id}'
+                'message': f'Could not find user id: {id[:Config.MAX_NAME_LEN]}'
             }
 
     # Check values/time
@@ -176,7 +179,7 @@ async def submit(data: Submission, audit_id: int):
         else:
             return {
                 'success': False,
-                'message': f'Could not find user: {username[:20]}'
+                'message': f'Could not find user: {username[:Config.MAX_NAME_LEN]}'
             }
 
     # Convert time if it was given
@@ -198,6 +201,7 @@ async def submit(data: Submission, audit_id: int):
     result = Mongo_Config.submissions.insert_one(new_submission)
 
     audit_log('submit', str(result.inserted_id), audit_id)
+    send_webhook('submit', audit_id, new_submission)
     return {
         'success': True,
         'message': 'Submission created successfully'
@@ -256,6 +260,7 @@ async def edit_submission(submission_id: str, data: EditSubmission, audit_id: in
         }
     
     audit_log('edit_submission', submission_id, audit_id, additional_info=to_edit)
+    send_webhook('edit_submission', audit_id, editted_submission)
     return {
         'success': True,
         'message': 'Successfully editted submission'
@@ -271,21 +276,22 @@ async def approve_submission(submission_id: str, audit_id: int):
             'success': False,
             'message': 'Not a valid ID'
         }
+    
+    submission = Mongo_Config.submissions.find_one(query)
+    if not submission:
+        return {
+            'success': False,
+            'message': 'Could not find a submission with that ID'
+        }
 
     update = {'$set': {'status': 'APPROVED'}}
+    Mongo_Config.submissions.update_one(query, update)
 
-    result = Mongo_Config.submissions.update_one(query, update)
-
-    if result:
-        audit_log('approve_submission', submission_id, audit_id)
-        return {
-            'success': True,
-            'message': 'Successfully approved submission'
-        }
-    
+    audit_log('approve_submission', submission_id, audit_id)
+    send_webhook('approve_submission', audit_id, submission)
     return {
-        'success': False,
-        'message': f'Could not find a submission with that ID'
+        'success': True,
+        'message': 'Successfully approved submission'
     }
 
 
@@ -299,20 +305,21 @@ async def deny_submission(submission_id: str, audit_id: int):
             'message': 'Not a valid ID'
         }
 
-    update = {'$set': {'status': 'DENIED'}}
-
-    result = Mongo_Config.submissions.update_one(query, update)
-
-    if result:
-        audit_log('deny_submission', submission_id, audit_id)
+    submission = Mongo_Config.submissions.find_one(query)
+    if not submission:
         return {
-            'success': True,
-            'message': 'Successfully denied submission'
+            'success': False,
+            'message': 'Could not find a submission with that ID'
         }
 
+    update = {'$set': {'status': 'DENIED'}}
+    Mongo_Config.submissions.update_one(query, update)
+
+    audit_log('deny_submission', submission_id, audit_id)
+    send_webhook('deny_submission', audit_id, submission)
     return {
-        'success': False,
-        'message': f'Could not find a submission with that ID'
+        'success': True,
+        'message': 'Successfully denied submission'
     }
 
 

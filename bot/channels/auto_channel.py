@@ -2,6 +2,7 @@ import re
 import discord
 
 from misc.config import Config
+from discord.errors import HTTPException
 
 
 # Compares message's content to the new content
@@ -58,7 +59,10 @@ class AutoChannel:
             message = await anext(iter)
 
             if (self.first_load and view) or has_changed(message, content, embed, view, files):
-                await message.edit(content=content, embed=embed, view=view, attachments=[], files=files)
+                try:
+                    await message.edit(content=content, embed=embed, view=view, attachments=[], files=files)
+                except HTTPException as e:
+                    print(f'Error occured while trying to edit message: {e}')
         
         await iter.aclose()
         

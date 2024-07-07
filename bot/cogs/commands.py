@@ -4,7 +4,7 @@ from discord import Option, SlashCommandGroup, Interaction, User, AutocompleteCo
 from misc.config import Config
 
 from embeds.all_submissions_embed import all_submissions
-from misc.api_wrapper import request_namechange, submit, edit_submission, approve_submission, deny_submission, get_all_users
+from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users
 
 
 edit_fields = {

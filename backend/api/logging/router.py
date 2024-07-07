@@ -1,5 +1,5 @@
 from bson.objectid import ObjectId
-from api.database.mongo_config import Mongo_Config
+from api.config.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
 
 from fastapi import APIRouter

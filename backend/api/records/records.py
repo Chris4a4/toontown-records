@@ -1,5 +1,5 @@
 from api.database.helper import MongoJSONEncoder
-from api.database.mongo_config import Mongo_Config
+from api.config.mongo_config import Mongo_Config
 from json import dumps, loads
 
 from itertools import product
