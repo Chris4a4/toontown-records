@@ -65,6 +65,12 @@ def validate_submission(submission, username_to_id):
             'success': False,
             'message': 'Evidence must be a YouTube link'
         }
+    
+    if '|' in evidence:
+        return {
+            'success': False,
+            'message': 'Evidence must be a valid YouTube link'
+        }
 
     # Lookup record
     record = lookup_record_info(submission['record_name'])
