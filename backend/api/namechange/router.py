@@ -100,35 +100,6 @@ async def deny_namechange(namechange_id: str, audit_id: int):
     }
 
 
-# Marks a namechange request as obsolete
-@namechange_router.get('/api/namechange/obsolete/{namechange_id}', tags=['Logged'])
-async def obsolete_namechange(namechange_id: str, audit_id: int):
-    try:
-        query = {'_id': ObjectId(namechange_id)}
-    except InvalidId:
-        return {
-            'success': False,
-            'message': 'Not a valid ID'
-        }
-
-    namechange = Mongo_Config.namechanges.find_one(query)
-    if not namechange:
-        return {
-            'success': False,
-            'message': 'Could not find a namechange with that ID'
-        }
-
-    update = {'$set': {'status': 'OBSOLETE'}}
-
-    Mongo_Config.namechanges.update_one(query, update)
-    audit_log('obsolete_namechange', namechange_id, audit_id)
-    send_webhook('obsolete_namechange', audit_id, namechange['discord_id'], namechange['current_username'], namechange['new_username'])
-    return {
-        'success': True,
-        'message': 'Namechange request obsoleted'
-    }
-
-
 # Creates a namechange request for the user
 @namechange_router.get('/api/namechange/request/{discord_id}/{username}', tags=['Logged'])
 async def request_namechange(discord_id: int, username: str, audit_id: int):
@@ -184,13 +155,16 @@ async def request_namechange(discord_id: int, username: str, audit_id: int):
                 'message': 'That name is already in use'
             }
 
-    # Obsolete any prior namechange requests
+    # Check if they already have a namechange request pending
     query = {
         'discord_id': discord_id,
         'status': 'PENDING'
     }
-    for document in Mongo_Config.namechanges.find(query):
-        await obsolete_namechange(str(document['_id']), audit_id)
+    if Mongo_Config.namechanges.find_one(query):
+        return {
+            'success': False,
+            'message': 'You already have a pending namechange'
+        }
 
     # Put in the new namechange request
     namechange_request = {

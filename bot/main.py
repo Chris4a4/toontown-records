@@ -4,7 +4,9 @@ from discord.ext import commands
 from singletons.config import Config
 from singletons.channel_managers import ChannelManagers
 
-bot = commands.Bot(intents=discord.Intents.all())
+from misc.rate_limited_bot import RateLimitedBot
+
+bot = RateLimitedBot(intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():

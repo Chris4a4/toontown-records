@@ -61,11 +61,7 @@ class AutoChannel:
                 message = await anext(iter)
 
                 if (self.first_load and view) or has_changed(message, content, embed, view, files):
-                    try:
-                        tg.create_task(message.edit(content=content, embed=embed, view=view, attachments=[], files=files))
-                        #await message.edit(content=content, embed=embed, view=view, attachments=[], files=files)
-                    except HTTPException as e:
-                        print(f'Error occured while trying to edit message: {e}')
+                    tg.create_task(self.bot.edit_message(message, content=content, embed=embed, view=view, attachments=[], files=files))
 
         await iter.aclose()
 

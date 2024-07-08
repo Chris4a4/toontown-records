@@ -11,8 +11,7 @@ LOGGED_FUNCTIONS = [
     'deny_submission',
     'request_namechange',
     'approve_namechange',
-    'deny_namechange',
-    'obsolete_namechange'
+    'deny_namechange'
 ]
 
 FUNCTION_TO_TYPE = {
