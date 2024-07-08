@@ -77,5 +77,6 @@ class SubmitView(discord.ui.View):
                 for i in range(0, record['max_players']):
                     submit_string += f'user{i + 1}: '
 
-                await interaction.response.send_message(f'{base_text}\n```{submit_string}```', ephemeral=True)
+                await interaction.response.send_message(f'{base_text}', ephemeral=True)
+                await interaction.followup.send(f'{submit_string}', ephemeral=True)
                 break
