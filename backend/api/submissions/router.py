@@ -144,11 +144,23 @@ def validate_submission(submission, username_to_id):
             'success': False,
             'message': 'Time must be positive'
         }
+    
+    if submitted_time and submission['value_time'] >= 60 * 60 * 1000:
+        return {
+            'success': False,
+            'message': 'Time must be less than 10 hours'
+        }
 
     if submitted_score and submission['value_score'] < 0:
         return {
             'success': False,
             'message': 'Score cannot be negative'
+        }
+
+    if submitted_score and submission['value_score'] >= 10000:
+        return {
+            'success': False,
+            'message': 'Score must be less than 10000'
         }
     
     return {

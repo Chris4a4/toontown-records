@@ -1,10 +1,13 @@
 from discord.ext import commands
 from discord.utils import basic_autocomplete
-from discord import Option, SlashCommandGroup, Interaction, User, AutocompleteContext
+from discord import Option, SlashCommandGroup, AutocompleteContext, Member
+from singletons.channel_managers import ChannelManagers
 from singletons.config import Config
 
-from embeds.all_submissions_embed import all_submissions
-from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users
+from discord.ext import pages
+from embeds.personal_bests_embed import personal_bests
+from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info
+from misc.record_metadata import group_records, value_string
 
 
 edit_fields = {
@@ -24,15 +27,53 @@ class Commands(commands.Cog):
         self.bot = bot
 
     # Get a user's submissions
-    @commands.user_command(name='Get submissions', description='Gets all submissions by a user')
-    async def get_submissions(self, interaction: Interaction, user: User):
-        if user.avatar:
-            embed = all_submissions(user.id, user.avatar.url)
-        else:
-            embed = all_submissions(user.id, Config.UNKNOWN_THUMBNAIL)
+    @commands.user_command(name='View personal bests', description='Shows this users personal bests')
+    async def personal_bests(self, ctx, member: Member):
+        avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-    
+        p = []
+        for mgr in ChannelManagers.record_channels:
+            result = personal_bests(member.id, mgr.tags, avatar)
+
+            if result:
+                p.append(result)
+
+        if p == []:
+            await ctx.respond('User has no approved submissions!', ephemeral=True)
+        else:
+            paginator = pages.Paginator(pages=p)
+            await paginator.respond(ctx.interaction, ephemeral=True)
+
+
+    # DEBUG COMMAND, commented out during normal use
+    # Assumes 3 digit max score, H:MM:SS.mmm max time
+    #@commands.slash_command(name='embed', description='Checks the max characters of all record embeds')
+    async def embed_max_chars(self, ctx):
+        MAX_USERNAME = 20
+
+        big_submission = {
+            'value_score': 100,
+            'value_time': 4271111  # 1hr, 11m, 11s, 111ms
+        }
+
+        content = []
+        for embed_name, records in group_records(get_all_info()).items():
+            max_chars = len(embed_name)
+
+            for record in records:
+                max_chars += len(record['record_name'])
+
+                max_chars += 2  # newlines
+                max_chars += 3 * (3 + len(value_string(big_submission, record['tags'])))  # numbers, -, and score
+                
+                max_chars += 3 * record['max_players'] * MAX_USERNAME  # player names
+                max_chars += 3 * (record['max_players'] - 1) * 2  # commas between player names
+
+            content.append(f'{embed_name}: {max_chars}')
+
+        await ctx.respond('\n'.join(content), ephemeral=True)
+
+
     # Submit
     @commands.slash_command(name='submit', description='Submits a record')
     async def submit_record(self, ctx,

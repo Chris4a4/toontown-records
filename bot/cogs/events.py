@@ -40,12 +40,11 @@ class Events(commands.Cog):
             except (ValueError, SyntaxError):
                 params[key] = value
 
-        await self.process_webhook(params)
+        if 'function' in params:
+            await self.process_webhook(params['function'], params)
 
     # Given a valid webhook, update necessary channels and create a message
-    async def process_webhook(self, params):
-        function_name = params['function']
-
+    async def process_webhook(self, function_name, params):
         async with TaskGroup() as tg:
             tg.create_task(self.send_update_message(params))
             tg.create_task(ChannelManagers.update_from_function(function_name))

@@ -13,8 +13,16 @@ def get_record_info(record_name):
     return requests.get(f'{Config.BASE_URL}/records/get_info/{record_name}').json()['data']
 
 
+def get_all_info():
+    return requests.get(f'{Config.BASE_URL}/records/get_all_info').json()['data']
+
+
 def get_all_records():
     return requests.get(f'{Config.BASE_URL}/records/get_all_records').json()['data']
+
+
+def get_user_placements(user_id):
+    return requests.get(f'{Config.BASE_URL}/records/get_user_placements/{user_id}').json()['data']
 
 
 def get_leaderboard(game):
@@ -62,6 +70,7 @@ def deny_submission(submission_id, audit_id):
 
 def get_pending_submissions():
     return requests.get(f'{Config.BASE_URL}/submissions/get_pending').json()['data']
+
 
 def get_submissions(user_id):
     return requests.get(f'{Config.BASE_URL}/submissions/get_submissions/{user_id}').json()['data']

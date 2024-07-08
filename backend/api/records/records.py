@@ -87,6 +87,8 @@ def counts_for_this(record_name):
 
 
 # Gets the N best approved submissions that match the record info given
+# Sort by record's scoring based on its tags, always remove inferior submissions with same exact user ids 
+# If N is not given, just get all of them in order
 def get_top_N(record, n):
     records_to_check = counts_for_this(record['record_name'])
     sorting = get_sorting(record['tags'])
@@ -113,11 +115,15 @@ def get_top_N(record, n):
         },
         {
             '$sort': sorting
-        },
-        {
-            '$limit': n
         }
     ]
+
+    if n is not None:
+        pipeline.append(
+            {
+                '$limit': n
+            }
+        )
 
     documents = Mongo_Config.submissions.aggregate(pipeline)
     to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
