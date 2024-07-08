@@ -52,7 +52,6 @@ class AutoChannel:
 
     # Takes in a list of (content, embed, view, file) pairs and populates the channel with them IN ORDER GIVEN
     async def apply(self, desired_contents):
-        print(f'Updating {self.category}-{self.channel}')
         iter = await self.get_iterator()
         
         for desired_content in desired_contents:
@@ -66,7 +65,7 @@ class AutoChannel:
                     print(f'Error occured while trying to edit message: {e}')
         
         await iter.aclose()
-        print(f'Finished updating {self.category}-{self.channel}')
+
         self.first_load = False
 
     # Gets a category by name, if it exists. Otherwise creates it
