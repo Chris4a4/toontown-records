@@ -3,6 +3,8 @@ from discord.ext import commands, tasks
 from singletons.channel_managers import ChannelManagers
 from singletons.user_manager import UserManager
 
+from asyncio import TaskGroup
+
 
 class ForceUpdate(commands.Cog):
     def __init__(self, bot):
@@ -15,8 +17,9 @@ class ForceUpdate(commands.Cog):
 
     @tasks.loop(minutes=30)
     async def force_update(self):
-        await ChannelManagers.force_update_all()
-        await UserManager.force_update_all()
+        async with TaskGroup() as tg:
+            tg.create_task(ChannelManagers.force_update_all())
+            tg.create_task(UserManager.force_update_all())
 
 
 def setup(bot):

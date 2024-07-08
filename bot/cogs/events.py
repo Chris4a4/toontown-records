@@ -6,6 +6,7 @@ from singletons.user_manager import UserManager
 from singletons.config import Config
 from embeds.submission_embed import submission_embed
 import discord
+from asyncio import TaskGroup
 
 
 class Events(commands.Cog):
@@ -45,12 +46,12 @@ class Events(commands.Cog):
     async def process_webhook(self, params):
         function_name = params['function']
 
-        print(f'Handling webhook: {function_name}')
-        await self.send_update_message(params)
-        await ChannelManagers.update_from_function(function_name)
+        async with TaskGroup() as tg:
+            tg.create_task(self.send_update_message(params))
+            tg.create_task(ChannelManagers.update_from_function(function_name))
 
-        if function_name == 'approve_namechange':
-            await UserManager.update_from_id(params['discord_id'])
+            if function_name == 'approve_namechange':
+                tg.create_task(UserManager.update_from_id(params['discord_id']))
     
     # Sends a message in the update channel informing the submitter that something has happened
     async def send_update_message(self, params):

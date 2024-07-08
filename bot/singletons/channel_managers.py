@@ -5,6 +5,8 @@ from channels.records_channel import RecordChannelManager
 from channels.submissions_channel import SubmissionsChannelManager
 from channels.user_action_channel import UserActionChannelManager
 
+from asyncio import TaskGroup
+
 
 class ChannelManagers:
     # Public channels
@@ -44,8 +46,9 @@ class ChannelManagers:
     async def force_update_all(cls):
         all_channels = cls.user_action_channel + cls.record_channels + cls.leaderboard_channels + cls.namechange_channel + cls.submission_channel + cls.log_channel
 
-        for channel_manager in all_channels:
-            await channel_manager.update()
+        async with TaskGroup() as tg:
+            for channel_manager in all_channels:
+                tg.create_task(channel_manager.update())
     
     @classmethod
     async def update_from_function(cls, function_name):
@@ -61,5 +64,6 @@ class ChannelManagers:
         }
         channels_to_update = update_schema[function_name] + cls.log_channel  # Always update the log channel
 
-        for channel_manager in channels_to_update:
-            await channel_manager.update()
+        async with TaskGroup() as tg:
+            for channel_manager in channels_to_update:
+                tg.create_task(channel_manager.update())
