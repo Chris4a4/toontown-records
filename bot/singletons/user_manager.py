@@ -1,12 +1,14 @@
 from misc.api_wrapper import get_username
 from singletons.config import Config
 import discord
+from asyncio import TaskGroup
 
 class UserManager():
     @classmethod
     async def force_update_all(cls):
-        for member in Config.GUILD.members:
-            await cls.update_one(member)
+        async with TaskGroup() as tg:
+            for member in Config.GUILD.members:
+                tg.create_task(cls.update_one(member))
     
     @classmethod
     async def update_one(cls, member):

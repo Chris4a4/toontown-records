@@ -3,6 +3,7 @@ import discord
 
 from singletons.config import Config
 from discord.errors import HTTPException
+from asyncio import TaskGroup
 
 
 # Compares message's content to the new content
@@ -53,17 +54,19 @@ class AutoChannel:
     # Takes in a list of (content, embed, view, file) pairs and populates the channel with them IN ORDER GIVEN
     async def apply(self, desired_contents):
         iter = await self.get_iterator()
-        
-        for desired_content in desired_contents:
-            content, embed, view, files = desired_content
-            message = await anext(iter)
 
-            if (self.first_load and view) or has_changed(message, content, embed, view, files):
-                try:
-                    await message.edit(content=content, embed=embed, view=view, attachments=[], files=files)
-                except HTTPException as e:
-                    print(f'Error occured while trying to edit message: {e}')
-        
+        async with TaskGroup() as tg:
+            for desired_content in desired_contents:
+                content, embed, view, files = desired_content
+                message = await anext(iter)
+
+                if (self.first_load and view) or has_changed(message, content, embed, view, files):
+                    try:
+                        tg.create_task(message.edit(content=content, embed=embed, view=view, attachments=[], files=files))
+                        #await message.edit(content=content, embed=embed, view=view, attachments=[], files=files)
+                    except HTTPException as e:
+                        print(f'Error occured while trying to edit message: {e}')
+
         await iter.aclose()
 
         self.first_load = False
