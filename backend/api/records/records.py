@@ -24,17 +24,19 @@ def score_required(tags):
 
 # Gets the pymongo sort for a record
 def get_sorting(tags):
-    # LOWEST SCORE, LOWEST TIME
+    # LOWEST SCORE, LOWEST TIME, LOWEST TIMESTAMP
     score_tags = {'min_rewards', 'golf'}
     if set(tags) & score_tags:
         return {
             'value_score': 1,
-            'value_time': 1
+            'value_time': 1,
+            'timestamp': 1
         }
 
-    # LOWEST TIME
+    # LOWEST TIME, LOWEST TIMESTAMP
     return {
-        'value_time': 1
+        'value_time': 1,
+        'timestamp': 1
     }
 
 
@@ -93,6 +95,20 @@ def get_top_N(record, n):
             '$match': {
                 'record_name': {'$in': records_to_check},
                 'status': 'APPROVED'
+            }
+        },
+        {
+            '$sort': sorting
+        },
+        {
+            '$group': {
+                '_id': '$user_ids',
+                'document': { '$first': '$$ROOT' }
+            }
+        },
+        {
+            '$replaceRoot': {
+                'newRoot': '$document'
             }
         },
         {
