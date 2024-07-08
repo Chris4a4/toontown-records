@@ -19,12 +19,13 @@ def all_submissions(user_id, avatar_url):
         record_name = s['record_name']
         record = get_record_info(record_name)
 
-        record_desc = f'{record_name} - [{value_string(s, record['tags'])}]({s['evidence']})'
-        
-        if s['status'] == 'PENDING':
-            pending_strings.append(record_desc)
-        elif s['status'] == 'APPROVED':
-            approved_strings.append(record_desc)
+        if record:
+            record_desc = f'{record_name} - [{value_string(s, record['tags'])}]({s['evidence']})'
+            
+            if s['status'] == 'PENDING':
+                pending_strings.append(record_desc)
+            elif s['status'] == 'APPROVED':
+                approved_strings.append(record_desc)
 
     embed.add_field(name='Approved Submissions', value='\n'.join(approved_strings), inline=False)
     embed.add_field(name='Pending Submissions', value='\n'.join(pending_strings), inline=False)
