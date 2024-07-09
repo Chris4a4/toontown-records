@@ -4,7 +4,7 @@ from misc.record_metadata import get_metadata, value_string
 from misc.api_wrapper import get_record_info, get_username
 
 
-def submission_embed(submission, mod=True):
+def submission_embed(submission, fields):
     record_name = submission['record_name']
     record_info = get_record_info(record_name)
 
@@ -36,13 +36,14 @@ def submission_embed(submission, mod=True):
         color=color
     )
 
-    if mod:
+    if fields == 'pending' or fields == 'logs':
         # Raw data
         raw_data = []
         for key, value in submission.items():
             raw_data.append(f'{key}: {value}')
         embed.add_field(name='Raw Data:', value=f'```{'\n'.join(raw_data)}```', inline=False)
 
+    if fields == 'logs':
         # Approve/deny/edit
         embed.add_field(name='Approve:', value=f'```/submissions approve sid:{str(submission['_id'])}```', inline=False)
         embed.add_field(name='Deny:', value=f'```/submissions deny sid:{str(submission['_id'])}```', inline=False)

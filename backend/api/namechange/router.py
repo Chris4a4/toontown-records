@@ -36,7 +36,10 @@ def create_user(discord_id: int):
 @namechange_router.get('/api/namechange/approve/{namechange_id}', tags=['Logged'])
 async def approve_namechange(namechange_id: str, audit_id: int):
     try:
-        namechange_query = {'_id': ObjectId(namechange_id)}
+        namechange_query = {
+            '_id': ObjectId(namechange_id),
+            'status': 'PENDING'
+        }
     except InvalidId:
         return {
             'success': False,
@@ -47,7 +50,7 @@ async def approve_namechange(namechange_id: str, audit_id: int):
     if not namechange:
         return {
             'success': False,
-            'message': 'Could not find a namechange with that ID'
+            'message': 'Could not find a pending namechange with that ID'
         }
 
     old_name = namechange['current_username']
@@ -75,7 +78,10 @@ async def approve_namechange(namechange_id: str, audit_id: int):
 @namechange_router.get('/api/namechange/deny/{namechange_id}', tags=['Logged'])
 async def deny_namechange(namechange_id: str, audit_id: int):
     try:
-        namechange_query = {'_id': ObjectId(namechange_id)}
+        namechange_query = {
+            '_id': ObjectId(namechange_id),
+            'status': 'PENDING'
+        }
     except InvalidId:
         return {
             'success': False,
@@ -86,7 +92,7 @@ async def deny_namechange(namechange_id: str, audit_id: int):
     if not namechange:
         return {
             'success': False,
-            'message': 'Could not find a namechange with that ID'
+            'message': 'Could not find a pending namechange with that ID'
         }
 
     update = {'$set': {'status': 'DENIED'}}

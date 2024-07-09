@@ -288,7 +288,10 @@ async def edit_submission(submission_id: str, data: EditSubmission, audit_id: in
 @submissions_router.get('/api/submissions/approve/{submission_id}', tags=['Logged'])
 async def approve_submission(submission_id: str, audit_id: int):
     try:
-        query = {'_id': ObjectId(submission_id)}
+        query = {
+            '_id': ObjectId(submission_id),
+            'status': {'$in': ['PENDING', 'APPROVED']}
+        }
     except InvalidId:
         return {
             'success': False,
@@ -299,7 +302,7 @@ async def approve_submission(submission_id: str, audit_id: int):
     if not submission:
         return {
             'success': False,
-            'message': 'Could not find a submission with that ID'
+            'message': 'Could not find a pending or denied submission with that ID'
         }
 
     update = {'$set': {'status': 'APPROVED'}}
@@ -316,7 +319,10 @@ async def approve_submission(submission_id: str, audit_id: int):
 @submissions_router.get('/api/submissions/deny/{submission_id}', tags=['Logged'])
 async def deny_submission(submission_id: str, audit_id: int):
     try:
-        query = {'_id': ObjectId(submission_id)}
+        query = {
+            '_id': ObjectId(submission_id),
+            'status': {'$in': ['PENDING', 'APPROVED']}
+        }
     except InvalidId:
         return {
             'success': False,
@@ -327,7 +333,7 @@ async def deny_submission(submission_id: str, audit_id: int):
     if not submission:
         return {
             'success': False,
-            'message': 'Could not find a submission with that ID'
+            'message': 'Could not find a pending or approved submission with that ID'
         }
 
     update = {'$set': {'status': 'DENIED'}}

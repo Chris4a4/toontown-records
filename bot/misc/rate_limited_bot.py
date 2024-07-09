@@ -12,10 +12,12 @@ class RateLimitedBot(commands.Bot):
         return await self.edit_limiter(message, **kwargs)
 
 class MessageEditLimiter:
-    def __init__(self, bot, interval=Config.RATE_LIMIT_INTERVAL):
+    def __init__(self, bot):
         self.bot = bot
-        self.interval = interval
+        self.same_message_interval = Config.RATE_LIMIT_MESSAGE
+        self.global_interval = Config.RATE_LIMIT_GLOBAL
         self.locks = {}
+        self.global_lock = asyncio.Lock()
 
     # Only allow one edit on each message at a time + enforce a CD afterwards
     # Ideally would only process the most recent edit if multiple came in during CD, but that's so much extra complexity for no practical gain
@@ -24,5 +26,7 @@ class MessageEditLimiter:
             self.locks[message.id] = asyncio.Lock()
 
         async with self.locks[message.id]:
-            await message.edit(**kwargs)
-            await asyncio.sleep(self.interval)
+            async with self.global_lock:
+                await message.edit(**kwargs)
+                await asyncio.sleep(self.global_interval)
+            await asyncio.sleep(self.same_message_interval)

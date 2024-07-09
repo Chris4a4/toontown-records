@@ -70,7 +70,7 @@ class Events(commands.Cog):
         elif function == 'approve_submission':
             user_id = params['submitter_id']
             message = f'<@{user_id}> your record was approved!'
-            embed = submission_embed(params, mod=False)
+            embed = submission_embed(params, 'notifications')
 
         elif function == 'deny_submission':
             user_id = params['submitter_id']

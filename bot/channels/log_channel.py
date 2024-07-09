@@ -3,6 +3,8 @@ from embeds.submission_embed import submission_embed
 from misc.auto_channel import AutoChannel
 from misc.api_wrapper import get_logs
 
+LAST_N = 20
+
 class LogChannelManager:
     def __init__(self, bot, category, channel):
         self.bot = bot
@@ -14,7 +16,7 @@ class LogChannelManager:
             if log['type'] == 'namechange':
                 embed = namechange_embed(log['document'])
             else:
-                embed = submission_embed(log['document'])
+                embed = submission_embed(log['document'], 'logs')
             
             modification_msg = history_to_string(log['modifications'])
 
@@ -26,7 +28,7 @@ class LogChannelManager:
 def history_to_string(modifications):
     content = []
 
-    for modification in modifications:
+    for modification in modifications[-LAST_N:]:
         content.append(f'<@{modification['audit_id']}> used ``{modification['operation']}`` <t:{modification['timestamp']}:R>')
 
         if modification['operation'] == 'edit_record':

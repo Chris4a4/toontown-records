@@ -12,7 +12,8 @@ class Config:
     TTCC_COLOR = 0
     OVERALL_ICON = ''
     OVERALL_COLOR = 0
-    RATE_LIMIT_INTERVAL = 0
+    RATE_LIMIT_MESSAGE = 0
+    RATE_LIMIT_GLOBAL = 0
 
     SUBMIT_CHANNEL_ID = 0
     WELCOME_CHANNEL_ID = 0
@@ -44,7 +45,8 @@ class Config:
             cls.TTCC_COLOR = data['TTCC_COLOR']
             cls.OVERALL_ICON = data['OVERALL_ICON']
             cls.OVERALL_COLOR = data['OVERALL_COLOR']
-            cls.RATE_LIMIT_INTERVAL = data['RATE_LIMIT_INTERVAL']
+            cls.RATE_LIMIT_MESSAGE = data['RATE_LIMIT_MESSAGE']
+            cls.RATE_LIMIT_GLOBAL = data['RATE_LIMIT_GLOBAL']
     
     @classmethod
     def private_config(cls, filepath):

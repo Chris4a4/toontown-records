@@ -11,7 +11,7 @@ class SubmissionsChannelManager:
     async def update(self):
         result = []
         for submission in get_pending_submissions():
-            embed = submission_embed(submission)
+            embed = submission_embed(submission, 'pending')
             result.append(('', embed, SubmmissionView(submission['record_name'], str(submission['_id'])), []))
         
         await self.auto_channel.apply(result)
@@ -36,3 +36,7 @@ class SubmmissionView(discord.ui.View):
 
         await self.message.delete()
         await interaction.response.send_message(result, ephemeral=True)
+    
+    @discord.ui.button(label='Edit', style=discord.ButtonStyle.blurple)
+    async def edit_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
+        await interaction.response.send_message(f'```/submissions edit sid:{self.submission_id} field: value:```', ephemeral=True)

@@ -2,7 +2,6 @@ import re
 import discord
 
 from singletons.config import Config
-from discord.errors import HTTPException
 from asyncio import TaskGroup
 
 
