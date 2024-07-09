@@ -290,7 +290,7 @@ async def approve_submission(submission_id: str, audit_id: int):
     try:
         query = {
             '_id': ObjectId(submission_id),
-            'status': {'$in': ['PENDING', 'APPROVED']}
+            'status': {'$in': ['PENDING', 'DENIED']}
         }
     except InvalidId:
         return {

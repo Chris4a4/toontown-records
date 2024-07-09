@@ -3,8 +3,6 @@ from embeds.submission_embed import submission_embed
 from misc.auto_channel import AutoChannel
 from misc.api_wrapper import get_logs
 
-LAST_N = 20
-
 class LogChannelManager:
     def __init__(self, bot, category, channel):
         self.bot = bot
@@ -28,14 +26,20 @@ class LogChannelManager:
 def history_to_string(modifications):
     content = []
 
-    for modification in modifications[-LAST_N:]:
-        content.append(f'<@{modification['audit_id']}> used ``{modification['operation']}`` <t:{modification['timestamp']}:R>')
+    for modification in modifications[::-1]:
+        new_string = f'<@{modification['audit_id']}> used ``{modification['operation']}`` <t:{modification['timestamp']}:R>'
 
         if modification['operation'] == 'edit_record':
             edit_fields = []
             for key, value in modification['additional_info'].items():
                 edit_fields.append(f'{key}: {value}')
 
-            content.append(f'```{'\n'.join(edit_fields)}```')
+            new_string += f'\n```{'\n'.join(edit_fields)}```'
+        
+        # Check that adding the next edit history item won't make the message too long
+        if len('\n'.join(content)) + len(new_string) < 1900:
+            content.insert(0, new_string)
+        else:
+            break
     
     return '\n'.join(content)
