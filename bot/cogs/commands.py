@@ -31,19 +31,18 @@ class Commands(commands.Cog):
     async def personal_bests(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
-        p = []
+        pb_pages = []
         for mgr in ChannelManagers.record_channels:
             result = personal_bests(member.id, mgr.tags, avatar)
 
             if result:
-                p.append(result)
+                pb_pages.append(result)
 
-        if p == []:
-            await ctx.respond('User has no approved submissions!', ephemeral=True)
-        else:
-            paginator = pages.Paginator(pages=p)
+        if pb_pages:
+            paginator = pages.Paginator(pages=pb_pages)
             await paginator.respond(ctx.interaction, ephemeral=True)
-
+        else:
+            await ctx.respond('User has no approved submissions!', ephemeral=True)
 
     # DEBUG COMMAND, commented out during normal use
     # Assumes 3 digit max score, H:MM:SS.mmm max time
@@ -72,7 +71,6 @@ class Commands(commands.Cog):
             content.append(f'{embed_name}: {max_chars}')
 
         await ctx.respond('\n'.join(content), ephemeral=True)
-
 
     # Submit
     @commands.slash_command(name='submit', description='Submits a record')

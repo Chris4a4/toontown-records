@@ -22,9 +22,6 @@ def personal_bests(user_id, tags, avatar_url):
     embed.set_thumbnail(url=avatar_url)
 
     for group_name, records in group_records(matching_placements).items():
-        if group_name.endswith(' Records'):
-            group_name = group_name[:-8]
-
         descriptions = []
         for record in records:
             s = record['best']

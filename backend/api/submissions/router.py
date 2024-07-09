@@ -353,25 +353,3 @@ async def get_pending_submissions():
         'message': 'Got all pending submissions',
         'data': to_json
     }
-
-
-@submissions_router.get('/api/submissions/get_submissions/{user_id}', tags=['Unlogged'])
-async def get_submissions(user_id: int):
-    query = {'user_ids': user_id}
-
-    documents = Mongo_Config.submissions.find(query)
-    if not documents:
-        return {
-            'success': False,
-            'message': 'User not found',
-            'data': []
-        }
-
-    to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
-
-    return {
-        'success': True,
-        'message': 'Got all submissions featuring user',
-        'data': to_json
-    }
-
