@@ -3,10 +3,13 @@ from discord.utils import basic_autocomplete
 from discord import Option, SlashCommandGroup, AutocompleteContext, Member
 from singletons.channel_managers import ChannelManagers
 from singletons.config import Config
+from datetime import datetime
+import math
 
 from discord.ext import pages
 from embeds.personal_bests_embed import personal_bests
-from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info
+from embeds.submission_history_embed import submission_history
+from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info, get_submissions, get_username
 from misc.record_metadata import group_records, value_string
 
 
@@ -26,7 +29,55 @@ class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # Get a user's submissions
+
+    # Get all of a user's submissions, ordered by date
+    @commands.user_command(name='View all submissions', description='Shows this users approved submissions')
+    async def all_submissions(self, ctx, member: Member):
+        MAX_PAGE = 50
+
+        avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
+        submissions = get_submissions(member.id)
+        username = get_username(member.id)
+        
+        # Group submissions by year
+        submissions_by_year = {}
+        for submission in submissions:
+            year = datetime.fromtimestamp(submission['timestamp']).year
+
+            if year in submissions_by_year:
+                submissions_by_year[year].append(submission)
+            else:
+                submissions_by_year[year] = [submission]
+
+        # Divide up any years with more than MAX_PAGE submissions
+        submissions_divided = {}
+        for year, submissions in submissions_by_year.items():
+            num_pages = math.ceil(len(submissions) / MAX_PAGE)
+
+            if num_pages == 1:
+                submissions_divided[str(year)] = submissions
+                continue
+            
+            for page_num in range(0, num_pages):
+                year_text = f'{year} (Part {page_num + 1})'
+                index_from = page_num * MAX_PAGE
+                index_to = (page_num + 1) * MAX_PAGE
+
+                submissions_divided[year_text] = submissions[index_from:index_to]
+
+        # Create pages
+        submission_pages = []
+        for year, submissions in submissions_divided.items():
+            submission_pages.append(submission_history(year, submissions, username, avatar))
+
+        if submission_pages:
+            paginator = pages.Paginator(pages=submission_pages)
+            await paginator.respond(ctx.interaction, ephemeral=True)
+        else:
+            await ctx.respond('User has no approved submissions!', ephemeral=True)
+
+
+    # Get a user's best submissions, organized by record
     @commands.user_command(name='View personal bests', description='Shows this users personal bests')
     async def personal_bests(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL

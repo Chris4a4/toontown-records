@@ -85,6 +85,10 @@ def get_all_users():
     return requests.get(f'{Config.BASE_URL}/accounts/get_all_users').json()['data']
 
 
+def get_submissions(user_id):
+    return requests.get(f'{Config.BASE_URL}/submissions/get_submissions/{user_id}').json()['data']
+
+
 ########## NAMECHANGES ##########
 def approve_namechange(namechange_id, audit_id):
     if re.search(VALID_ID, namechange_id):
