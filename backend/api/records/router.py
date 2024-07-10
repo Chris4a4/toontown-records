@@ -76,7 +76,8 @@ async def get_user_placements(user_id: int):
 
 @records_router.get('/api/records/get_leaderboard/{game_id}', tags=['Unlogged'])
 async def get_leaderboard(game_id):
-    FIRST_PLACE_BONUS_POINTS = 1
+    TOP1_BONUS_POINTS = 1
+    TOP2_BONUS_POINTS = 1
 
     include_ttr = game_id == 'ttr' or game_id == 'overall'
     include_ttcc = game_id == 'ttcc' or game_id == 'overall'
@@ -101,8 +102,18 @@ async def get_leaderboard(game_id):
 
         users = best['user_ids']
         for user in set(users):
-            leaderboard.update({user: FIRST_PLACE_BONUS_POINTS})
+            leaderboard.update({user: TOP1_BONUS_POINTS})
         
+        # Top 2 bonus points
+        top2 = get_top_N(record, 2)
+
+        top2_users = []
+        for submission in top2:
+            top2_users.extend(submission['user_ids'])
+
+        for user in set(top2_users):
+            leaderboard.update({user: TOP2_BONUS_POINTS})
+
         # Top 3 get points
         top3 = get_top_N(record, 3)
 
