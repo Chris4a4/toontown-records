@@ -1,15 +1,13 @@
 from discord.ext import commands
 from discord.utils import basic_autocomplete
 from discord import Option, SlashCommandGroup, AutocompleteContext, Member
-from singletons.channel_managers import ChannelManagers
 from singletons.config import Config
-from datetime import datetime
-import math
 
-from discord.ext import pages
-from embeds.personal_bests_embed import personal_bests
-from embeds.submission_history_embed import submission_history
-from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info, get_approved_submissions, get_username
+from paginators.personal_leaderboard import personal_leaderboard_paginator
+from paginators.personal_bests import personal_bests_paginator, active_records_paginator
+from paginators.all_submissions import all_submissions_paginator
+
+from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info
 from misc.record_metadata import group_records, value_string
 
 
@@ -33,45 +31,11 @@ class Commands(commands.Cog):
     # Get all of a user's submissions, ordered by date
     @commands.user_command(name='View all submissions', description='Shows this users approved submissions')
     async def all_submissions(self, ctx, member: Member):
-        MAX_PAGE = 30
-
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
-        submissions = get_approved_submissions(member.id)
-        username = get_username(member.id)
-        
-        # Group submissions by year
-        submissions_by_year = {}
-        for submission in submissions:
-            year = datetime.fromtimestamp(submission['timestamp']).year
 
-            if year in submissions_by_year:
-                submissions_by_year[year].append(submission)
-            else:
-                submissions_by_year[year] = [submission]
+        paginator = all_submissions_paginator(member.id, avatar)
 
-        # Divide up any years with more than MAX_PAGE submissions
-        submissions_divided = {}
-        for year, submissions in submissions_by_year.items():
-            num_pages = math.ceil(len(submissions) / MAX_PAGE)
-
-            if num_pages == 1:
-                submissions_divided[str(year)] = submissions
-                continue
-            
-            for page_num in range(0, num_pages):
-                year_text = f'{year} (Part {page_num + 1})'
-                index_from = page_num * MAX_PAGE
-                index_to = (page_num + 1) * MAX_PAGE
-
-                submissions_divided[year_text] = submissions[index_from:index_to]
-
-        # Create pages
-        submission_pages = []
-        for year, submissions in submissions_divided.items():
-            submission_pages.append(submission_history(year, submissions, username, avatar))
-
-        if submission_pages:
-            paginator = pages.Paginator(pages=submission_pages)
+        if paginator:
             await paginator.respond(ctx.interaction, ephemeral=True)
         else:
             await ctx.respond('User has no approved submissions!', ephemeral=True)
@@ -82,15 +46,9 @@ class Commands(commands.Cog):
     async def pbs(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
-        pb_pages = []
-        for mgr in ChannelManagers.record_channels:
-            result = personal_bests(member.id, mgr.tags, avatar)
+        paginator = active_records_paginator(member.id, avatar)
 
-            if result:
-                pb_pages.append(result)
-
-        if pb_pages:
-            paginator = pages.Paginator(pages=pb_pages)
+        if paginator:
             await paginator.respond(ctx.interaction, ephemeral=True)
         else:
             await ctx.respond('User has no approved submissions!', ephemeral=True)
@@ -100,18 +58,24 @@ class Commands(commands.Cog):
     async def active_records(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
-        pb_pages = []
-        for mgr in ChannelManagers.record_channels:
-            result = personal_bests(member.id, mgr.tags, avatar, records_only=True)
+        paginator = personal_bests_paginator(member.id, avatar)
 
-            if result:
-                pb_pages.append(result)
-
-        if pb_pages:
-            paginator = pages.Paginator(pages=pb_pages)
+        if paginator:
             await paginator.respond(ctx.interaction, ephemeral=True)
         else:
             await ctx.respond('User has no approved submissions!', ephemeral=True)
+
+
+    # Get a user's leaderboard positions
+    @commands.user_command(name='View leaderboard positions', description='Shows this users leaderboard positions')
+    async def leaderboard_positions(self, ctx, member: Member):
+        paginator = personal_leaderboard_paginator(member.id)
+
+        if paginator:
+            await paginator.respond(ctx.interaction, ephemeral=True)
+        else:
+            await ctx.respond('User does not appear on any leaderboards!', ephemeral=True)
+
 
     # DEBUG COMMAND, commented out during normal use
     # Assumes 3 digit max score, H:MM:SS.mmm max time

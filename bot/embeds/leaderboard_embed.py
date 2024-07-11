@@ -5,7 +5,7 @@ import discord
 from misc.api_wrapper import get_leaderboard, get_username
 from singletons.config import Config
 
-def leaderboard_embed(game):
+def leaderboard_embed(game, highlight_user_id=None):
     game_data = {
         'ttr': {
             'name': 'Toontown Rewritten',
@@ -43,17 +43,25 @@ def leaderboard_embed(game):
         embed.description = f'This category has {num_records} available records and {num_users} scoring users'
 
     # Populate placement list
+    found_highlighted_user = False
     leaderboard_string = ''
     for i, user in enumerate(leaderboard[:Config.LEADERBOARD_TOP_N]):
         user_id, points = user['user_id'], user['points']
 
         username = get_username(user_id)
 
-        leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
+        if highlight_user_id == user_id:
+            leaderboard_string += f'--> __**{i + 1}.** {username} - {points} points__ <--\n'
+            found_highlighted_user = True
+        else:
+            leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
     
     if not leaderboard_string:
         leaderboard_string = 'Coming soon...'
 
     embed.add_field(name=f'Top {Config.LEADERBOARD_TOP_N} users:', value=leaderboard_string, inline=False)
+
+    if highlight_user_id and not found_highlighted_user:
+        return None
 
     return embed

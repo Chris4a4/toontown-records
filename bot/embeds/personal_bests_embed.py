@@ -2,7 +2,7 @@ import discord
 from misc.api_wrapper import get_username, get_user_placements
 from misc.record_metadata import value_string, group_records
 
-def personal_bests(user_id, tags, avatar_url, records_only=False):
+def personal_bests_embed(user_id, tags, avatar_url, records_only=False):
     username = get_username(user_id)
     user_placements = get_user_placements(user_id)
 

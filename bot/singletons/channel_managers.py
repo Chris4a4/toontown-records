@@ -5,6 +5,8 @@ from channels.records_channel import RecordChannelManager
 from channels.submissions_channel import SubmissionsChannelManager
 from channels.user_action_channel import UserActionChannelManager
 
+from singletons.config import Config
+
 from asyncio import TaskGroup
 
 
@@ -24,13 +26,9 @@ class ChannelManagers:
     def initialize(cls, bot):
         # Public channels
         cls.user_action_channel = [UserActionChannelManager(bot, 'submissions and requests', 'user-guide')]
-        cls.record_channels = [
-            RecordChannelManager(bot, 'ttr', 'vp'),
-            RecordChannelManager(bot, 'ttr', 'cfo'),
-            RecordChannelManager(bot, 'ttr', 'cj'),
-            RecordChannelManager(bot, 'ttr', 'ceo'),
-            RecordChannelManager(bot, 'ttr', 'activities')
-        ]
+
+        cls.record_channels = [RecordChannelManager(bot, *info) for info in Config.RECORD_CHANNELS]
+
         cls.leaderboard_channels = [
             LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
             LeaderboardChannelManager(bot, 'leaderboards', 'ttcc'),

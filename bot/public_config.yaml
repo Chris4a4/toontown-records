@@ -9,3 +9,4 @@ OVERALL_ICON: https://i.imgur.com/kEFU1YQ.png
 OVERALL_COLOR: 16776960
 RATE_LIMIT_MESSAGE: 10
 RATE_LIMIT_GLOBAL: 0.5
+RECORD_CHANNELS: [['ttr', 'vp'], ['ttr', 'cfo'], ['ttr', 'cj'], ['ttr', 'ceo'], ['ttr', 'activities']]

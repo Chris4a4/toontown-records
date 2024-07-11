@@ -3,6 +3,10 @@ import discord
 from misc.api_wrapper import request_namechange
 from singletons.config import Config
 
+from paginators.personal_leaderboard import personal_leaderboard_paginator
+from paginators.personal_bests import personal_bests_paginator, active_records_paginator
+from paginators.all_submissions import all_submissions_paginator
+
 class UserActionChannelManager:
     def __init__(self, bot, category, channel):
         self.bot = bot
@@ -21,6 +25,48 @@ class UserActionView(discord.ui.View):
     async def change_username_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
         modal = UsernameModal(title='Enter Display Name')
         await interaction.response.send_modal(modal)
+
+    @discord.ui.button(label='View All Submissions', style=discord.ButtonStyle.blurple)
+    async def submissions_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
+        avatar = interaction.user.avatar.url if interaction.user.avatar else Config.UNKNOWN_THUMBNAIL
+
+        paginator = all_submissions_paginator(interaction.user.id, avatar)
+
+        if paginator:
+            await paginator.respond(interaction, ephemeral=True)
+        else:
+            await interaction.response.send_message('User has no approved submissions!', ephemeral=True)
+
+    @discord.ui.button(label='View Active Records', style=discord.ButtonStyle.blurple)
+    async def records_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
+        avatar = interaction.user.avatar.url if interaction.user.avatar else Config.UNKNOWN_THUMBNAIL
+
+        paginator = active_records_paginator(interaction.user.id, avatar)
+
+        if paginator:
+            await paginator.respond(interaction, ephemeral=True)
+        else:
+            await interaction.response.send_message('User has no approved submissions!', ephemeral=True)
+
+    @discord.ui.button(label='View Leaderboard Positions', style=discord.ButtonStyle.blurple)
+    async def leaderboards_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
+        paginator = personal_leaderboard_paginator(interaction.user.id)
+
+        if paginator:
+            await paginator.respond(interaction, ephemeral=True)
+        else:
+            await interaction.response.send_message('User does not appear on any leaderboards!', ephemeral=True)
+
+    @discord.ui.button(label='View Personal Bests', style=discord.ButtonStyle.blurple)
+    async def pbs_callback(self, button: discord.ui.Button, interaction: discord.Interaction):
+        avatar = interaction.user.avatar.url if interaction.user.avatar else Config.UNKNOWN_THUMBNAIL
+
+        paginator = personal_bests_paginator(interaction.user.id, avatar)
+
+        if paginator:
+            await paginator.respond(interaction, ephemeral=True)
+        else:
+            await interaction.response.send_message('User has no approved submissions!', ephemeral=True)
 
 class UsernameModal(discord.ui.Modal):
     def __init__(self, *args, **kwargs):

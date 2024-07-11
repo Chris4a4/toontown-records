@@ -47,6 +47,7 @@ class Config:
             cls.OVERALL_COLOR = data['OVERALL_COLOR']
             cls.RATE_LIMIT_MESSAGE = data['RATE_LIMIT_MESSAGE']
             cls.RATE_LIMIT_GLOBAL = data['RATE_LIMIT_GLOBAL']
+            cls.RECORD_CHANNELS = data['RECORD_CHANNELS']
     
     @classmethod
     def private_config(cls, filepath):

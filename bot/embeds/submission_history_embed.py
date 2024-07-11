@@ -4,7 +4,7 @@ from misc.api_wrapper import get_record_info
 from datetime import datetime
 import math
 
-def submission_history(year_string, submissions, username, avatar_url):
+def submission_history_embed(year_string, submissions, username, avatar_url):
     embed = discord.Embed(
         title=f'Submission history for {username}',
         description=f'Submissions in {year_string}',
