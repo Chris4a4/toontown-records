@@ -41,6 +41,9 @@ ttr:
 
   activities:
     golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [55, 181, 27]]
-    racing: ['Racing Records', 'https://i.imgur.com/Lt7hLOZ.png', 16711680, [207, 43, 31]]
+    racing:
+      speedway: ['Speedway Racing Records', 'https://i.imgur.com/jAseWEX.png', 12565676, [207, 43, 31]]
+      rural: ['Rural Racing Records', 'https://i.imgur.com/phLIlbA.png', 5392935, [207, 43, 31]]
+      urban: ['Urban Racing Records', 'https://i.imgur.com/wETlTLQ.png', 14925342, [207, 43, 31]]
 
 ~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, [200, 205, 212]]

@@ -79,10 +79,10 @@ class Commands(commands.Cog):
 
     # DEBUG COMMAND
     # Assumes 3 digit max score, H:MM:SS.mmm max time
-    #@commands.slash_command(name='embed', description='Checks the max characters of all record embeds')
+    @commands.slash_command(name='embed', description='Checks the max characters of all record embeds')
     async def embed_max_chars(self, ctx):
         MAX_USERNAME = 20
-        MAX_EVIDENCE = 100
+        MAX_EVIDENCE = 60
 
         big_submission = {
             'value_score': 100,
@@ -105,7 +105,7 @@ class Commands(commands.Cog):
             content.append(f'PBS {title_name}: {max_chars}')
 
         # Submission embed
-        per_field = 5 * (len('Fewest Rewards Used in a CFO Solo - (1 reward, 2:03:34.340)[]') + MAX_EVIDENCE)
+        per_field = 5 * (len('Fewest Rewards Used in a CFO Solo - (124 rewards, 2:03:34.340)[]') + MAX_EVIDENCE)
         per_field += 4  # newlines
         content.append(f'Submission history field: {per_field}')
         overall = 12 * len('September (Part 1)')

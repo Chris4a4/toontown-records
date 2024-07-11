@@ -45,10 +45,10 @@ def to_ms(value_string):
 def validate_submission(submission, username_to_id):
     # Check evidence
     evidence = submission['evidence']
-    if len(evidence) > 100:
+    if len(evidence) > 60:
         return {
             'success': False,
-            'message': 'Evidence must be 100 characters or less'
+            'message': "Evidence must be 60 characters or less. Make sure you're not accidently sending a playlist link"
         }
 
     if not evidence.startswith('https://'):
