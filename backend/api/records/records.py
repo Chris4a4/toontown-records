@@ -1,7 +1,3 @@
-from api.database.helper import MongoJSONEncoder
-from api.config.mongo_config import Mongo_Config
-from json import dumps, loads
-
 from itertools import product
 from functools import cache
 from os import path
@@ -84,51 +80,6 @@ def counts_for_this(record_name):
                 break
 
     return results
-
-
-# Gets the N best approved submissions that match the record info given
-# Sort by record's scoring based on its tags, always remove inferior submissions with same exact user ids 
-# If N is not given, just get all of them in order
-def get_top_N(record, n):
-    records_to_check = counts_for_this(record['record_name'])
-    sorting = get_sorting(record['tags'])
-    pipeline = [
-        {
-            '$match': {
-                'record_name': {'$in': records_to_check},
-                'status': 'APPROVED'
-            }
-        },
-        {
-            '$sort': sorting
-        },
-        {
-            '$group': {
-                '_id': '$user_ids',
-                'document': { '$first': '$$ROOT' }
-            }
-        },
-        {
-            '$replaceRoot': {
-                'newRoot': '$document'
-            }
-        },
-        {
-            '$sort': sorting
-        }
-    ]
-
-    if n is not None:
-        pipeline.append(
-            {
-                '$limit': n
-            }
-        )
-
-    documents = Mongo_Config.submissions.aggregate(pipeline)
-    to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
-
-    return to_json
 
 
 # Recursive function to flatten out the nested dictionary format in records.yaml

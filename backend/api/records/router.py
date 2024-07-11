@@ -1,5 +1,5 @@
-from collections import Counter
-from .records import lookup_all_record_info, lookup_record_info, get_top_N
+from api.leaderboards.router import get_top_N
+from .records import lookup_all_record_info, lookup_record_info
 from fastapi import APIRouter
 from copy import deepcopy
 
@@ -42,101 +42,10 @@ async def get_all_record_info():
 async def get_all_records():
     records = deepcopy(lookup_all_record_info())
     for record in records:
-        record['top3'] = get_top_N(record, 3)
+        record['top3'] = get_top_N(record['record_name'], 3)
 
     return {
         'success': True,
         'message': 'Got all record data',
         'data': records
-    }
-
-
-# Gets the user's best placements
-@records_router.get('/api/records/get_user_placements/{user_id}', tags=['Unlogged'])
-async def get_user_placements(user_id: int):
-    result = []
-    for record in lookup_all_record_info():
-        all_placements = get_top_N(record, None)
-
-        for i, placement in enumerate(all_placements):
-            if user_id in placement['user_ids']:
-                record_copy = deepcopy(record)
-
-                record_copy['best'] = placement
-                record_copy['placement'] = i + 1
-                result.append(record_copy)
-                break
-
-    return {
-        'success': True,
-        'message': 'Got users best placements',
-        'data': result
-    }
-
-
-@records_router.get('/api/records/get_leaderboard/{game_id}', tags=['Unlogged'])
-async def get_leaderboard(game_id):
-    TOP1_BONUS_POINTS = 1
-    TOP2_BONUS_POINTS = 1
-
-    include_ttr = game_id == 'ttr' or game_id == 'overall'
-    include_ttcc = game_id == 'ttcc' or game_id == 'overall'
-
-    leaderboard = Counter()
-    num_records = 0
-
-    # Accumulate points for each record defined in records.yaml
-    for record in lookup_all_record_info():
-        points, tags = record['points'], record['tags']
-
-        including_game = ('ttr' in tags and include_ttr) or ('ttcc' in tags and include_ttcc)
-        if not including_game:
-            continue
-        num_records += 1
-
-        # First place bonus points
-        best = get_top_N(record, 1)
-        if not best:
-            continue
-        best = best[0]
-
-        users = best['user_ids']
-        for user in set(users):
-            leaderboard.update({user: TOP1_BONUS_POINTS})
-        
-        # Top 2 bonus points
-        top2 = get_top_N(record, 2)
-
-        top2_users = []
-        for submission in top2:
-            top2_users.extend(submission['user_ids'])
-
-        for user in set(top2_users):
-            leaderboard.update({user: TOP2_BONUS_POINTS})
-
-        # Top 3 get points
-        top3 = get_top_N(record, 3)
-
-        top3_users = []
-        for submission in top3:
-            top3_users.extend(submission['user_ids'])
-
-        for user in set(top3_users):
-            leaderboard.update({user: points})
-    
-    # Sort and tally results
-    result = {
-        'num_records': num_records,
-        'leaderboard': []
-    }
-    for user_id, user_points in leaderboard.most_common():
-        result['leaderboard'].append({
-            'user_id': user_id,
-            'points': user_points
-        })
-
-    return {
-        'success': True,
-        'message': 'Populated leaderboard',
-        'data': result
     }

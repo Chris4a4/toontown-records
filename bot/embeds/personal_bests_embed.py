@@ -2,13 +2,15 @@ import discord
 from misc.api_wrapper import get_username, get_user_placements
 from misc.record_metadata import value_string, group_records
 
-def personal_bests(user_id, tags, avatar_url):
+def personal_bests(user_id, tags, avatar_url, records_only=False):
     username = get_username(user_id)
     user_placements = get_user_placements(user_id)
 
     matching_placements = []
     for placement in user_placements:
         if set(placement['tags']) == set(tags) | set(placement['tags']):
+            if records_only and placement['placement'] > 3:
+                continue
             matching_placements.append(placement)
 
     # Return None if the user has no records with these tags

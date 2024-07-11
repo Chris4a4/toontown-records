@@ -1,5 +1,6 @@
 from discord.ext import commands, tasks
 
+from misc.api_wrapper import update_database
 from singletons.channel_managers import ChannelManagers
 from singletons.user_manager import UserManager
 
@@ -15,8 +16,10 @@ class ForceUpdate(commands.Cog):
     def cog_unload(self):
         self.force_update.cancel()
 
-    @tasks.loop(minutes=30)
+    @tasks.loop(hours=4)
     async def force_update(self):
+        update_database()
+
         async with TaskGroup() as tg:
             tg.create_task(ChannelManagers.force_update_all())
             tg.create_task(UserManager.force_update_all())

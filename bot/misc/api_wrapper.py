@@ -21,14 +21,6 @@ def get_all_records():
     return requests.get(f'{Config.BASE_URL}/records/get_all_records').json()['data']
 
 
-def get_user_placements(user_id):
-    return requests.get(f'{Config.BASE_URL}/records/get_user_placements/{user_id}').json()['data']
-
-
-def get_leaderboard(game):
-    return requests.get(f'{Config.BASE_URL}/records/get_leaderboard/{game}').json()['data']
-
-
 ########## SUBMISSIONS ##########
 def submit(submission_data, audit_id):
     params = {
@@ -72,8 +64,8 @@ def get_pending_submissions():
     return requests.get(f'{Config.BASE_URL}/submissions/get_pending').json()['data']
 
 
-def get_submissions(user_id):
-    return requests.get(f'{Config.BASE_URL}/submissions/get_submissions/{user_id}').json()['data']
+def get_approved_submissions(user_id):
+    return requests.get(f'{Config.BASE_URL}/submissions/get_approved_submissions/{user_id}').json()['data']
 
 
 ########## ACCOUNTS ##########
@@ -83,10 +75,6 @@ def get_username(user_id):
 
 def get_all_users():
     return requests.get(f'{Config.BASE_URL}/accounts/get_all_users').json()['data']
-
-
-def get_submissions(user_id):
-    return requests.get(f'{Config.BASE_URL}/submissions/get_submissions/{user_id}').json()['data']
 
 
 ########## NAMECHANGES ##########
@@ -122,6 +110,19 @@ def request_namechange(user_id, username, audit_id):
 
 def get_pending_namechanges():
     return requests.get(f'{Config.BASE_URL}/namechange/get_pending').json()['data']
+
+
+########## LEADERBOARDS ##########
+def update_database():
+    return requests.get(f'{Config.BASE_URL}/leaderboards/update_database').json()['message']
+
+
+def get_leaderboard(game):
+    return requests.get(f'{Config.BASE_URL}/leaderboards/get_leaderboard/{game}').json()['data']
+
+
+def get_user_placements(user_id):
+    return requests.get(f'{Config.BASE_URL}/leaderboards/get_user_placements/{user_id}').json()['data']
 
 
 ########## LOGGING ##########

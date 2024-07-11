@@ -1,6 +1,7 @@
 from api.config.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
 from api.logging.logging import audit_log
+from api.leaderboards.leaderboards import update_record
 
 from fastapi import APIRouter
 from pydantic import BaseModel
@@ -308,6 +309,7 @@ async def approve_submission(submission_id: str, audit_id: int):
     update = {'$set': {'status': 'APPROVED'}}
     Mongo_Config.submissions.update_one(query, update)
 
+    update_record(submission['record_name'])
     audit_log('approve_submission', submission_id, audit_id)
     send_webhook('approve_submission', audit_id, submission)
     return {
@@ -339,6 +341,7 @@ async def deny_submission(submission_id: str, audit_id: int):
     update = {'$set': {'status': 'DENIED'}}
     Mongo_Config.submissions.update_one(query, update)
 
+    update_record(submission['record_name'])
     audit_log('deny_submission', submission_id, audit_id)
     send_webhook('deny_submission', audit_id, submission)
     return {
@@ -361,8 +364,8 @@ async def get_pending_submissions():
     }
 
 
-@submissions_router.get('/api/submissions/get_submissions/{user_id}', tags=['Unlogged'])
-async def get_submissions(user_id: int):
+@submissions_router.get('/api/submissions/get_approved_submissions/{user_id}', tags=['Unlogged'])
+async def get_approved_submissions(user_id: int):
     query = {
         'user_ids': user_id,
         'status': 'APPROVED'

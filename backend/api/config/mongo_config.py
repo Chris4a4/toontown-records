@@ -9,3 +9,5 @@ class Mongo_Config:
 
     accounts = db['accounts']
     audit_log = db['audit_log']
+
+    leaderboard = db['leaderboard']

@@ -5,6 +5,7 @@ from api.submissions.router import submissions_router
 from api.accounts.router import accounts_router
 from api.namechange.router import namechange_router
 from api.logging.router import logging_router
+from api.leaderboards.router import leaderboards_router
 
 
 tags_metadata = [
@@ -23,6 +24,10 @@ tags_metadata = [
     {
         'name': 'Namechanges',
         'description': 'Provides functions to request/view/approve/deny namechanges',
+    },
+    {
+        'name': 'Leaderboards',
+        'description': 'Allows fetching and updating of leaderboards from database',
     },
     {
         'name': 'Logging',
@@ -47,4 +52,5 @@ app.include_router(records_router, tags=['Records'])
 app.include_router(submissions_router, tags=['Submissions'])
 app.include_router(accounts_router, tags=['Accounts'])
 app.include_router(namechange_router, tags=['Namechanges'])
+app.include_router(leaderboards_router, tags=['Leaderboards'])
 app.include_router(logging_router, tags=['Logging'])

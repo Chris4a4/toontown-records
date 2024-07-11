@@ -9,7 +9,7 @@ import math
 from discord.ext import pages
 from embeds.personal_bests_embed import personal_bests
 from embeds.submission_history_embed import submission_history
-from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info, get_submissions, get_username
+from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info, get_approved_submissions, get_username
 from misc.record_metadata import group_records, value_string
 
 
@@ -36,7 +36,7 @@ class Commands(commands.Cog):
         MAX_PAGE = 30
 
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
-        submissions = get_submissions(member.id)
+        submissions = get_approved_submissions(member.id)
         username = get_username(member.id)
         
         # Group submissions by year
@@ -79,12 +79,30 @@ class Commands(commands.Cog):
 
     # Get a user's best submissions, organized by record
     @commands.user_command(name='View personal bests', description='Shows this users personal bests')
-    async def personal_bests(self, ctx, member: Member):
+    async def pbs(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
         pb_pages = []
         for mgr in ChannelManagers.record_channels:
             result = personal_bests(member.id, mgr.tags, avatar)
+
+            if result:
+                pb_pages.append(result)
+
+        if pb_pages:
+            paginator = pages.Paginator(pages=pb_pages)
+            await paginator.respond(ctx.interaction, ephemeral=True)
+        else:
+            await ctx.respond('User has no approved submissions!', ephemeral=True)
+
+    # Get a user's active records, organized by record
+    @commands.user_command(name='View active records', description='Shows this users active records')
+    async def active_records(self, ctx, member: Member):
+        avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
+
+        pb_pages = []
+        for mgr in ChannelManagers.record_channels:
+            result = personal_bests(member.id, mgr.tags, avatar, records_only=True)
 
             if result:
                 pb_pages.append(result)
