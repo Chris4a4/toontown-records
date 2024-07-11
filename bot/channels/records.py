@@ -1,5 +1,5 @@
 from misc.record_metadata import get_metadata, group_records, get_banner
-from embeds.records_embed import records_embed
+from visuals.records import records_embed
 from misc.auto_channel import AutoChannel
 import discord
 from misc.api_wrapper import get_all_records

@@ -3,9 +3,9 @@ from discord.utils import basic_autocomplete
 from discord import Option, SlashCommandGroup, AutocompleteContext, Member
 from singletons.config import Config
 
-from paginators.personal_leaderboard import personal_leaderboard_paginator
-from paginators.personal_bests import personal_bests_paginator, active_records_paginator
-from paginators.all_submissions import all_submissions_paginator
+from visuals.leaderboard import personal_leaderboard_paginator
+from visuals.personal_bests import personal_bests_paginator, active_records_paginator
+from visuals.submission_history import all_submissions_paginator
 
 from misc.api_wrapper import submit, edit_submission, approve_submission, deny_submission, get_all_users, get_all_info
 from misc.record_metadata import group_records, value_string

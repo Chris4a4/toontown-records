@@ -1,7 +1,9 @@
-from embeds.namechange_embed import namechange_embed
-from embeds.submission_embed import submission_embed
+from visuals.namechange import namechange_embed
+from visuals.submission import submission_embed
+
 from misc.auto_channel import AutoChannel
 from misc.api_wrapper import get_logs
+
 
 class LogChannelManager:
     def __init__(self, bot, category, channel):

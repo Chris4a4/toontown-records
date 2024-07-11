@@ -4,7 +4,7 @@ import ast
 from singletons.channel_managers import ChannelManagers
 from singletons.user_manager import UserManager
 from singletons.config import Config
-from embeds.submission_embed import submission_embed
+from visuals.submission import submission_embed
 import discord
 from asyncio import TaskGroup
 

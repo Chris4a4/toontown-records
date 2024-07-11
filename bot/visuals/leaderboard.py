@@ -4,6 +4,8 @@ import discord
 
 from misc.api_wrapper import get_leaderboard, get_username
 from singletons.config import Config
+from discord.ext import pages
+
 
 def leaderboard_embed(game, highlight_user_id=None):
     game_data = {
@@ -65,3 +67,15 @@ def leaderboard_embed(game, highlight_user_id=None):
         return None
 
     return embed
+
+
+def personal_leaderboard_paginator(user_id):
+    leaderboard_pages = []
+    for leaderboard in Config.LEADERBOARDS:
+        result = leaderboard_embed(leaderboard, highlight_user_id=user_id)
+
+        if result:
+            leaderboard_pages.append(result)
+    
+    if leaderboard_pages:
+        return pages.Paginator(pages=leaderboard_pages)

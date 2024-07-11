@@ -1,5 +1,6 @@
-from embeds.leaderboard_embed import leaderboard_embed
+from visuals.leaderboard import leaderboard_embed
 from misc.auto_channel import AutoChannel
+
 
 class LeaderboardChannelManager:
     def __init__(self, bot, category, game):

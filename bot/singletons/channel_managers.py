@@ -1,9 +1,9 @@
-from channels.leaderboard_channel import LeaderboardChannelManager
-from channels.log_channel import LogChannelManager
-from channels.namechange_channel import NamechangeChannelManager
-from channels.records_channel import RecordChannelManager
-from channels.submissions_channel import SubmissionsChannelManager
-from channels.user_action_channel import UserActionChannelManager
+from channels.leaderboard import LeaderboardChannelManager
+from channels.log import LogChannelManager
+from channels.namechange import NamechangeChannelManager
+from channels.records import RecordChannelManager
+from channels.submissions import SubmissionsChannelManager
+from channels.user_action import UserActionChannelManager
 
 from singletons.config import Config
 
@@ -27,7 +27,7 @@ class ChannelManagers:
         # Public channels
         cls.user_action_channel = [UserActionChannelManager(bot, 'submissions and requests', 'user-guide')]
         cls.record_channels = [RecordChannelManager(bot, *info) for info in Config.RECORD_CHANNELS]
-        cls.leaderboard_channels = [RecordChannelManager(bot, 'leaderboards', game) for game in Config.LEADERBOARDS]
+        cls.leaderboard_channels = [LeaderboardChannelManager(bot, 'leaderboards', game) for game in Config.LEADERBOARDS]
 
         # Mod channels
         cls.namechange_channel = [NamechangeChannelManager(bot, 'staff', 'pending-namechanges')]

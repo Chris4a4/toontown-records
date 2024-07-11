@@ -1,7 +1,8 @@
-from embeds.submission_embed import submission_embed
+from visuals.submission import submission_embed
 from misc.auto_channel import AutoChannel
 import discord
 from misc.api_wrapper import get_pending_submissions, approve_submission, deny_submission
+
 
 class SubmissionsChannelManager:
     def __init__(self, bot, category, channel):
