@@ -48,6 +48,7 @@ class Config:
             cls.RATE_LIMIT_MESSAGE = data['RATE_LIMIT_MESSAGE']
             cls.RATE_LIMIT_GLOBAL = data['RATE_LIMIT_GLOBAL']
             cls.RECORD_CHANNELS = data['RECORD_CHANNELS']
+            cls.LEADERBOARDS = data['LEADERBOARDS']
     
     @classmethod
     def private_config(cls, filepath):

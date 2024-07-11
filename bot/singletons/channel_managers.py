@@ -26,14 +26,8 @@ class ChannelManagers:
     def initialize(cls, bot):
         # Public channels
         cls.user_action_channel = [UserActionChannelManager(bot, 'submissions and requests', 'user-guide')]
-
         cls.record_channels = [RecordChannelManager(bot, *info) for info in Config.RECORD_CHANNELS]
-
-        cls.leaderboard_channels = [
-            LeaderboardChannelManager(bot, 'leaderboards', 'ttr'),
-            LeaderboardChannelManager(bot, 'leaderboards', 'ttcc'),
-            LeaderboardChannelManager(bot, 'leaderboards', 'overall')
-        ]
+        cls.leaderboard_channels = [RecordChannelManager(bot, 'leaderboards', game) for game in Config.LEADERBOARDS]
 
         # Mod channels
         cls.namechange_channel = [NamechangeChannelManager(bot, 'staff', 'pending-namechanges')]

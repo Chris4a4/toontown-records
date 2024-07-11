@@ -1,10 +1,11 @@
 from embeds.leaderboard_embed import leaderboard_embed
 from discord.ext import pages
+from singletons.config import Config
 
 
 def personal_leaderboard_paginator(user_id):
     leaderboard_pages = []
-    for leaderboard in ['ttr', 'ttcc', 'overall']:
+    for leaderboard in Config.LEADERBOARDS:
         result = leaderboard_embed(leaderboard, highlight_user_id=user_id)
 
         if result:
