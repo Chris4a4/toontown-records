@@ -6,34 +6,99 @@ from misc.api_wrapper import get_leaderboard, get_username
 from singletons.config import Config
 from discord.ext import pages
 
+PLUS_MINUS = 4
+GAME_DATA = {
+    'ttr': {
+        'name': 'Toontown Rewritten',
+        'icon': Config.TTR_ICON,
+        'color': Config.TTR_COLOR
+    },
+    'ttcc': {
+        'name': 'Corporate Clash',
+        'icon': Config.TTCC_ICON,
+        'color': Config.TTCC_COLOR
+    },
+    'overall': {
+        'name': 'Overall',
+        'icon': Config.OVERALL_ICON,
+        'color': Config.OVERALL_COLOR
+    }
+}
 
-def leaderboard_embed(game, highlight_user_id=None):
-    game_data = {
-        'ttr': {
-            'name': 'Toontown Rewritten',
-            'icon': Config.TTR_ICON,
-            'color': Config.TTR_COLOR
-        },
-        'ttcc': {
-            'name': 'Corporate Clash',
-            'icon': Config.TTCC_ICON,
-            'color': Config.TTCC_COLOR
-        },
-        'overall': {
-            'name': 'Overall',
-            'icon': Config.OVERALL_ICON,
-            'color': Config.OVERALL_COLOR
-        }
-    }[game]
 
+def personal_leaderboard_paginator(user_id):
+    leaderboard_pages = []
+    for leaderboard in Config.LEADERBOARDS:
+        result = personal_leaderboard_embed(leaderboard, user_id)
+
+        if result:
+            leaderboard_pages.append(result)
+    
+    if leaderboard_pages:
+        return pages.Paginator(pages=leaderboard_pages)
+
+
+def personal_leaderboard_embed(game, highlight_user_id):
     leaderboard_data = get_leaderboard(game)
 
+    # Find user's place and prune records around it
+    leaderboard = leaderboard_data['leaderboard']
+    for i, user in enumerate(leaderboard):
+        user_id = user['user_id']
+
+        if user_id == highlight_user_id:
+            index = i
+            break
+    else:
+        return None
+    
+    pruned_leaderboard = list(enumerate(leaderboard))[index - PLUS_MINUS:index + PLUS_MINUS + 1]
+
+    # Generate the leaderboard with minor differences
+    data = GAME_DATA[game]
+
     embed = discord.Embed(
-        title=f'{game_data['name']} Leaderboard',
+        title=f'{data['name']} Leaderboard',
         timestamp=datetime.now(timezone.utc),
-        color=game_data['color']
+        color=data['color']
     )
-    embed.set_thumbnail(url=game_data['icon'])
+    embed.set_thumbnail(url=data['icon'])
+
+    num_records = leaderboard_data['num_records']
+
+    num_users = len(leaderboard)
+    if num_users == 1:
+        embed.description = f'This category has {num_records} available records and {num_users} scoring user'
+    else:
+        embed.description = f'This category has {num_records} available records and {num_users} scoring users'
+
+    # Populate placement list
+    leaderboard_string = ''
+    for i, user in pruned_leaderboard:
+        user_id, points = user['user_id'], user['points']
+
+        username = get_username(user_id)
+
+        if user_id == highlight_user_id:
+            leaderboard_string += f'--> __**{i + 1}.** {username} - {points} points__ <--\n'
+        else:
+            leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
+
+    embed.add_field(name=f'Nearby users:', value=leaderboard_string, inline=False)
+
+    return embed
+
+
+def leaderboard_embed(game):
+    leaderboard_data = get_leaderboard(game)
+    data = GAME_DATA[game]
+
+    embed = discord.Embed(
+        title=f'{data['name']} Leaderboard',
+        timestamp=datetime.now(timezone.utc),
+        color=data['color']
+    )
+    embed.set_thumbnail(url=data['icon'])
 
     leaderboard = leaderboard_data['leaderboard']
     num_records = leaderboard_data['num_records']
@@ -45,37 +110,17 @@ def leaderboard_embed(game, highlight_user_id=None):
         embed.description = f'This category has {num_records} available records and {num_users} scoring users'
 
     # Populate placement list
-    found_highlighted_user = False
     leaderboard_string = ''
     for i, user in enumerate(leaderboard[:Config.LEADERBOARD_TOP_N]):
         user_id, points = user['user_id'], user['points']
 
         username = get_username(user_id)
 
-        if highlight_user_id == user_id:
-            leaderboard_string += f'--> __**{i + 1}.** {username} - {points} points__ <--\n'
-            found_highlighted_user = True
-        else:
-            leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
+        leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
     
     if not leaderboard_string:
         leaderboard_string = 'Coming soon...'
 
     embed.add_field(name=f'Top {Config.LEADERBOARD_TOP_N} users:', value=leaderboard_string, inline=False)
 
-    if highlight_user_id and not found_highlighted_user:
-        return None
-
     return embed
-
-
-def personal_leaderboard_paginator(user_id):
-    leaderboard_pages = []
-    for leaderboard in Config.LEADERBOARDS:
-        result = leaderboard_embed(leaderboard, highlight_user_id=user_id)
-
-        if result:
-            leaderboard_pages.append(result)
-    
-    if leaderboard_pages:
-        return pages.Paginator(pages=leaderboard_pages)

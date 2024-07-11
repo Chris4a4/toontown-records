@@ -9,7 +9,7 @@ from discord.ext import pages
 def personal_bests_paginator(user_id, avatar_url):
     pb_pages = []
     for channel_tags in Config.RECORD_CHANNELS:
-        result = personal_bests_embed(user_id, channel_tags, avatar_url)
+        result = personal_bests_embed(user_id, channel_tags, avatar_url, 'personal bests')
 
         if result:
             pb_pages.append(result)
@@ -22,7 +22,7 @@ def personal_bests_paginator(user_id, avatar_url):
 def active_records_paginator(user_id, avatar_url):
     pb_pages = []
     for channel_tags in Config.RECORD_CHANNELS:
-        result = personal_bests_embed(user_id, channel_tags, avatar_url, records_only=True)
+        result = personal_bests_embed(user_id, channel_tags, avatar_url, 'active records')
 
         if result:
             pb_pages.append(result)
@@ -31,14 +31,14 @@ def active_records_paginator(user_id, avatar_url):
         return pages.Paginator(pages=pb_pages)
 
 
-def personal_bests_embed(user_id, tags, avatar_url, records_only=False):
+def personal_bests_embed(user_id, tags, avatar_url, what_type):
     username = get_username(user_id)
     user_placements = get_user_placements(user_id)
 
     matching_placements = []
     for placement in user_placements:
         if set(placement['tags']) == set(tags) | set(placement['tags']):
-            if records_only and placement['placement'] > 3:
+            if what_type == 'active records' and placement['placement'] > 3:
                 continue
             matching_placements.append(placement)
 
@@ -47,7 +47,7 @@ def personal_bests_embed(user_id, tags, avatar_url, records_only=False):
         return
 
     embed = discord.Embed(
-        title=f'Personal bests for {username}',
+        title=f"{username}'s {what_type}",
         color=discord.Color.blue()
     )
     embed.set_thumbnail(url=avatar_url)

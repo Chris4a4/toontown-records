@@ -371,7 +371,7 @@ async def get_approved_submissions(user_id: int):
         'status': 'APPROVED'
     }
 
-    documents = Mongo_Config.submissions.find(query).sort('timestamp', 1)  # Oldest first
+    documents = Mongo_Config.submissions.find(query).sort('timestamp', -1)  # Newest first
     if not documents:
         return {
             'success': False,

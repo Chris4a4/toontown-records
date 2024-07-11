@@ -1,6 +1,6 @@
 BASE_URL: http://backend:8000/api
 UNKNOWN_THUMBNAIL: https://i.imgur.com/jgSzqns.png
-LEADERBOARD_TOP_N: 30
+LEADERBOARD_TOP_N: 20
 TTR_ICON: https://i.imgur.com/dRbZlGH.png
 TTR_COLOR: 5793266
 TTCC_ICON: https://i.imgur.com/5My7E8U.png

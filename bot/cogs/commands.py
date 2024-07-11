@@ -46,7 +46,7 @@ class Commands(commands.Cog):
     async def pbs(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
-        paginator = active_records_paginator(member.id, avatar)
+        paginator = personal_bests_paginator(member.id, avatar)
 
         if paginator:
             await paginator.respond(ctx.interaction, ephemeral=True)
@@ -58,7 +58,7 @@ class Commands(commands.Cog):
     async def active_records(self, ctx, member: Member):
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
 
-        paginator = personal_bests_paginator(member.id, avatar)
+        paginator = active_records_paginator(member.id, avatar)
 
         if paginator:
             await paginator.respond(ctx.interaction, ephemeral=True)
@@ -77,11 +77,12 @@ class Commands(commands.Cog):
             await ctx.respond('User does not appear on any leaderboards!', ephemeral=True)
 
 
-    # DEBUG COMMAND, commented out during normal use
+    # DEBUG COMMAND
     # Assumes 3 digit max score, H:MM:SS.mmm max time
     #@commands.slash_command(name='embed', description='Checks the max characters of all record embeds')
     async def embed_max_chars(self, ctx):
         MAX_USERNAME = 20
+        MAX_EVIDENCE = 100
 
         big_submission = {
             'value_score': 100,
@@ -89,6 +90,30 @@ class Commands(commands.Cog):
         }
 
         content = []
+
+        # PBs embed
+        for title_name, records in group_records(get_all_info()).items():
+            max_chars = len(title_name)
+
+            for record in records:
+                max_chars += len(record['record_name'])
+
+                max_chars += 1  # newline
+                max_chars += 3 + len(value_string(big_submission, record['tags']))  # numbers, -, and score
+                max_chars += 4 + MAX_EVIDENCE  # markdown + evidence link
+
+            content.append(f'PBS {title_name}: {max_chars}')
+
+        # Submission embed
+        per_field = 5 * (len('Fewest Rewards Used in a CFO Solo - (1 reward, 2:03:34.340)[]') + MAX_EVIDENCE)
+        per_field += 4  # newlines
+        content.append(f'Submission history field: {per_field}')
+        overall = 12 * len('September (Part 1)')
+        overall += len('Submission history for ') + MAX_USERNAME + len('Submissions in 2024')
+        overall += 6 * per_field
+        content.append(f'Submission history overall: {overall}')
+
+        # Record embeds
         for embed_name, records in group_records(get_all_info()).items():
             max_chars = len(embed_name)
 
@@ -97,7 +122,7 @@ class Commands(commands.Cog):
 
                 max_chars += 2  # newlines
                 max_chars += 3 * (3 + len(value_string(big_submission, record['tags'])))  # numbers, -, and score
-                max_chars += 3 * (4 + 100)  # markdown + evidence link
+                max_chars += 3 * (4 + MAX_EVIDENCE)  # markdown + evidence link
                 
                 max_chars += 3 * record['max_players'] * MAX_USERNAME  # player names
                 max_chars += 3 * (record['max_players'] - 1) * 2  # commas between player names
