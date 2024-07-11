@@ -33,7 +33,7 @@ class Commands(commands.Cog):
     # Get all of a user's submissions, ordered by date
     @commands.user_command(name='View all submissions', description='Shows this users approved submissions')
     async def all_submissions(self, ctx, member: Member):
-        MAX_PAGE = 50
+        MAX_PAGE = 30
 
         avatar = member.avatar.url if member.avatar else Config.UNKNOWN_THUMBNAIL
         submissions = get_submissions(member.id)
@@ -115,6 +115,7 @@ class Commands(commands.Cog):
 
                 max_chars += 2  # newlines
                 max_chars += 3 * (3 + len(value_string(big_submission, record['tags'])))  # numbers, -, and score
+                max_chars += 3 * (4 + 100)  # markdown + evidence link
                 
                 max_chars += 3 * record['max_players'] * MAX_USERNAME  # player names
                 max_chars += 3 * (record['max_players'] - 1) * 2  # commas between player names
