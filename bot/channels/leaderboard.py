@@ -11,4 +11,4 @@ class LeaderboardChannelManager:
     async def update(self):
         embed = leaderboard_embed(self.game)
 
-        await self.auto_channel.apply([('', embed, None, [])])
+        await self.auto_channel.update_all([('', embed, None, [])])

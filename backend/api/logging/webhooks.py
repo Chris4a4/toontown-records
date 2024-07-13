@@ -12,15 +12,14 @@ WEBHOOK_FUNCTIONS = {
     'deny_namechange': 'namechange'
 }
 
-
 # Sends a webhook to the webhook channel indicating that an audited function was performed
 def send_webhook(function_name, audit_id, *args):
     webhook_type = WEBHOOK_FUNCTIONS[function_name]
 
     message = f'function={function_name}|audit_id={audit_id}|'
     if webhook_type == 'namechange':
-        discord_id, old_name, new_name = args
-        message += f'discord_id={discord_id}|old_name={old_name}|new_name={new_name}'
+        discord_id, old_name, new_name, namechange_id = args
+        message += f'discord_id={discord_id}|old_name={old_name}|new_name={new_name}|_id={namechange_id}'
 
     else:
         submission, = args

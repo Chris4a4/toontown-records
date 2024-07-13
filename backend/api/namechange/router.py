@@ -67,7 +67,7 @@ async def approve_namechange(namechange_id: str, audit_id: int):
     Mongo_Config.namechanges.update_one(namechange_query, update)
 
     audit_log('approve_namechange', namechange_id, audit_id)
-    send_webhook('approve_namechange', audit_id, discord_id, old_name, new_name)
+    send_webhook('approve_namechange', audit_id, discord_id, old_name, new_name, namechange_id)
     return {
         'success': True,
         'message': 'Namechange request accepted'
@@ -99,7 +99,7 @@ async def deny_namechange(namechange_id: str, audit_id: int):
     Mongo_Config.namechanges.update_one(namechange_query, update)
 
     audit_log('deny_namechange', namechange_id, audit_id)
-    send_webhook('deny_namechange', audit_id, namechange['discord_id'], namechange['current_username'], namechange['new_username'])
+    send_webhook('deny_namechange', audit_id, namechange['discord_id'], namechange['current_username'], namechange['new_username'], namechange_id)
     return {
         'success': True,
         'message': 'Namechange request denied'
@@ -184,7 +184,7 @@ async def request_namechange(discord_id: int, username: str, audit_id: int):
     result = Mongo_Config.namechanges.insert_one(namechange_request)
 
     audit_log('request_namechange', str(result.inserted_id), audit_id)
-    send_webhook('request_namechange', audit_id, discord_id, user['username'], username)
+    send_webhook('request_namechange', audit_id, discord_id, user['username'], username, str(result.inserted_id))
     return {
         'success': True,
         'message': 'Request to change name submitted',

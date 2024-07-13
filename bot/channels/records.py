@@ -18,7 +18,7 @@ class RecordChannelManager:
             if set(record['tags']) == set(self.tags) | set(record['tags']):
                 matching_records.append(record)
 
-        result = []
+        content = []
         for records in group_records(matching_records).values():
             embed = records_embed(records)
 
@@ -26,9 +26,9 @@ class RecordChannelManager:
 
             file = get_banner(category, banner_color)
 
-            result.append(('', embed, SubmitView(records), [file]))
+            content.append(('', embed, SubmitView(records), [file]))
 
-        await self.auto_channel.apply(result)
+        await self.auto_channel.update_all(content)
     
     # Calls update if any of the records given match this channel
     async def update_if_matches(self, record_names):

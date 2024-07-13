@@ -16,7 +16,7 @@ class UserActionChannelManager:
         self.welcome_string = f"Say hello to the <#{Config.WELCOME_CHANNEL_ID}> channel! In this channel, you may:\n- Set or change your display name\n- View your submission history, personal bests, and the records you're currently holding\n- Check your spot on the leaderboards"
 
     async def update(self):
-        await self.auto_channel.apply([(self.welcome_string, None, UserActionView(), [])])
+        await self.auto_channel.update_all([(self.welcome_string, None, UserActionView(), [])])
 
 class UserActionView(discord.ui.View):
     def __init__(self):

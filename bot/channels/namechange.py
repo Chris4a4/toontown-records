@@ -12,13 +12,13 @@ class NamechangeChannelManager:
     async def update(self):
         pending_namechanges = get_pending_namechanges()
 
-        result = []
+        content = []
         for namechange in pending_namechanges:
             embed = namechange_embed(namechange)
 
-            result.append(('', embed, NamechangeView(namechange), []))
+            content.append(('', embed, NamechangeView(namechange), []))
 
-        await self.auto_channel.apply(result)
+        await self.auto_channel.update_all(content)
 
 
 class NamechangeView(discord.ui.View):

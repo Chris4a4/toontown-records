@@ -46,7 +46,7 @@ class ChannelManagers:
     @classmethod
     async def update_from_function(cls, function_name, params):
         async with TaskGroup() as tg:
-            tg.create_task(cls.log_channel.update())
+            tg.create_task(cls.log_channel.update_one(params['_id']))
 
             match function_name:
                 case 'submit':

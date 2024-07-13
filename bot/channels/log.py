@@ -11,7 +11,7 @@ class LogChannelManager:
         self.auto_channel = AutoChannel(bot, category, channel)
     
     async def update(self):
-        result = []
+        content = []
         for log in get_logs():
             if log['type'] == 'namechange':
                 embed = namechange_embed(log['document'])
@@ -20,9 +20,21 @@ class LogChannelManager:
             
             modification_msg = history_to_string(log['modifications'])
 
-            result.append((modification_msg, embed, None, []))
+            content.append((modification_msg, embed, None, []))
 
-        await self.auto_channel.apply(result)
+        await self.auto_channel.update_all(content)
+
+    async def update_one(self, document_id):
+        for index, log in enumerate(get_logs()):
+            if log['document']['_id'] == document_id:
+                if log['type'] == 'namechange':
+                    embed = namechange_embed(log['document'])
+                else:
+                    embed = submission_embed(log['document'], 'logs')
+                
+                modification_msg = history_to_string(log['modifications'])
+
+                await self.auto_channel.update_one((modification_msg, embed, None, []), index)
 
 
 def history_to_string(modifications):

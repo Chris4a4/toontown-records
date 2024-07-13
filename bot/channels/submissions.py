@@ -10,12 +10,12 @@ class SubmissionsChannelManager:
         self.auto_channel = AutoChannel(bot, category, channel)
     
     async def update(self):
-        result = []
+        content = []
         for submission in get_pending_submissions():
             embed = submission_embed(submission, 'pending')
-            result.append(('', embed, SubmmissionView(submission['record_name'], str(submission['_id'])), []))
+            content.append(('', embed, SubmmissionView(submission['record_name'], str(submission['_id'])), []))
         
-        await self.auto_channel.apply(result)
+        await self.auto_channel.update_all(content)
 
 
 class SubmmissionView(discord.ui.View):

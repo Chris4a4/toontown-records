@@ -2,7 +2,7 @@ import re
 import discord
 
 from singletons.config import Config
-from asyncio import TaskGroup
+from asyncio import TaskGroup, Lock
 
 
 # Compares message's content to the new content
@@ -49,22 +49,38 @@ class AutoChannel:
         self.category = category
         self.channel = channel
         self.first_load = True
+        self.channel_lock = Lock()
 
     # Takes in a list of (content, embed, view, file) pairs and populates the channel with them IN ORDER GIVEN
-    async def apply(self, desired_contents):
-        iter = await self.get_iterator()
+    async def update_all(self, desired_contents):
+        async with self.channel_lock:
+            iter = await self.get_iterator()
 
-        async with TaskGroup() as tg:
-            for desired_content in desired_contents:
-                content, embed, view, files = desired_content
-                message = await anext(iter)
+            async with TaskGroup() as tg:
+                for desired_content in desired_contents:
+                    content, embed, view, files = desired_content
+                    message = await anext(iter)
 
-                if (self.first_load and view) or has_changed(message, content, embed, view, files):
-                    tg.create_task(self.bot.edit_message(message, content=content, embed=embed, view=view, attachments=[], files=files))
+                    if (self.first_load and view) or has_changed(message, content, embed, view, files):
+                        tg.create_task(self.bot.edit_message(message, content=content, embed=embed, view=view, attachments=[], files=files))
 
-        await iter.aclose()
+            await iter.aclose()
 
-        self.first_load = False
+            self.first_load = False
+
+    # Takes in a (content, embed, view, file) tuple and populates the message at the index given. Creates it if the index doesn't exist
+    async def update_one(self, desired_content, index):
+        async with self.channel_lock:
+            iter = await self.get_iterator()
+
+            for _ in range(0, index):
+                await anext(iter)
+
+            content, embed, view, files = desired_content
+            message = await anext(iter)
+
+            if (self.first_load and view) or has_changed(message, content, embed, view, files):
+                await self.bot.edit_message(message, content=content, embed=embed, view=view, attachments=[], files=files)
 
     # Gets a category by name, if it exists. Otherwise creates it
     async def get_category(self, desired_category):
