@@ -11,3 +11,4 @@ RATE_LIMIT_MESSAGE: 10
 RATE_LIMIT_GLOBAL: 0.5
 RECORD_CHANNELS: [['ttr', 'vp'], ['ttr', 'cfo'], ['ttr', 'cj'], ['ttr', 'ceo'], ['ttr', 'activities']]
 LEADERBOARDS: ['ttr', 'ttcc', 'overall']
+PERSONAL_LEADERBOARD_SIZE: 5

@@ -14,6 +14,7 @@ class Config:
     OVERALL_COLOR = 0
     RATE_LIMIT_MESSAGE = 0
     RATE_LIMIT_GLOBAL = 0
+    PERSONAL_LEADERBOARD_SIZE = 0
 
     SUBMIT_CHANNEL_ID = 0
     WELCOME_CHANNEL_ID = 0
@@ -49,6 +50,7 @@ class Config:
             cls.RATE_LIMIT_GLOBAL = data['RATE_LIMIT_GLOBAL']
             cls.RECORD_CHANNELS = data['RECORD_CHANNELS']
             cls.LEADERBOARDS = data['LEADERBOARDS']
+            cls.PERSONAL_LEADERBOARD_SIZE = data['PERSONAL_LEADERBOARD_SIZE']
     
     @classmethod
     def private_config(cls, filepath):
