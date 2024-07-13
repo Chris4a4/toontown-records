@@ -9,8 +9,7 @@ WEBHOOK_FUNCTIONS = {
     'deny_submission': 'submission',
     'request_namechange': 'namechange',
     'approve_namechange': 'namechange',
-    'deny_namechange': 'namechange',
-    'obsolete_namechange': 'namechange'
+    'deny_namechange': 'namechange'
 }
 
 

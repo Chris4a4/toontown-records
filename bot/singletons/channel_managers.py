@@ -51,8 +51,7 @@ class ChannelManagers:
             'deny_submission': [],
             'request_namechange': cls.namechange_channel,
             'approve_namechange': cls.record_channels + cls.leaderboard_channels,
-            'deny_namechange': [],
-            'obsolete_namechange': []
+            'deny_namechange': []
         }
         channels_to_update = update_schema[function_name] + cls.log_channel  # Always update the log channel
 
