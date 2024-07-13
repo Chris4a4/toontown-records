@@ -31,7 +31,7 @@ def history_to_string(modifications):
     for modification in modifications[::-1]:
         new_string = f'<@{modification['audit_id']}> used ``{modification['operation']}`` <t:{modification['timestamp']}:R>'
 
-        if modification['operation'] == 'edit_record':
+        if modification['operation'] == 'edit_submission':
             edit_fields = []
             for key, value in modification['additional_info'].items():
                 edit_fields.append(f'{key}: {value}')

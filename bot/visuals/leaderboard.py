@@ -6,7 +6,6 @@ from misc.api_wrapper import get_leaderboard, get_username
 from singletons.config import Config
 from discord.ext import pages
 
-PLUS_MINUS = 4
 GAME_DATA = {
     'ttr': {
         'name': 'Toontown Rewritten',
@@ -52,7 +51,17 @@ def personal_leaderboard_embed(game, highlight_user_id):
     else:
         return None
     
-    pruned_leaderboard = list(enumerate(leaderboard))[index - PLUS_MINUS:index + PLUS_MINUS + 1]
+    bottom_index = index - 2
+    top_index = index + 3
+    if bottom_index < 0:  # Move window up as far as possible
+        top_index -= bottom_index
+        bottom_index = 0
+    elif top_index > len(leaderboard):  # Move window down as far as possible
+        diff = top_index - len(leaderboard)
+        top_index -= diff
+        bottom_index = max(0, bottom_index - diff)
+
+    pruned_leaderboard = list(enumerate(leaderboard))[bottom_index:top_index]
 
     # Generate the leaderboard with minor differences
     data = GAME_DATA[game]

@@ -120,4 +120,7 @@ class MessageIterator:
     # Delete all the remaining messages
     async def aclose(self):
         for msg in self.history:
-            await msg.delete()
+            try:
+                await msg.delete()
+            except discord.NotFound:
+                pass

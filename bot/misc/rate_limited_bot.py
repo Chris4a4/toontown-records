@@ -1,6 +1,7 @@
 from discord.ext import commands
 import asyncio
 from singletons.config import Config
+import discord
 
 # Wrap the normal bot class to include rate limiting on anything that needs it
 class RateLimitedBot(commands.Bot):
@@ -25,8 +26,11 @@ class MessageEditLimiter:
         if not message.id in self.locks:
             self.locks[message.id] = asyncio.Lock()
 
-        async with self.locks[message.id]:
-            async with self.global_lock:
-                await message.edit(**kwargs)
-                await asyncio.sleep(self.global_interval)
-            await asyncio.sleep(self.same_message_interval)
+        try:
+            async with self.locks[message.id]:
+                async with self.global_lock:
+                    await message.edit(**kwargs)
+                    await asyncio.sleep(self.global_interval)
+                await asyncio.sleep(self.same_message_interval)
+        except discord.NotFound:
+            pass

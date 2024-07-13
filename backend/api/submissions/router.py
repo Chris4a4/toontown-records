@@ -146,7 +146,7 @@ def validate_submission(submission, username_to_id):
             'message': 'Time must be positive'
         }
     
-    if submitted_time and submission['value_time'] >= 60 * 60 * 1000:
+    if submitted_time and submission['value_time'] >= 10 * 60 * 60 * 1000:
         return {
             'success': False,
             'message': 'Time must be less than 10 hours'
@@ -278,6 +278,7 @@ async def edit_submission(submission_id: str, data: EditSubmission, audit_id: in
             'message': 'Could not find a submission with that ID'
         }
     
+    update_record(editted_submission['record_name'])
     audit_log('edit_submission', submission_id, audit_id, additional_info=to_edit)
     send_webhook('edit_submission', audit_id, editted_submission)
     return {

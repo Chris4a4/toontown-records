@@ -42,7 +42,7 @@ def counts_for_this(record_name):
     rule_groups = [
         [
             (None, None),
-            ('rl', 'nr'),
+            ('rl', ['nr']),
         ],
         [
             (None, None),
