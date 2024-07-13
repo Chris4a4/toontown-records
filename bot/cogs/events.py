@@ -47,7 +47,7 @@ class Events(commands.Cog):
     async def process_webhook(self, function_name, params):
         async with TaskGroup() as tg:
             tg.create_task(self.send_update_message(params))
-            tg.create_task(ChannelManagers.update_from_function(function_name))
+            tg.create_task(ChannelManagers.update_from_function(function_name, params))
 
             if function_name == 'approve_namechange':
                 tg.create_task(UserManager.update_from_id(params['discord_id']))

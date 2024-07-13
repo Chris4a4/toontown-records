@@ -4,6 +4,76 @@ from os import path
 import yaml
 
 
+RULE_GROUPS = [  # LEFT tags count as RIGHT
+    [
+        (None, None),
+        ('rl', 'nr'),
+    ],
+    [
+        (None, None),
+        ('hl', None),
+    ],
+    [
+        (None, None),
+        (1, 2),
+        (1, 4),
+        (1, 6),
+        (1, 8),
+        (2, 4),
+        (2, 6),
+        (2, 8),
+        (4, 6),
+        (4, 8),
+        (6, 8)
+    ]
+]
+
+# Gets all of the records that count as this
+@cache
+def counts_for_this(record_name):
+    tags = lookup_record_info(record_name)['tags']
+
+    # Search through every record. Check if we can make the conversion and end up at the original record's tags
+    results = []
+    for record in lookup_all_record_info():
+        for rules in product(*RULE_GROUPS):
+            check_tags = list(record['tags'])
+            for from_val, to_val in rules:
+                if from_val in check_tags:
+                    check_tags.remove(from_val)
+                if to_val:
+                    check_tags.append(to_val)
+
+            if set(check_tags) == set(tags):
+                results.append(record['record_name'])
+                break
+
+    return results
+
+
+# Gets all of the records that this record counts for
+@cache
+def this_counts_as(record_name):
+    tags = lookup_record_info(record_name)['tags']
+
+    # Search through every record. Check if we can make the conversion and end up at the original record's tags
+    results = []
+    for record in lookup_all_record_info():
+        for rules in product(*RULE_GROUPS):
+            check_tags = list(record['tags'])
+            for to_val, from_val in rules:
+                if from_val in check_tags:
+                    check_tags.remove(from_val)
+                if to_val:
+                    check_tags.append(to_val)
+
+            if set(check_tags) == set(tags):
+                results.append(record['record_name'])
+                break
+
+    return results
+
+
 # Does the record require that the user submit a time?
 def time_required(tags):
     sorting = get_sorting(tags)
@@ -34,52 +104,6 @@ def get_sorting(tags):
         'value_time': 1,
         'timestamp': 1
     }
-
-
-# Gets all of the records that should also be queried when we query this one
-@cache
-def counts_for_this(record_name):
-    rule_groups = [
-        [
-            (None, None),
-            ('rl', ['nr']),
-        ],
-        [
-            (None, None),
-            ('hl', []),
-        ],
-        [
-            (None, None),
-            (1, [2]),
-            (1, [4]),
-            (1, [6]),
-            (1, [8]),
-            (2, [4]),
-            (2, [6]),
-            (2, [8]),
-            (4, [6]),
-            (4, [8]),
-            (6, [8])
-        ]
-    ]
-
-    tags = lookup_record_info(record_name)['tags']
-
-    # Search through every record. Check if we can make the conversion and end up at the original record's tags
-    results = []
-    for record in lookup_all_record_info():
-        for rules in product(*rule_groups):
-            check_tags = list(record['tags'])
-            for from_val, to_val in rules:
-                if from_val in check_tags:
-                    check_tags.remove(from_val)
-                    check_tags.extend(to_val)
-
-            if set(check_tags) == set(tags):
-                results.append(record['record_name'])
-                break
-
-    return results
 
 
 # Recursive function to flatten out the nested dictionary format in records.yaml

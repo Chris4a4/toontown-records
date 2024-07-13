@@ -29,6 +29,15 @@ class RecordChannelManager:
             result.append(('', embed, SubmitView(records), [file]))
 
         await self.auto_channel.apply(result)
+    
+    # Calls update if any of the records given match this channel
+    async def update_if_matches(self, record_names):
+        for record in get_all_records():
+            if set(record['tags']) == set(self.tags) | set(record['tags']):
+                if record['record_name'] in record_names:
+                    print('updating channel', self.tags)
+                    await self.update()
+                    return
 
 
 class SubmitView(discord.ui.View):

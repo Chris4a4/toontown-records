@@ -2,6 +2,7 @@ from api.config.mongo_config import Mongo_Config
 from api.database.helper import MongoJSONEncoder
 from api.logging.logging import audit_log
 from api.leaderboards.leaderboards import update_record
+from api.records.records import this_counts_as
 
 from fastapi import APIRouter
 from pydantic import BaseModel
@@ -278,7 +279,9 @@ async def edit_submission(submission_id: str, data: EditSubmission, audit_id: in
             'message': 'Could not find a submission with that ID'
         }
     
-    update_record(editted_submission['record_name'])
+    if editted_submission['status'] == 'APPROVED':  # If the record was previously approved, update stuff
+        for record_name in this_counts_as(editted_submission['record_name']):
+            update_record(record_name)
     audit_log('edit_submission', submission_id, audit_id, additional_info=to_edit)
     send_webhook('edit_submission', audit_id, editted_submission)
     return {
@@ -310,7 +313,8 @@ async def approve_submission(submission_id: str, audit_id: int):
     update = {'$set': {'status': 'APPROVED'}}
     Mongo_Config.submissions.update_one(query, update)
 
-    update_record(submission['record_name'])
+    for record_name in this_counts_as(submission['record_name']):
+        update_record(record_name)
     audit_log('approve_submission', submission_id, audit_id)
     send_webhook('approve_submission', audit_id, submission)
     return {
@@ -342,7 +346,9 @@ async def deny_submission(submission_id: str, audit_id: int):
     update = {'$set': {'status': 'DENIED'}}
     Mongo_Config.submissions.update_one(query, update)
 
-    update_record(submission['record_name'])
+    if submission['status'] == 'APPROVED':  # If the record was previously approved, update stuff
+        for record_name in this_counts_as(submission['record_name']):
+            update_record(record_name)
     audit_log('deny_submission', submission_id, audit_id)
     send_webhook('deny_submission', audit_id, submission)
     return {
