@@ -1,5 +1,5 @@
 from api.config.mongo_config import Mongo_Config
-from api.database.helper import MongoJSONEncoder
+from api.database.helper import doc_to_json
 from api.logging.logging import audit_log
 from api.leaderboards.leaderboards import update_record
 from api.records.records import this_counts_as
@@ -12,8 +12,6 @@ from api.records.records import lookup_record_info
 from api.accounts.router import get_all_users
 from bson.errors import InvalidId
 from api.config.config import Config
-
-from json import dumps, loads
 
 from time import time
 from datetime import datetime
@@ -253,7 +251,7 @@ async def edit_submission(submission_id: str, data: EditSubmission, audit_id: in
         }
 
     # Determine what the record will look like after edits
-    editted_submission = loads(dumps(original_submission, cls=MongoJSONEncoder))
+    editted_submission = doc_to_json(original_submission)
     edit_data = data.model_dump()
 
     to_edit = {}
@@ -362,7 +360,7 @@ async def get_pending_submissions():
     query = {'status': 'PENDING'}
 
     documents = Mongo_Config.submissions.find(query)
-    to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
+    to_json = doc_to_json(documents)
 
     return {
         'success': True,
@@ -386,7 +384,7 @@ async def get_approved_submissions(user_id: int):
             'data': []
         }
 
-    to_json = loads(dumps(list(documents), cls=MongoJSONEncoder))
+    to_json = doc_to_json(documents)
 
     return {
         'success': True,

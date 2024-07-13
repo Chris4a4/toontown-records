@@ -1,6 +1,7 @@
 import json
 
 from bson import ObjectId
+from json import loads, dumps
 
 
 # Custom Mongo -> JSON encoder since none of the included ones work
@@ -10,3 +11,8 @@ class MongoJSONEncoder(json.JSONEncoder):
             return str(o)
 
         return json.JSONEncoder.default(self, o)
+
+
+def doc_to_json(documents):
+    return loads(dumps(list(documents), cls=MongoJSONEncoder))
+

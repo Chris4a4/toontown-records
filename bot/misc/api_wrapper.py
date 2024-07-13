@@ -17,8 +17,11 @@ def get_all_info():
     return requests.get(f'{Config.BASE_URL}/records/get_all_info').json()['data']
 
 
-def get_all_records():
-    return requests.get(f'{Config.BASE_URL}/records/get_all_records').json()['data']
+def get_records_with_tags(tags):
+    tag_data = {
+        'tags': tags
+    }
+    return requests.post(f'{Config.BASE_URL}/records/get_records_with_tags', json=tag_data).json()['data']
 
 
 ########## SUBMISSIONS ##########

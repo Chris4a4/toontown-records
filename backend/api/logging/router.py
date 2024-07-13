@@ -1,9 +1,8 @@
 from bson.objectid import ObjectId
 from api.config.mongo_config import Mongo_Config
-from api.database.helper import MongoJSONEncoder
+from api.database.helper import doc_to_json
 
 from fastapi import APIRouter
-from json import dumps, loads
 
 logging_router = APIRouter()
 
@@ -12,7 +11,7 @@ logging_router = APIRouter()
 async def get_logs():
     # Get all log objects from the database
     logs = Mongo_Config.audit_log.find()
-    json_logs = loads(dumps(list(logs), cls=MongoJSONEncoder))
+    json_logs = doc_to_json(logs)
 
     # Replace the "document" attribute with the actual content instead of just a link to it
     for log in json_logs:

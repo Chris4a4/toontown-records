@@ -2,7 +2,7 @@ from misc.record_metadata import get_metadata, group_records, get_banner
 from visuals.records import records_embed
 from misc.auto_channel import AutoChannel
 import discord
-from misc.api_wrapper import get_all_records
+from misc.api_wrapper import get_records_with_tags
 from singletons.config import Config
 
 
@@ -13,13 +13,8 @@ class RecordChannelManager:
         self.auto_channel = AutoChannel(bot, game, channel)
     
     async def update(self):
-        matching_records = []
-        for record in get_all_records():
-            if set(record['tags']) == set(self.tags) | set(record['tags']):
-                matching_records.append(record)
-
         content = []
-        for records in group_records(matching_records).values():
+        for records in group_records(get_records_with_tags(self.tags)).values():
             embed = records_embed(records)
 
             category, thumbnail, color, banner_color = get_metadata(records[0]['tags'])
@@ -32,12 +27,10 @@ class RecordChannelManager:
     
     # Calls update if any of the records given match this channel
     async def update_if_matches(self, record_names):
-        for record in get_all_records():
-            if set(record['tags']) == set(self.tags) | set(record['tags']):
-                if record['record_name'] in record_names:
-                    print('updating channel', self.tags)
-                    await self.update()
-                    return
+        for record in get_records_with_tags(self.tags):
+            if record['record_name'] in record_names:
+                await self.update()
+                return
 
 
 class SubmitView(discord.ui.View):

@@ -1,8 +1,7 @@
 from api.records.records import counts_for_this, lookup_record_info, get_sorting
 from api.config.mongo_config import Mongo_Config
 
-from api.database.helper import MongoJSONEncoder
-from json import dumps, loads
+from api.database.helper import doc_to_json
 
 
 # User_submissions is a list of all approved submissions by a user
@@ -36,7 +35,7 @@ def get_top_N(record_name, top_n):
     submissions_dict = {doc['_id']: doc for doc in submissions}
 
     sorted_submissions = [submissions_dict[doc_id] for doc_id in leaderboard_ids]
-    to_json = loads(dumps(sorted_submissions, cls=MongoJSONEncoder))
+    to_json = doc_to_json(sorted_submissions)
 
     return to_json
 
