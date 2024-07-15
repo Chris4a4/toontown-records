@@ -1,9 +1,17 @@
 services:
-  bot:
+  website:
     build:
-      context: bot/
+      context: website/
+    ports:
+      - "127.0.0.1:5173:5173"
     depends_on:
       - backend
+
+  #bot:
+  #  build:
+  #    context: bot/
+  #  depends_on:
+  #    - backend
 
   backend:
     build:
