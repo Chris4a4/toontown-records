@@ -38,7 +38,7 @@
                   <b>{`${i + 1}.`}</b>
                   {submission.user_ids.map(user_id => user_dict[user_id]).join(", ")}
                   - 
-                  <a href={submission.evidence}>asdf</a>
+                  <a href={submission.evidence}>{valueString(submission, record.tags)}</a>
                   <br>
                 {/each}
             {:else}
