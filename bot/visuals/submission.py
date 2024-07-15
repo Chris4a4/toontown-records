@@ -30,8 +30,8 @@ def submission_embed(submission, fields):
     names_string = ', '.join(names)
 
     embed = discord.Embed(
-        title=record_name,
-        description=f'{names_string} - [{value_desc}]({submission['evidence']})\nSubmitted at <t:{submission['timestamp']}:f>',
+        title=f'__{record_name}__',
+        description=f'*{names_string} - [{value_desc}]({submission['evidence']})*\n\nSubmitted at <t:{submission['timestamp']}:f>',
         thumbnail=thumbnail,
         color=color
     )
