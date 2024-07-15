@@ -24,7 +24,9 @@
 
 <style>
   nav {
-    background-color: #f8f9fa;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     padding: 1rem;
   }
 

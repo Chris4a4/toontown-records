@@ -26,7 +26,7 @@
   });
 </script>
 
-<div>
+<div class="leaderboard-container">
   {#if leaderboard_data && user_dict}
     <h2>Toontown Rewritten Leaderboard</h2>
     <ol>
