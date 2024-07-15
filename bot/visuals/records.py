@@ -8,7 +8,7 @@ def records_embed(records):
     category, thumbnail, color, banner_color = get_metadata(records[0]['tags'])
 
     embed = discord.Embed(
-        title=category,
+        title=f'**{category}**',
         thumbnail=thumbnail,
         color=color
     )
@@ -17,9 +17,9 @@ def records_embed(records):
     for record in records:
         points = record['points']
         if points == 1:
-            title = f'{record['record_name']}'
+            title = f'__{record['record_name']}__'
         else:
-            title = f'{record['record_name']} - ``{points} points``'
+            title = f'__{record['record_name']}__ - ``{points} points``'
 
         top_3 = record['top3']
         if not top_3:
@@ -38,7 +38,7 @@ def records_embed(records):
 
                 # Value
                 value_desc = value_string(submission, tags=record['tags'])
-                descriptions.append(f'**{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})')
+                descriptions.append(f'***{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})*')
 
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)
