@@ -3,7 +3,7 @@ services:
     build:
       context: website/
     ports:
-      - "127.0.0.1:5173:5173"
+      - "5173:5173"
     depends_on:
       - backend
 
