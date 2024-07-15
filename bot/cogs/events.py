@@ -18,7 +18,8 @@ class Events(commands.Cog):
         if member.guild != Config.GUILD:
             return
 
-        UserManager.update_one(member)
+        UserManager.update_name(member)
+        UserManager.update_leaderboard_roles(member)
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -49,8 +50,16 @@ class Events(commands.Cog):
             tg.create_task(self.send_update_message(params))
             tg.create_task(ChannelManagers.update_from_function(function_name, params))
 
+            # Update the user's new name
             if function_name == 'approve_namechange':
                 tg.create_task(UserManager.update_from_id(params['discord_id']))
+            
+            # Update leaderboard roles if the records could have affected them
+            if function_name == 'approve_submission':
+                tg.create_task(UserManager.update_all_leaderboard_roles())
+            if function_name == 'edit_submission' or function_name == 'deny_submission':
+                if params['status'] == 'APPROVED':
+                    tg.create_task(UserManager.update_all_leaderboard_roles())
     
     # Sends a message in the update channel informing the submitter that something has happened
     async def send_update_message(self, params):

@@ -22,6 +22,9 @@ class Config:
     WEBHOOK_CHANNEL_ID = 0
     GUILD = 0
     AUTHORIZED_ROLE = ''
+    TOP_1_ROLE = ''
+    TOP_3_ROLE = ''
+    TOP_10_ROLE = ''
     TOKEN = ''
 
     # Populated after the bot is loaded
@@ -30,6 +33,9 @@ class Config:
         cls.GUILD = bot.get_guild(cls.GUILD)
         cls.UPDATE_CHANNEL = bot.get_channel(cls.UPDATE_CHANNEL)
         cls.AUTHORIZED_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.AUTHORIZED_ROLE)
+        cls.TOP_1_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.TOP_1_ROLE)
+        cls.TOP_3_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.TOP_3_ROLE)
+        cls.TOP_10_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.TOP_10_ROLE)
 
     # Can be populated immediately
     @classmethod
@@ -63,6 +69,9 @@ class Config:
             cls.WELCOME_CHANNEL_ID = data['WELCOME_CHANNEL_ID']
             cls.GUILD = data['GUILD']
             cls.AUTHORIZED_ROLE = data['AUTHORIZED_ROLE']
+            cls.TOP_1_ROLE = data['TOP_1_ROLE']
+            cls.TOP_3_ROLE = data['TOP_3_ROLE']
+            cls.TOP_10_ROLE = data['TOP_10_ROLE']
             cls.TOKEN = data['TOKEN']
 
 

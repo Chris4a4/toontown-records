@@ -104,7 +104,7 @@ def leaderboard_embed(game):
     data = GAME_DATA[game]
 
     embed = discord.Embed(
-        title=f'{data['name']} Leaderboard',
+        title=f'**{data['name']} Leaderboard**',
         timestamp=datetime.now(timezone.utc),
         color=data['color']
     )
@@ -126,11 +126,11 @@ def leaderboard_embed(game):
 
         username = get_username(user_id)
 
-        leaderboard_string += f'**{i + 1}.** {username} - {points} points\n'
+        leaderboard_string += f'***{i + 1}.** {username} - {points} points*\n'
     
     if not leaderboard_string:
         leaderboard_string = 'Coming soon...'
 
-    embed.add_field(name=f'Top {Config.LEADERBOARD_TOP_N} users:', value=leaderboard_string, inline=False)
+    embed.add_field(name=f'__Top {Config.LEADERBOARD_TOP_N} users:__', value=leaderboard_string, inline=False)
 
     return embed
