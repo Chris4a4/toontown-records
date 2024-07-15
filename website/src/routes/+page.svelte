@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { valueString } from '$lib/recordMetadata.js';
+    //import { valueString } from '$lib/recordMetadata.js';
 
     let record_data = null;
     let user_dict = null;
@@ -38,7 +38,7 @@
                   <b>{`${i + 1}.`}</b>
                   {submission.user_ids.map(user_id => user_dict[user_id]).join(", ")}
                   - 
-                  <a href={submission.evidence}>{valueString(submission, record.tags)}</a>
+                  <a href={submission.evidence}>asdf</a>
                   <br>
                 {/each}
             {:else}
