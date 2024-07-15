@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    //import { valueString } from '$lib/recordMetadata.js';
+    import { valueString } from '$lib/recordMetadata.js';
 
     let record_data = null;
     let user_dict = null;
