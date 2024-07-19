@@ -41,7 +41,7 @@ def records_embed(records):
                 descriptions.append(f'**{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})')
 
             # Join top 3 and make a field
-            desc = '\n'.join(descriptions)
+            desc = '\n'.join(descriptions).join('\n')
             embed.add_field(name=title, value=desc, inline=False)
 
     return embed
