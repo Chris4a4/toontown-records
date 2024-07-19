@@ -1,33 +1,44 @@
 <script>
   import DiscordLogin from '$lib/components/DiscordLogin.svelte';
+  import logo from '$lib/assets/logo.png';
+  import { page } from '$app/stores';
+
   const navItems = [
-    { icon: '🔥', text: 'Records', href: '/records' },
-    { icon: '🏆', text: 'Leaderboard', href: '/leaderboards' },
-    { icon: '👤', text: 'Rules', href: '/rules' },
-    { icon: 'ℹ️', text: 'About', href: '/about' }
+    { text: 'Records', href: '/records' },
+    { text: 'Leaderboard', href: '/leaderboards' },
+    { text: 'Rules', href: '/rules' },
+    { text: 'About', href: '/about' }
   ];
 </script>
 
-<nav class="bg-[#D5C5C8] text-black p-4 flex justify-between items-center">
-  <h1 class="text-xl font-bold mr-6">
+<nav class="bg-lightpink flex justify-between items-center">
+  <div class="w-40 p-2">
     <a href='/'>
-      Toontown Records
+      <img alt="Toontown Records logo" src={logo} />
     </a>
-  </h1>
+  </div>
 
-  <div class="flex items-center">
-    <ul class="flex space-x-6">
+  <div>
+    <ul class="flex text-royalblue font-minnie sm:text-lg md:text-xl lg:text-2xl xl:text-3xl sm:space-x-2 md:space-x-6 lg:space-x-10 xl:space-x-14">
       {#each navItems as item}
-        <li>
-          <a href={item.href} class="flex items-center hover:text-gray-300">
-            <span class="mr-1">{item.icon}</span>
-            <span>{item.text}</span>
-          </a>
-        </li>
+        <a href={item.href}>
+          <li class="relative group">
+            <span class="group-hover:text-raisinblack">
+              {item.text}
+            </span>
+            {#if $page.url.pathname === item.href}
+              <div class="w-full h-1 bg-current group-hover:bg-raisinblack"></div>
+            {:else}
+              <div class="w-full h-1 bg-lightpink"></div>
+            {/if}
+          </li>
+        </a>
       {/each}
     </ul>
   </div>
-  <DiscordLogin />
+  <div class="p-2">
+    <DiscordLogin />
+  </div>
 </nav>
 
-<div class="bg-blue-400 h-1"></div>
+<div class="bg-raisinblack h-1"></div>

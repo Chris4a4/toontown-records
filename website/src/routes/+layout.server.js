@@ -1,4 +1,9 @@
 export async function load() {
+    //return {
+    //    recordData: [],
+    //    leaderboardData: [],
+	//	usersData: {}
+    //}
     const [recordResponse, leaderboardResponse, usersResponse] = await Promise.all([
         fetch(`http://backend:8000/api/records/get_all_records`),
         fetch(`http://backend:8000/api/leaderboards/get_leaderboard/ttr`),
