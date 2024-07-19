@@ -38,7 +38,7 @@ def records_embed(records):
 
                 # Value
                 value_desc = value_string(submission, tags=record['tags'])
-                descriptions.append(f'***{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})*')
+                descriptions.append(f'**{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})')
 
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)
