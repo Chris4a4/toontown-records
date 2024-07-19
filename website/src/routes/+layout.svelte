@@ -8,3 +8,7 @@
 <main>
   <slot />
 </main>
+
+<style>
+  @import url('https://dl.dafont.com/dl/?f=minnie');
+</style>
