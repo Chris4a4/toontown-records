@@ -38,46 +38,58 @@ ttr:
       full: ['Rewardless CEO Records', 'https://i.imgur.com/kEgb0SU.png', 3416590, [93, 212, 155]]
       cog: ['Rewardless CEO Cog Round Records', 'https://i.imgur.com/12L4krm.png', 3416590, [93, 212, 155]]
     misc: ['Miscellaneous CEO Records', 'https://i.imgur.com/YgBOb5j.png', 3416590, [200, 205, 212]]
-  
+
   field-office:
     nr:
-      1-star: ['1-Star Field Office Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [250, 216, 120]]
-      2-star: ['2-Star Field Office Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [250, 216, 120]]
-      3-star: ['3-Star Field Office Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [250, 216, 120]]
-      4-star: ['4-Star Field Office Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [250, 216, 120]]
-    rl: ['Rewardless Field Office Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [93, 212, 155]]
+      full:
+        low-star: ['Low-Star Field Office Records', 'https://i.imgur.com/IVCw1sB.png', 7489641, [250, 216, 120]]
+        high-star: ['High-Star Field Office Records', 'https://i.imgur.com/vO9kCkQ.png', 7489641, [250, 216, 120]]
+      boiler: 
+        low-star-b: ['Low-Star Boiler Records', 'https://i.imgur.com/Ykd0LJm.png', 7489641, [250, 216, 120]]
+        high-star-b: ['High-Star Boiler Records', 'https://i.imgur.com/snkmZeD.png', 7489641, [250, 216, 120]]
+    rl: 
+      full: ['Rewardless Field Office Records', 'https://i.imgur.com/vO9kCkQ.png', 7489641, [93, 212, 155]]
+      boiler: ['Rewardless Boiler Records', 'https://i.imgur.com/snkmZeD.png', 7489641, [93, 212, 155]]
 
   factory:
     nr:
       scrap: ['Scrap Factory Records', 'https://i.imgur.com/7WbKRdU.png', 7489641, [250, 216, 120]]
       steel: ['Steel Factory Records', 'https://i.imgur.com/aHq1un2.png', 7489641, [250, 216, 120]]
+      foreman: ['Factory Foreman Records', 'https://i.imgur.com/0b0q4gg.png', 7489641, [250, 216, 120]]
     rl:
       scrap: ['Rewardless Scrap Factory Records', 'https://i.imgur.com/7WbKRdU.png', 7489641, [93, 212, 155]]
       steel: ['Rewardless Steel Factory Records', 'https://i.imgur.com/aHq1un2.png', 7489641, [93, 212, 155]]
+      foreman: ['Rewardless Factory Foreman Records', 'https://i.imgur.com/0b0q4gg.png', 7489641, [93, 212, 155]]
 
   mint:
     nr:
       coin: ['Coin Mint Records', 'https://i.imgur.com/cp9Udt7.png', 6660217, [250, 216, 120]]
       bullion: ['Bullion Mint Records', 'https://i.imgur.com/RunGHlD.png', 6660217, [250, 216, 120]]
+      auditor: ['Mint Auditor Records', 'https://i.imgur.com/c1QxJAf.png', 6660217, [250, 216, 120]]
     rl:
       coin: ['Rewardless Coin Mint Records', 'https://i.imgur.com/cp9Udt7.png', 6660217, [93, 212, 155]]
       bullion: ['Rewardless Bullion Mint Records', 'https://i.imgur.com/RunGHlD.png', 6660217, [93, 212, 155]]
+      auditor: ['Rewardless Mint Auditor Records', 'https://i.imgur.com/c1QxJAf.png', 6660217, [93, 212, 155]]
 
   office:
     nr:
       junior: ['Junior Wing Records', 'https://i.imgur.com/xyDBxKu.png', 4278935, [250, 216, 120]]
       senior: ['Senior Wing Records', 'https://i.imgur.com/4AWOeHT.png', 4278935, [250, 216, 120]]
+      clerk: ['Office Clerk Records', 'https://i.imgur.com/hDS23PB.png', 4278935, [250, 216, 120]]
     rl:
       junior: ['Rewardless Junior Wing Records', 'https://i.imgur.com/xyDBxKu.png', 4278935, [93, 212, 155]]
       senior: ['Rewardless Senior Wing Records', 'https://i.imgur.com/4AWOeHT.png', 4278935, [93, 212, 155]]
+      clerk: ['Rewardless Office Clerk Records', 'https://i.imgur.com/hDS23PB.png', 4278935, [93, 212, 155]]
 
   cog-golf-course:
     nr:
       fairway: ['First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [250, 216, 120]]
       fringe: ['Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [250, 216, 120]]
+      president: ['Club President Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
     rl:
       fairway: ['Rewardless First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [93, 212, 155]]
       fringe: ['Rewardless Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [93, 212, 155]]
+      president: ['Rewardless Club President Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [93, 212, 155]]
 
   activities:
     golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [55, 181, 27]]
