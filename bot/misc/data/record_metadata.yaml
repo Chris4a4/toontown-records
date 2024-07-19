@@ -81,11 +81,11 @@ ttr:
     nr:
       fairway: ['First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [250, 216, 120]]
       fringe: ['Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [250, 216, 120]]
-      president: ['Final Fringe Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
+      president: ['Club President Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
     rl:
       fairway: ['Rewardless First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [93, 212, 155]]
       fringe: ['Rewardless Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [93, 212, 155]]
-      president: ['Final Fringe Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
+      president: ['Rewardless Club President Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
 
   activities:
     golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [55, 181, 27]]
