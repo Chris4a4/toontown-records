@@ -1,5 +1,5 @@
 <button
-  class="flex items-center border border-blue-700 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+  class="btn-animate flex items-center border border-blue-700 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-white"
   style="background-color: #5865F2;">
   
   <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

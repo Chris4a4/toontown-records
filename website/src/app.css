@@ -11,3 +11,9 @@
     src: url(/fonts/Minnie.ttf) format('truetype');
   }
 }
+
+@layer components {
+  .btn-animate {
+    @apply transition duration-150 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0.5;
+  }
+}
