@@ -191,10 +191,6 @@ ttr:
           4: [Fastest Long Scrap Factory, 1]
           2: [Fastest Duo Long Scrap Factory, 1]
           1: [Fastest Solo Long Scrap Factory, 1]
-        foreman:
-          4: [Fastest Scrap Factory Foreman, 1]
-          2: [Fastest Duo Scrap Factory Foreman, 1]
-          1: [Fastest Solo Scrap Factory Foreman, 1]
       steel:
         short:
           4: [Fastest Short Steel Factory, 1]
@@ -204,7 +200,12 @@ ttr:
           4: [Fastest Long Steel Factory, 1]
           2: [Fastest Duo Long Steel Factory, 1]
           1: [Fastest Solo Long Steel Factory, 1]
-        foreman:
+      foreman:
+        scrap-f:
+          4: [Fastest Scrap Factory Foreman, 1]
+          2: [Fastest Duo Scrap Factory Foreman, 1]
+          1: [Fastest Solo Scrap Factory Foreman, 1]
+        steel-f:
           4: [Fastest Steel Factory Foreman, 1]
           2: [Fastest Duo Steel Factory Foreman, 1]
           1: [Fastest Solo Steel Factory Foreman, 1]
@@ -218,10 +219,6 @@ ttr:
           4: [Fastest Rewardless Long Scrap Factory, 1]
           2: [Fastest Duo Rewardless Long Scrap Factory, 1]
           1: [Fastest Solo Rewardless Long Scrap Factory, 1]
-        foreman:
-          4: [Fastest Rewardless Scrap Factory Foreman, 1]
-          2: [Fastest Duo Rewardless Scrap Factory Foreman, 1]
-          1: [Fastest Solo Rewardless Scrap Factory Foreman, 1]
       steel:
         short:
           4: [Fastest Rewardless Short Steel Factory, 1]
@@ -229,7 +226,12 @@ ttr:
         long:
           4: [Fastest Rewardless Long Steel Factory, 1]
           2: [Fastest Duo Rewardless Long Steel Factory, 1]
-        foreman:
+      foreman:
+        scrap-f:
+          4: [Fastest Rewardless Scrap Factory Foreman, 1]
+          2: [Fastest Duo Rewardless Scrap Factory Foreman, 1]
+          1: [Fastest Solo Rewardless Scrap Factory Foreman, 1]
+        steel-f:
           4: [Fastest Rewardless Steel Factory Foreman, 1]
           2: [Fastest Duo Rewardless Steel Factory Foreman, 1]
           

@@ -51,9 +51,11 @@ ttr:
     nr:
       scrap: ['Scrap Factory Records', 'https://i.imgur.com/7WbKRdU.png', 7489641, [250, 216, 120]]
       steel: ['Steel Factory Records', 'https://i.imgur.com/aHq1un2.png', 7489641, [250, 216, 120]]
+      foreman: ['Factory Foreman Records', 'https://i.imgur.com/0b0q4gg.png', 7489641, [250, 216, 120]]
     rl:
       scrap: ['Rewardless Scrap Factory Records', 'https://i.imgur.com/7WbKRdU.png', 7489641, [93, 212, 155]]
       steel: ['Rewardless Steel Factory Records', 'https://i.imgur.com/aHq1un2.png', 7489641, [93, 212, 155]]
+      foreman: ['Rewardless Factory Foreman Records', 'https://i.imgur.com/0b0q4gg.png', 7489641, [93, 212, 155]]
 
   mint:
     nr:
