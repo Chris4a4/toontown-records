@@ -13,5 +13,6 @@
     </g>
   </svg>
 
-  <span>Connect with Discord</span>
+  <span class="block sm:hidden">Sign In</span>
+  <span class="hidden sm:block">Connect with Discord</span>
 </button>
