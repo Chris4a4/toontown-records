@@ -61,25 +61,31 @@ ttr:
     nr:
       coin: ['Coin Mint Records', 'https://i.imgur.com/cp9Udt7.png', 6660217, [250, 216, 120]]
       bullion: ['Bullion Mint Records', 'https://i.imgur.com/RunGHlD.png', 6660217, [250, 216, 120]]
+      auditor: ['Mint Auditor Records', 'https://i.imgur.com/c1QxJAf.png', 6660217, [250, 216, 120]]
     rl:
       coin: ['Rewardless Coin Mint Records', 'https://i.imgur.com/cp9Udt7.png', 6660217, [93, 212, 155]]
       bullion: ['Rewardless Bullion Mint Records', 'https://i.imgur.com/RunGHlD.png', 6660217, [93, 212, 155]]
+      auditor: ['Rewardless Mint Auditor Records', 'https://i.imgur.com/c1QxJAf.png', 6660217, [250, 216, 120]]
 
   office:
     nr:
       junior: ['Junior Wing Records', 'https://i.imgur.com/xyDBxKu.png', 4278935, [250, 216, 120]]
       senior: ['Senior Wing Records', 'https://i.imgur.com/4AWOeHT.png', 4278935, [250, 216, 120]]
+      clerk: ['Office Clerk Records', 'https://i.imgur.com/hDS23PB.png', 4278935, [250, 216, 120]]
     rl:
       junior: ['Rewardless Junior Wing Records', 'https://i.imgur.com/xyDBxKu.png', 4278935, [93, 212, 155]]
       senior: ['Rewardless Senior Wing Records', 'https://i.imgur.com/4AWOeHT.png', 4278935, [93, 212, 155]]
+      clerk: ['Rewardless Office Clerk Records', 'https://i.imgur.com/hDS23PB.png', 4278935, [250, 216, 120]]
 
   cog-golf-course:
     nr:
       fairway: ['First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [250, 216, 120]]
       fringe: ['Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [250, 216, 120]]
+      president: ['Final Fringe Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
     rl:
       fairway: ['Rewardless First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [93, 212, 155]]
       fringe: ['Rewardless Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [93, 212, 155]]
+      president: ['Final Fringe Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
 
   activities:
     golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [55, 181, 27]]

@@ -238,105 +238,99 @@ ttr:
   mint:
     nr:
       coin:
-        full:
-          4: [Fastest Coin Mint, 1]
-          2: [Fastest Duo Coin Mint, 1]
-          1: [Fastest Solo Coin Mint, 1]
-        auditor:
+        4: [Fastest Coin Mint, 1]
+        2: [Fastest Duo Coin Mint, 1]
+        1: [Fastest Solo Coin Mint, 1]
+      bullion:
+        4: [Fastest Bullion Mint, 1]
+        2: [Fastest Duo Bullion Mint, 1]
+        1: [Fastest Solo Bullion Mint, 1]
+      auditor:
+        coin-a:
           4: [Fastest Coin Mint Auditor, 1]
           2: [Fastest Duo Coin Mint Auditor, 1]
           1: [Fastest Solo Coin Mint Auditor, 1]
-      bullion:
-        full:
-          4: [Fastest Bullion Mint, 1]
-          2: [Fastest Duo Bullion Mint, 1]
-          1: [Fastest Solo Bullion Mint, 1]
-        auditor:
+        bullion-a:
           4: [Fastest Bullion Mint Auditor, 1]
           2: [Fastest Duo Bullion Mint Auditor, 1]
           1: [Fastest Solo Bullion Mint Auditor, 1]
     rl:
       coin:
-        full:
-          4: [Fastest Rewardless Coin Mint, 1]
-          2: [Fastest Duo Rewardless Coin Mint, 1]
-        auditor:
+        4: [Fastest Rewardless Coin Mint, 1]
+        2: [Fastest Duo Rewardless Coin Mint, 1]
+      bullion:
+        4: [Fastest Rewardless Bullion Mint, 1]
+        2: [Fastest Duo Rewardless Bullion Mint, 1]
+      auditor:
+        coin-a:
           4: [Fastest Rewardless Coin Mint Auditor, 1]
           2: [Fastest Duo Rewardless Coin Mint Auditor, 1]
-      bullion:
-        full:
-          4: [Fastest Rewardless Bullion Mint, 1]
-          2: [Fastest Duo Rewardless Bullion Mint, 1]
-        auditor:
+        bullion-a:
           4: [Fastest Rewardless Bullion Mint Auditor, 1]
           2: [Fastest Duo Rewardless Bullion Mint Auditor, 1]
           
   office:
     nr:
       junior:
-        full:
-          4: [Fastest Junior Wing, 1]
-          2: [Fastest Duo Junior Wing, 1]
-          1: [Fastest Solo Junior Wing, 1]
-        clerk:
+        4: [Fastest Junior Wing, 1]
+        2: [Fastest Duo Junior Wing, 1]
+        1: [Fastest Solo Junior Wing, 1]
+      senior:
+        4: [Fastest Senior Wing, 1]
+        2: [Fastest Duo Senior Wing, 1]
+        1: [Fastest Solo Senior Wing, 1]
+      clerk:
+        junior-c:
           4: [Fastest Junior Wing Clerk, 1]
           2: [Fastest Duo Junior Wing Clerk, 1]
           1: [Fastest Solo Junior Wing Clerk, 1]
-      senior:
-        full:
-          4: [Fastest Senior Wing, 1]
-          2: [Fastest Duo Senior Wing, 1]
-          1: [Fastest Solo Senior Wing, 1]
-        clerk:
+        senior-c:
           4: [Fastest Senior Wing Clerk, 1]
           2: [Fastest Duo Senior Wing Clerk, 1]
           1: [Fastest Solo Senior Wing Clerk, 1]
     rl:
       junior:
-        full:
           4: [Fastest Rewardless Junior Wing, 1]
           2: [Fastest Duo Rewardless Junior Wing, 1]
-        clerk:
+      senior:
+          4: [Fastest Rewardless Senior Wing, 1]
+      clerk:
+        junior-c:
           4: [Fastest Rewardless Junior Wing Clerk, 1]
           2: [Fastest Duo Rewardless Junior Wing Clerk, 1]
-      senior:
-        full:
-          4: [Fastest Rewardless Senior Wing, 1]
-        clerk:
+        senior-c:
           4: [Fastest Rewardless Senior Wing Clerk, 1]
 
   cog-golf-course:
     nr:
       fairway:
-        full:
           4: [Fastest Fairway, 1]
           2: [Fastest Duo Fairway, 1]
           1: [Fastest Solo Fairway, 1]
-        president:
-          4: [Fastest Fairway Club President, 1]
-          2: [Fastest Duo Fairway Club President, 1]
-          1: [Fastest Solo Fairway Club President, 1]
       fringe:
-        full:
           4: [Fastest Fringe, 1]
           2: [Fastest Duo Fringe, 1]
           1: [Fastest Solo Fringe, 1]
-        president:
+      president:
+        fairway-p:
+          4: [Fastest Fairway Club President, 1]
+          2: [Fastest Duo Fairway Club President, 1]
+          1: [Fastest Solo Fairway Club President, 1]
+        fringe-p:
           4: [Fastest Fringe Club President, 1]
           2: [Fastest Duo Fringe Club President, 1]
           1: [Fastest Solo Fringe Club President, 1]
     rl:
       fairway:
-        full:
           4: [Fastest Rewardless Fairway, 1]
           2: [Fastest Duo Rewardless Fairway, 1]
-        president:
+      fringe:
+          4: [Fastest Rewardless Fringe, 1]
+      president:
+        fairway-p:
           4: [Fastest Rewardless Fairway Club President, 1]
           2: [Fastest Duo Rewardless Fairway Club President, 1]
-      fringe:
-        full:
-          4: [Fastest Rewardless Fringe, 1]
-        president:
+        fringe-p:
           4: [Fastest Rewardless Fringe Club President, 1]
   
   activities:
