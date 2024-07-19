@@ -37,7 +37,7 @@ class UserManager():
     async def update_from_id(cls, user_id):
         for member in Config.GUILD.members:
             if user_id == member.id:
-                await cls.update_user(member)
+                await cls.update_name(member)
                 return
 
     @classmethod

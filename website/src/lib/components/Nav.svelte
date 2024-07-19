@@ -1,54 +1,33 @@
 <script>
-    import { page } from '$app/stores';
+  import DiscordLogin from '$lib/components/DiscordLogin.svelte';
+  const navItems = [
+    { icon: '🔥', text: 'Records', href: '/records' },
+    { icon: '🏆', text: 'Leaderboard', href: '/leaderboards' },
+    { icon: '👤', text: 'Rules', href: '/rules' },
+    { icon: 'ℹ️', text: 'About', href: '/about' }
+  ];
 </script>
-  
-<nav>
-  <ul>
-    <li class:active={$page.url.pathname === '/'}>
-      <a href="/">Home</a>
-    </li>
-    <li class:active={$page.url.pathname === '/records'}>
-      <a href="/records">Records</a>
-    </li>
-    <li class:active={$page.url.pathname === '/leaderboards'}>
-      <a href="/leaderboards">Leaderboards</a>
-    </li>
-    <li class:active={$page.url.pathname === '/rules'}>
-      <a href="/rules">Rules</a>
-    </li>
-    <li class:active={$page.url.pathname === '/about'}>
-      <a href="/about">About</a>
-    </li>
-  </ul>
+
+<nav class="bg-[#D5C5C8] text-black p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold mr-6">
+    <a href='/'>
+      Toontown Records
+    </a>
+  </h1>
+
+  <div class="flex items-center">
+    <ul class="flex space-x-6">
+      {#each navItems as item}
+        <li>
+          <a href={item.href} class="flex items-center hover:text-gray-300">
+            <span class="mr-1">{item.icon}</span>
+            <span>{item.text}</span>
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
+  <DiscordLogin />
 </nav>
 
-<style>
-  nav {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 1rem;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-
-  li {
-    display: inline;
-  }
-
-  a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-
-  .active a {
-    color: #007bff;
-  }
-</style>
+<div class="bg-blue-400 h-1"></div>
