@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center max-w-7xl font-righteous text-lightpink">
+<div class="flex flex-col items-center max-w-3xl font-righteous text-lightpink">
   <h2 class="text-5xl text-center">Records and Leaderboards</h2>
   <div class="h-1 w-full m-2 bg-raisinblack"></div>
   <p class="text-2xl mb-8">This website contains a collection of all the records, which includes the fastest times and highest scores for bosses, facilities, activities, and more! You will also find leaderboards that show us the Top Toons with the most points. Check them all out!</p>

@@ -3,7 +3,7 @@
   import louAvatar from '$lib/assets/louAvatar.png';
 </script>
 
-<div class="max-w-7xl font-righteous text-raisinblack">
+<div class="max-w-3xl font-righteous text-raisinblack">
   <h2 class="text-5xl text-center">Meet The Staff Members</h2>
   <div class="h-1 w-full m-2 mb-4 bg-royalblue"></div>
 
