@@ -31,7 +31,7 @@
   <div class="flex justify-center items-center">
     <img alt="Toontown Records logo"
          src={logo}
-         class="w-full md:w-3/4 max-w-3xl custom-drop-shadow p-20"
+         class="w-full md:w-3/4 max-w-3xl custom-drop-shadow p-10 sm:p-20"
     />
   </div>
 
