@@ -22,7 +22,7 @@
     <!-- Logo -->
     <div class="w-40 p-2 flex-shrink-0 drop-shadow-lg">
       <a href='/' class="btn-animate block w-full h-full">
-        <img alt="Toontown Records logo" src={logo} class="w-full h-full object-contain" />
+        <img alt="Toontown Records logo" src={logo} class="w-full h-full" />
       </a>
     </div>
   

@@ -10,6 +10,14 @@
     font-display: swap;
     src: url(/fonts/Minnie.ttf) format('truetype');
   }
+
+  @font-face {
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Righteous-Regular.ttf) format('truetype');
+  }
 }
 
 @layer components {
