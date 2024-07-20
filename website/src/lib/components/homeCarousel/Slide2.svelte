@@ -4,11 +4,11 @@
 </script>
 
 <div class="max-w-3xl font-righteous text-raisinblack">
-  <h2 class="text-5xl text-center">Meet The Staff Members</h2>
+  <h2 class="text-5xl text-center drop-shadow-lg">Meet The Staff Members</h2>
   <div class="h-1 w-full m-2 mb-4 bg-royalblue"></div>
 
   <div class="flex items-center justify-center p-4">
-    <div class="text-4xl text-center block sm:hidden">PROJECT MANAGERS</div>
+    <div class="text-4xl text-center block sm:hidden drop-shadow-lg">PROJECT MANAGERS</div>
   </div>
 
   <div class="w-full flex justify-evenly">
@@ -23,7 +23,7 @@
     </div>
 
     <div class="flex items-center justify-center p-4">
-      <div class="text-2xl sm:text-3xl md:text-5xl text-center hidden sm:block">PROJECT MANAGERS</div>
+      <div class="text-2xl sm:text-3xl md:text-5xl text-center hidden sm:block drop-shadow-lg">PROJECT MANAGERS</div>
     </div>
 
     <div class="flex flex-col items-center">

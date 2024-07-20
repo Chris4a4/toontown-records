@@ -45,7 +45,7 @@
                 <div class="drop-shadow-lg">{item.text}</div>
               </span>
               {#if $page.url.pathname === item.href}
-                <div class="w-full h-1 bg-current group-hover:bg-raisinblack"></div>
+                <div class="w-full h-1 bg-current group-hover:bg-raisinblack drop-shadow-lg"></div>
               {:else}
                 <div class="w-full h-1 bg-lightpink"></div>
               {/if}
