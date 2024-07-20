@@ -36,7 +36,7 @@
   </div>
 
   <!-- Carousel -->
-  <div class="relative w-full h-[38rem] sm:h-[32rem] md:h-[26rem] lg:h-96 xl:h-80 bg-teal-200 focused-drop-shadow">
+  <div class="relative w-full h-[48rem] sm:h-[32rem] md:h-[26rem] lg:h-96 xl:h-80 bg-teal-200 focused-drop-shadow">
     <!-- Content -->
     <div class="absolute inset-0 py-4 px-12 {slides[currentSlide].color} flex justify-center" transition:fade>
       <svelte:component this={slides[currentSlide].slide} />
