@@ -1,8 +1,9 @@
-<div class="max-w-7xl">
-  <h2 class="text-2xl font-bold mb-4">Records and Leaderboards</h2>
-  <p class="mb-4">This is your go-to hub for tracking and celebrating the best speedruns in Toontown! As a revival of the beloved Toontown Hall of Fame from MMOCentral Forums, our site is dedicated to preserving the legacy of Toontown's top players and their remarkable feats. </p>
-  <div class="flex space-x-4">
-    <button class="bg-gray-700 text-white px-4 py-2 rounded">MORE ABOUT US</button>
-    <button class="bg-gray-700 text-white px-4 py-2 rounded">GENERAL RULES</button>
+<div class="flex flex-col items-center max-w-7xl font-righteous text-lightpink">
+  <h2 class="text-5xl text-center">Records and Leaderboards</h2>
+  <div class="h-1 w-full m-2 bg-raisinblack"></div>
+  <p class="text-2xl mb-8">This website contains a collection of all the records, which includes the fastest times and highest scores for bosses, facilities, activities, and more! You will also find leaderboards that show us the Top Toons with the most points. Check them all out!</p>
+  <div class="w-full flex justify-evenly">
+    <button class="btn-animate bg-raisinblack text-lightpink px-4 py-2 md:text-2xl rounded-3xl">VIEW RECORDS</button>
+    <button class="btn-animate bg-raisinblack text-lightpink px-4 py-2 md:text-2xl rounded-3xl">VIEW LEADERBOARDS</button>
   </div>
 </div>

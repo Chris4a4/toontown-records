@@ -4,9 +4,18 @@
 
   import Slide0 from '$lib/components/homeCarousel/Slide0.svelte';
   import Slide1 from '$lib/components/homeCarousel/Slide1.svelte';
+  import Slide2 from '$lib/components/homeCarousel/Slide2.svelte';
+  import Slide3 from '$lib/components/homeCarousel/Slide3.svelte';
+  import Slide4 from '$lib/components/homeCarousel/Slide4.svelte';
 
   let currentSlide = 0;
-  const slides = [1, 2];
+  const slides = [
+    {color: 'bg-emeraldgreen', slide: Slide0},
+    {color: 'bg-royalblue', slide: Slide1},
+    {color: 'bg-lightpink', slide: Slide2},
+    {color: 'bg-raisinblack', slide: Slide3},
+    {color: 'bg-[#858FFF]', slide: Slide4}
+  ];
 
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
@@ -27,16 +36,11 @@
   </div>
 
   <!-- Carousel -->
-  <div class="relative w-full h-80 bg-teal-200 focused-drop-shadow">
-    {#if currentSlide === 0}
-      <div class="absolute inset-0 py-4 px-12 bg-emeraldgreen flex justify-center" transition:fade>
-        <Slide0 />
-      </div>
-    {:else if currentSlide === 1}
-      <div class="absolute inset-0 py-4 px-12 bg-royalblue flex justify-center" transition:fade>
-        <Slide1 />
-      </div>
-    {/if}
+  <div class="relative w-full h-[38rem] sm:h-[32rem] md:h-[26rem] lg:h-96 xl:h-80 bg-teal-200 focused-drop-shadow">
+    <!-- Content -->
+    <div class="absolute inset-0 py-4 px-12 {slides[currentSlide].color} flex justify-center" transition:fade>
+      <svelte:component this={slides[currentSlide].slide} />
+    </div>
     
     <!-- Navigation Buttons -->
     <button on:click={prevSlide} class="absolute left-2 top-1/2 transform -translate-y-1/2" aria-label="Previous slide">

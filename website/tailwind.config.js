@@ -19,7 +19,8 @@ export default {
 
       'white': colors.white,
       'blue': colors.blue,
-      'gray': colors.gray
+      'gray': colors.gray,
+      'black': colors.black
     },
     fontFamily: {
       'minnie': ['Minnie'],
