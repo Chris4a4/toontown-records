@@ -25,16 +25,7 @@
         <img alt="Toontown Records logo" src={logo} class="w-full h-full" />
       </a>
     </div>
-  
-    <!-- Dropdown button for mobile -->
-    <button 
-      class="xl:hidden p-1 drop-shadow-lg hover:bg-emeraldgreen outline-royalblue rounded-sm outline outline-2 btn-animate text-royalblue text-2xl"
-      on:click={toggleMobileMenu}
-      aria-label="Toggle mobile menu"
-    >
-      ☰
-    </button>
-  
+
     <!-- Desktop menu -->
     <div class="flex-grow hidden xl:block">
       <ul class="flex justify-center text-royalblue font-minnie text-3xl space-x-14">
@@ -54,9 +45,18 @@
         {/each}
       </ul>
     </div>
-  
+
     <!-- Connect with Discord button -->
     <DiscordLogin/>
+
+    <!-- Dropdown button for mobile -->
+    <button 
+      class="xl:hidden p-1 drop-shadow-lg hover:bg-emeraldgreen outline-royalblue rounded-sm outline outline-2 btn-animate text-royalblue text-2xl"
+      on:click={toggleMobileMenu}
+      aria-label="Toggle mobile menu"
+    >
+      ☰
+    </button>
   </nav>
 </div>
 
