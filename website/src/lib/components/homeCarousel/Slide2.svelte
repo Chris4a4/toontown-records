@@ -6,6 +6,11 @@
 <div class="max-w-7xl font-righteous text-raisinblack">
   <h2 class="text-5xl text-center">Meet The Staff Members</h2>
   <div class="h-1 w-full m-2 mb-4 bg-royalblue"></div>
+
+  <div class="flex items-center justify-center p-4">
+    <div class="text-4xl text-center block sm:hidden">PROJECT MANAGERS</div>
+  </div>
+
   <div class="w-full flex justify-evenly">
 
     <div class="flex flex-col items-center">
