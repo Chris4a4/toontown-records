@@ -56,7 +56,7 @@
     </div>
   
     <!-- Connect with Discord button -->
-    <DiscordLogin class="p-2 flex-shrink-0 drop-shadow-lg"/>
+    <DiscordLogin/>
   </nav>
 </div>
 
