@@ -36,12 +36,20 @@
   </div>
 
   <!-- Carousel -->
-  <div class="relative w-full h-[52rem] sm:h-[32rem] md:h-[26rem] lg:h-96 bg-teal-200 focused-drop-shadow">
+  <div class="relative w-full h-[24rem] sm:h-[32rem] md:h-[26rem] lg:h-96 bg-teal-200 focused-drop-shadow">
     <!-- Content -->
-    <div class="absolute inset-0 py-4 px-12 {slides[currentSlide].color} flex justify-center" transition:fade>
-      <svelte:component this={slides[currentSlide].slide} />
-    </div>
-    
+    {#each slides as slide, i}
+      {#if i === currentSlide}
+        <div
+          class="absolute inset-0 py-4 px-12 {slide.color} flex justify-center"
+          in:fade={{ duration: 300 }}
+          out:fade={{ duration: 300 }}
+        >
+          <svelte:component this={slide.slide} />
+        </div>
+      {/if}
+    {/each}
+      
     <!-- Navigation Buttons -->
     <button on:click={prevSlide} class="absolute left-2 top-1/2 transform -translate-y-1/2" aria-label="Previous slide">
       <svg xmlns="http://www.w3.org/2000/svg" class="arrow-svg" fill="none" viewBox="0 0 24 24" stroke="white">

@@ -18,8 +18,8 @@
         src={chrisAvatar}
         class="w-full md:w-2/3 lg:w-1/2"
       />
-      <span class="text-royalblue text-3xl md:pt-2">Chris4a4</span>
-      <span class="text-raisinblack text-xl">Lead Developer</span>
+      <span class="text-royalblue text-lg sm:text-3xl md:pt-2">Chris4a4</span>
+      <span class="text-raisinblack text-m sm:text-xl">Lead Developer</span>
     </div>
 
     <div class="flex items-center justify-center p-4">
@@ -31,8 +31,8 @@
         src={louAvatar}
         class="w-full md:w-2/3 lg:w-1/2"
       />
-      <span class="text-royalblue text-3xl md:pt-2">Kitt Kitt Lou</span>
-      <span class="text-raisinblack text-xl">Lead Director</span>
+      <span class="text-royalblue text-lg sm:text-3xl md:pt-2">Kitt Kitt Lou</span>
+      <span class="text-raisinblack text-m sm:text-xl">Lead Director</span>
     </div>
   </div>
 </div>
