@@ -11,3 +11,4 @@ class Mongo_Config:
     audit_log = db['audit_log']
 
     leaderboard = db['leaderboard']
+    oauth = db['oauth']

@@ -7,7 +7,7 @@
       <a href='/#'>JOIN THE DISCORD</a>
     </button>
     <button class="btn-animate bg-black text-white px-4 py-2 text-sm sm:text-2xl rounded-3xl">
-      <a href='/#'>LOGIN TO WEBSITE</a>
+      <a href="{import.meta.env.VITE_OAUTH_URL}">LOGIN TO WEBSITE</a>
     </button>
   </div>
 </div>

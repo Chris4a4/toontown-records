@@ -3,6 +3,9 @@
   import DiscordLogin from '$lib/components/DiscordLogin.svelte';
   import logo from '$lib/assets/logo.png';
   import { page } from '$app/stores';
+  import { discordAvatar } from '$lib/stores.js'
+
+  let avatarUrl = null;
 
   let isMobileMenuOpen = false;
   const navItems = [
@@ -15,6 +18,10 @@
   function toggleMobileMenu() {
     isMobileMenuOpen = !isMobileMenuOpen;
   }
+
+  //discordAvatar.subscribe((value) => {
+  //  avatarUrl = value;
+  //});
 </script>
 
 <div class="bg-lightpink">
@@ -46,8 +53,12 @@
       </ul>
     </div>
 
-    <!-- Connect with Discord button -->
-    <DiscordLogin/>
+    <!-- User profile section -->
+    {#if $discordAvatar}
+      <img src={$discordAvatar} alt="Discord Avatar" class="max-h-16 rounded-full" />
+    {:else}
+      <DiscordLogin/>
+    {/if}
 
     <!-- Dropdown button for mobile -->
     <button 

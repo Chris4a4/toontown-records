@@ -3,6 +3,9 @@ import os
 
 class Config:
     WEBHOOK_URL = ''
+    OAUTH_URL = ''
+    OAUTH_CLIENT = ''
+    OAUTH_SECRET = ''
 
     MAX_NAME_LEN = 0
     MIN_NAME_LEN = 0
@@ -21,6 +24,9 @@ class Config:
             data = yaml.safe_load(file)
             
             cls.WEBHOOK_URL = data['WEBHOOK_URL']
+            cls.OAUTH_URL = data['OAUTH_URL']
+            cls.OAUTH_CLIENT = data['OAUTH_CLIENT']
+            cls.OAUTH_SECRET = data['OAUTH_SECRET']
 
 
 public_path = os.path.join(os.path.dirname(__file__), '..', '..', 'public_config.yaml')

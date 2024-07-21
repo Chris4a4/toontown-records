@@ -6,6 +6,7 @@ from api.accounts.router import accounts_router
 from api.namechange.router import namechange_router
 from api.logging.router import logging_router
 from api.leaderboards.router import leaderboards_router
+from api.oauth.router import oauth_router
 
 
 tags_metadata = [
@@ -34,6 +35,10 @@ tags_metadata = [
         'description': 'Allows the retrieval of logs from the database',
     },
     {
+        'name': 'Oauth2',
+        'description': 'Allows Discord oauth2 token/code management',
+    },
+    {
         'name': 'Logged',
         'description': 'These endpoints require a user interaction and are logged. audit_id is the discord id of the user interacting with the endpoint',
     },
@@ -54,3 +59,4 @@ app.include_router(accounts_router, tags=['Accounts'])
 app.include_router(namechange_router, tags=['Namechanges'])
 app.include_router(leaderboards_router, tags=['Leaderboards'])
 app.include_router(logging_router, tags=['Logging'])
+app.include_router(oauth_router, tags=['Oauth2'])
