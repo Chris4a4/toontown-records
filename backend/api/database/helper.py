@@ -14,5 +14,8 @@ class MongoJSONEncoder(json.JSONEncoder):
 
 
 def doc_to_json(documents):
-    return loads(dumps(list(documents), cls=MongoJSONEncoder))
+    return loads(dumps(documents, cls=MongoJSONEncoder))
 
+
+def docs_to_json(documents):
+    return loads(dumps(list(documents), cls=MongoJSONEncoder))

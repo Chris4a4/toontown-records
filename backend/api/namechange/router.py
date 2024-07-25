@@ -5,7 +5,7 @@ from time import time
 from bson.errors import InvalidId
 
 from api.config.mongo_config import Mongo_Config
-from api.database.helper import doc_to_json
+from api.database.helper import docs_to_json
 from api.logging.logging import audit_log
 from api.logging.webhooks import send_webhook
 from api.config.config import Config
@@ -197,7 +197,7 @@ async def get_pending_namechanges():
     query = {'status': 'PENDING'}
 
     documents = Mongo_Config.namechanges.find(query)
-    to_json = doc_to_json(documents)
+    to_json = docs_to_json(documents)
 
     return {
         'success': True,

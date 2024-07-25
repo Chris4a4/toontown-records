@@ -185,7 +185,8 @@ class Commands(commands.Cog):
             
             await ctx.respond(result, ephemeral=True)
 
-        except ValueError:
+        except ValueError as e:
+            print(e)
             await ctx.respond("Couldn't decipher that value", ephemeral=True)
     
     @records.command(name='approve', description='Approves a submission')

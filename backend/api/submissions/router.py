@@ -1,5 +1,5 @@
 from api.config.mongo_config import Mongo_Config
-from api.database.helper import doc_to_json
+from api.database.helper import doc_to_json, docs_to_json
 from api.logging.logging import audit_log
 from api.leaderboards.leaderboards import update_record
 from api.records.records import this_counts_as
@@ -360,7 +360,7 @@ async def get_pending_submissions():
     query = {'status': 'PENDING'}
 
     documents = Mongo_Config.submissions.find(query)
-    to_json = doc_to_json(documents)
+    to_json = docs_to_json(documents)
 
     return {
         'success': True,
@@ -384,7 +384,7 @@ async def get_approved_submissions(user_id: int):
             'data': []
         }
 
-    to_json = doc_to_json(documents)
+    to_json = docs_to_json(documents)
 
     return {
         'success': True,
