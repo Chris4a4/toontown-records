@@ -43,8 +43,8 @@ def records_embed(records):
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)
 
-        # Add newline plus invis character so it gets rendered if not last element 
-        if i < len(records):
+        # Add newline plus invis character so it gets rendered
+        if i != len(records) - 1:
             desc += '\n‎ '
 
         embed.add_field(name=title, value=desc, inline=False)
