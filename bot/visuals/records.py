@@ -14,7 +14,7 @@ def records_embed(records):
     )
 
     # Body
-    for record, i in enumerate(records):
+    for i, record in enumerate(records):
         points = record['points']
         if points == 1:
             title = f'__{record['record_name']}__'
