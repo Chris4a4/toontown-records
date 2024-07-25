@@ -26,7 +26,7 @@ def records_embed(records):
             desc = 'N/A'
         else:
             descriptions = []
-            for i, submission in enumerate(top_3):
+            for j, submission in enumerate(top_3):
                 # Names
                 names = []
                 for user_id in submission['user_ids']:
@@ -38,7 +38,7 @@ def records_embed(records):
 
                 # Value
                 value_desc = value_string(submission, tags=record['tags'])
-                descriptions.append(f'**{i + 1}.** {names_string} - [{value_desc}]({submission['evidence']})')
+                descriptions.append(f'**{j + 1}.** {names_string} - [{value_desc}]({submission['evidence']})')
 
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)
