@@ -42,7 +42,7 @@ def records_embed(records):
 
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)
-            desc += '\n'
+            desc += '\n‎ '
             embed.add_field(name=title, value=desc, inline=False)
 
     return embed
