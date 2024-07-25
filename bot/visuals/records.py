@@ -14,7 +14,7 @@ def records_embed(records):
     )
 
     # Body
-    for record in records:
+    for record, i in enumerate(records):
         points = record['points']
         if points == 1:
             title = f'__{record['record_name']}__'
@@ -23,7 +23,7 @@ def records_embed(records):
 
         top_3 = record['top3']
         if not top_3:
-            embed.add_field(name=title, value='N/A', inline=False)
+            desc = 'N/A'
         else:
             descriptions = []
             for i, submission in enumerate(top_3):
@@ -42,7 +42,11 @@ def records_embed(records):
 
             # Join top 3 and make a field
             desc = '\n'.join(descriptions)
+
+        # Add newline plus invis character so it gets rendered if not last element 
+        if i < len(records):
             desc += '\n‎ '
-            embed.add_field(name=title, value=desc, inline=False)
+
+        embed.add_field(name=title, value=desc, inline=False)
 
     return embed
