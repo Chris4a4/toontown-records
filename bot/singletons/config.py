@@ -27,6 +27,8 @@ class Config:
     TOP_10_ROLE = ''
     TOKEN = ''
 
+    DONE_LOADING = False
+
     # Populated after the bot is loaded
     @classmethod
     def add_context(cls, bot):
@@ -36,6 +38,8 @@ class Config:
         cls.TOP_1_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.TOP_1_ROLE)
         cls.TOP_3_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.TOP_3_ROLE)
         cls.TOP_10_ROLE = discord.utils.get(cls.GUILD.roles, name=cls.TOP_10_ROLE)
+
+        cls.DONE_LOADING = True
 
     # Can be populated immediately
     @classmethod
