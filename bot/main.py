@@ -9,7 +9,7 @@ bot = RateLimitedBot(intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    if Config.DONE_LOADING:
+    if not Config.DONE_LOADING:
         print(f'Logged in as {bot.user.name} ({bot.user.id})')
         print('------')
 
