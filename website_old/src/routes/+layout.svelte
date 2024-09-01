@@ -17,8 +17,15 @@
   });
 </script>
 
-<Nav />
-
 <main>
-  <slot />
+  <!-- Content for large screens and above -->
+  <div class="hidden xl:block">
+    <Nav />
+    <slot />
+  </div>
+
+  <!-- Message for smaller screens -->
+  <div class="block xl:hidden">
+    Mobile currently not supported
+  </div>
 </main>
