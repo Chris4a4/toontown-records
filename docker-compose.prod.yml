@@ -1,4 +1,12 @@
 services:
+  api:
+    build:
+      context: api/
+    ports:
+      - "9001:8000"
+    depends_on:
+      - backend
+
   bot:
     build:
       context: bot/
