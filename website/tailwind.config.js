@@ -7,8 +7,9 @@ module.exports = {
     extend: {
       fontFamily: {
         minnie: ["Minnie"],
-        righteous: ["Righteous"],
         poppins: ["Poppins"],
+        lexend: ["Lexend"],
+        fredoka: ["Fredoka"],
       },
     },
     colors: {
@@ -21,8 +22,12 @@ module.exports = {
       lavender: "#EAE8FF",
       platinum: "#D8D5D8",
       frenchgray: "#ADACB5",
-      gunmetal: "#2D3142",
       uranianblue: "#B0D7FF",
+
+      gunmetal: "#2D3142",
+      discordblue: "#5769E9",
+      amethystsmoke: "#A09DC0",
+
 
       white: colors.white,
       blue: colors.blue,

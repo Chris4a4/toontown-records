@@ -3,14 +3,60 @@
 @tailwind utilities;
 
 @layer components {
-    .btn-animate {
-      @apply transition duration-150 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0.5;
-    }
+  .btn-animate {
+    @apply transform transition duration-150 ease-in-out hover:-translate-y-0.5 active:translate-y-0.5;
   }
 
-  @font-face {
-    font-family: 'Minnie';
-    font-style: normal;
-    font-weight: 400;
-    src: url(/fonts/Minnie.ttf) format('truetype');
+  .custom-drop-shadow {
+    filter: drop-shadow(0 0 50px theme('colors.lightpink'));
   }
+}
+
+@font-face {
+  font-family: "Minnie";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/Minnie-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/Poppins-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts/Poppins-ExtraBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/Poppins-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts/Lexend-ExtraBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/Fredoka-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts/Fredoka-SemiBold.woff2) format("woff2");
+}
