@@ -2,7 +2,7 @@
   "scripts": {
     "build": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/output.css",
     "tailwind-watch": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/output.css --watch",
-    "dev": "live-server src --mount=/:src"
+    "dev": "live-server src --mount=/:src --proxy=/api/:http://localhost:8001/api/"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
