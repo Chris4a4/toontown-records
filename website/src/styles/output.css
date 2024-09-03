@@ -593,6 +593,10 @@ video {
   margin: 1rem;
 }
 
+.m-8 {
+  margin: 2rem;
+}
+
 .mx-28 {
   margin-left: 7rem;
   margin-right: 7rem;
@@ -618,12 +622,20 @@ video {
   margin-bottom: 7rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
 
 .mb-20 {
   margin-bottom: 5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mr-2 {
@@ -674,6 +686,10 @@ video {
   height: 100%;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -690,6 +706,10 @@ video {
   max-width: 1536px;
 }
 
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -702,8 +722,16 @@ video {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -724,6 +752,10 @@ video {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-32 {
+  gap: 8rem;
 }
 
 .space-x-14 > :not([hidden]) ~ :not([hidden]) {
@@ -839,9 +871,19 @@ video {
   font-family: Poppins;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-5xl {
@@ -859,12 +901,20 @@ video {
   line-height: 1.75rem;
 }
 
+.font-black {
+  font-weight: 900;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .font-medium {
@@ -893,6 +943,10 @@ video {
   --tw-text-opacity: 0.7;
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .drop-shadow-lg {
   --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -906,6 +960,16 @@ video {
   font-weight: 400;
 
   src: url(/fonts/Minnie-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  src: url(/fonts/Poppins-Light.woff2) format("woff2");
 }
 
 @font-face {
@@ -943,9 +1007,29 @@ video {
 
   font-style: normal;
 
+  font-weight: 400;
+
+  src: url(/fonts/Lexend-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Lexend";
+
+  font-style: normal;
+
   font-weight: 800;
 
   src: url(/fonts/Lexend-ExtraBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Lexend";
+
+  font-style: normal;
+
+  font-weight: 900;
+
+  src: url(/fonts/Lexend-Black.woff2) format("woff2");
 }
 
 @font-face {
@@ -966,16 +1050,6 @@ video {
   font-weight: 600;
 
   src: url(/fonts/Fredoka-SemiBold.woff2) format("woff2");
-}
-
-.hover\:text-gray-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-.hover\:text-gray-300:hover {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
 .hover\:text-gray-400:hover {

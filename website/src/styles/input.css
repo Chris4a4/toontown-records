@@ -22,6 +22,13 @@
 @font-face {
   font-family: "Poppins";
   font-style: normal;
+  font-weight: 300;
+  src: url(/fonts/Poppins-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 400;
   src: url(/fonts/Poppins-Regular.woff2) format("woff2");
 }
@@ -43,8 +50,22 @@
 @font-face {
   font-family: "Lexend";
   font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/Lexend-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
   font-weight: 800;
   src: url(/fonts/Lexend-ExtraBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts/Lexend-Black.woff2) format("woff2");
 }
 
 @font-face {
