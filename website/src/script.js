@@ -41,8 +41,8 @@ window.addEventListener('load', () => {
                 document.getElementById('recent-1-title').textContent = `${data[0].record_name}`;
                 document.getElementById('recent-1-score').textContent = `${data[0].score_string}`;
                 document.getElementById('recent-1-submitters').textContent = `${data[0].usernames}`;
-                if (data[0].thumbnail_url != null){
-                    document.getElementById('recent-1-thumbnail').src = `${data[0].thumbnail_url}`;
+                if (data[0].embed_url != null){
+                    document.getElementById('recent-1-embed').src = `${data[0].embed_url}`;
                 }
             }
 
@@ -50,8 +50,8 @@ window.addEventListener('load', () => {
                 document.getElementById('recent-2-title').textContent = `${data[1].record_name}`;
                 document.getElementById('recent-2-score').textContent = `${data[1].score_string}`;
                 document.getElementById('recent-2-submitters').textContent = `${data[1].usernames}`;
-                if (data[1].thumbnail_url != null){
-                    document.getElementById('recent-2-thumbnail').src = `${data[1].thumbnail_url}`;
+                if (data[1].embed_url != null){
+                    document.getElementById('recent-2-embed').src = `${data[1].embed_url}`;
                 }
             }
 
@@ -59,8 +59,8 @@ window.addEventListener('load', () => {
                 document.getElementById('recent-3-title').textContent = `${data[2].record_name}`;
                 document.getElementById('recent-3-score').textContent = `${data[2].score_string}`;
                 document.getElementById('recent-3-submitters').textContent = `${data[2].usernames}`;
-                if (data[2].thumbnail_url != null){
-                    document.getElementById('recent-3-thumbnail').src = `${data[2].thumbnail_url}`;
+                if (data[2].embed_url != null){
+                    document.getElementById('recent-3-embed').src = `${data[2].embed_url}`;
                 }
             }
         })

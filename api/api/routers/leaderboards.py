@@ -38,8 +38,10 @@ async def recent():
         if match:
             video_id = match.group(1)
             item['thumbnail_url'] = f'https://i.ytimg.com/vi_webp/{video_id}/hqdefault.webp'
+            item['embed_url'] = f'https://www.youtube.com/embed/{video_id}'
         else:
             item['thumbnail_url'] = None
+            item['embed_url'] = None
         
         record_tags = get_record_info(record['record_name'])
         score_string = value_string(record, record_tags)
