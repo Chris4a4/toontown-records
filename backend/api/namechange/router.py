@@ -24,7 +24,8 @@ def create_user(discord_id: int):
     # User didn't exist
     new_user = {
         'discord_id': discord_id,
-        'username': None
+        'username': None,
+        'pfp': None
     }
     new_result = Mongo_Config.accounts.insert_one(new_user)
 

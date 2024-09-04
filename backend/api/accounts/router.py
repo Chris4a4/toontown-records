@@ -48,3 +48,37 @@ async def get_all_users():
         'message': 'Generated username:user_id dictionary',
         'data': result
     }
+
+
+@accounts_router.get('/api/accounts/update_pfp/{discord_id}', tags=['Unlogged'])
+async def update_pfp(discord_id: int, pfp_link: str | None = None):
+    if pfp_link:
+        pfp_link = pfp_link.split('?')[0]
+        pfp_link = pfp_link.replace('.png', '.webp')
+
+        Mongo_Config.accounts.update_one({"discord_id": discord_id}, {"$set": {"pfp": pfp_link}})
+    else:
+        Mongo_Config.accounts.update_one({"discord_id": discord_id}, {"$set": {"pfp": None}})
+
+    return {
+        'success': True,
+        'message': 'Updated profile picture',
+    }
+
+
+@accounts_router.get('/api/accounts/get_pfp/{discord_id}', tags=['Unlogged'])
+async def get_pfp(discord_id: int):
+    result = Mongo_Config.accounts.find_one({"discord_id": discord_id})
+
+    if result:
+        return {
+            'success': True,
+            'message': 'Retrieved profile picture for user',
+            'data': result['pfp']
+        }
+    
+    return {
+        'success': False,
+        'message': 'User not found',
+        'data': None
+    }

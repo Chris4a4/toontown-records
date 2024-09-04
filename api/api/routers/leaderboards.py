@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from api.backend.wrapper import get_leaderboard, get_all_users
+from api.backend.wrapper import get_leaderboard, get_all_users, get_pfp
 
 leaderboards_router = APIRouter()
 
@@ -14,5 +14,6 @@ async def top3():
 
     for user in leaderboard:
         user['username'] = id_to_name[user['user_id']]
+        user['pfp'] = get_pfp(user['user_id'])
 
     return leaderboard

@@ -2,7 +2,7 @@ from misc.api_wrapper import get_username
 from singletons.config import Config
 import discord
 from asyncio import TaskGroup
-from misc.api_wrapper import get_leaderboard
+from misc.api_wrapper import get_leaderboard, update_pfp
 
 class UserManager():
     @classmethod
@@ -11,7 +11,12 @@ class UserManager():
             tg.create_task(cls.update_all_leaderboard_roles())
             for member in Config.GUILD.members:
                 tg.create_task(cls.update_name(member))
+                tg.create_task(cls.update_stored_pfp(member))
     
+    @classmethod
+    async def update_stored_pfp(cls, member):
+        update_pfp(member.id, member.avatar)
+
     @classmethod
     async def update_name(cls, member):
         username = get_username(member.id)

@@ -296,21 +296,45 @@
 
     <!-- Top Toons of All Time -->
     <div class="flex flex-col items-center bg-gray-600">
-      <div class="grid max-w-screen-2xl grid-cols-2 gap-10 m-8">
-        <div class="h-[527px] w-[746px] bg-royalblue"></div>
+      <div class="m-16 grid max-w-screen-2xl grid-cols-2 gap-10">
+        <div class="relative h-[527px] w-[746px]">
+          <img
+            alt="podium"
+            src="/images/podium.webp"
+            class="absolute bottom-0"
+          />
+          <img
+            alt="position 1 pfp"
+            id="rank1_pfp"
+            src="/images/discordgreen.webp"
+            class="absolute bottom-80 right-72 h-48 w-48 [transform:rotateY(25deg)] rounded-full"
+          />
+          <img
+            alt="position 2 pfp"
+            id="rank2_pfp"
+            src="/images/discordblue.webp"
+            class="absolute bottom-56 right-20 h-48 w-48 [transform:rotateY(25deg)] rounded-full"
+          />
+          <img
+            alt="position 3 pfp"
+            id="rank3_pfp"
+            src="/images/discordred.webp"
+            class="absolute bottom-40 left-28 h-48 w-48 [transform:rotateY(25deg)] rounded-full"
+          />
+        </div>
         <div class="flex flex-col items-center">
           <h1 class="font-poppins text-6xl font-extrabold text-white">
             Top Toons of All Time
           </h1>
-          <table class="table-auto w-full text-center my-32">
-            <thead class="font-poppins font-extrabold text-3xl text-white">
+          <table class="my-32 w-full table-auto text-center">
+            <thead class="font-poppins text-3xl font-extrabold text-white">
               <tr>
                 <th>RANK</th>
                 <th>NAME</th>
                 <th>POINTS</th>
               </tr>
             </thead>
-            <tbody class="font-poppins font-bold text-2xl text-white">
+            <tbody class="font-poppins text-2xl font-bold text-white">
               <tr>
                 <td>1</td>
                 <td id="rank1_name">Unknown Gamer</td>
@@ -328,7 +352,9 @@
               </tr>
             </tbody>
           </table>
-          <h2 class="font-poppins text-3xl font-extrabold text-white w-full text-right">
+          <h2
+            class="w-full text-right font-poppins text-3xl font-extrabold text-white"
+          >
             CHECK OUT THE COMPETITION >
           </h2>
         </div>
@@ -357,7 +383,7 @@
           </h3>
         </div>
         <div class="flex flex-col items-center">
-          <img alt="chris4a4 avatar" src="/images/lou.webp" class="m-4" />
+          <img alt="lou avatar" src="/images/lou.webp" class="m-4" />
           <h2 class="m-2 font-poppins text-4xl font-bold text-white">
             Kitt Kitt Lou
           </h2>
@@ -368,7 +394,7 @@
           </h3>
         </div>
         <div class="flex flex-col items-center">
-          <img alt="chris4a4 avatar" src="/images/clue.webp" class="m-4" />
+          <img alt="2clue avatar" src="/images/clue.webp" class="m-4" />
           <h2 class="m-2 font-poppins text-4xl font-bold text-white">2clue</h2>
           <h3
             class="mx-4 text-center font-poppins text-4xl font-light text-white"

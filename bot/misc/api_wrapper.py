@@ -2,6 +2,7 @@ import requests
 
 from singletons.config import Config
 import re
+import urllib
 
 
 VALID_USER_INPUT = r'[^a-zA-Z0-9 ]'
@@ -78,6 +79,13 @@ def get_username(user_id):
 
 def get_all_users():
     return requests.get(f'{Config.BASE_URL}/accounts/get_all_users').json()['data']
+
+
+def update_pfp(user_id, avatar):
+    if avatar:
+        return requests.get(f'{Config.BASE_URL}/accounts/update_pfp/{user_id}?pfp_link={avatar.url}').json()
+
+    return requests.get(f'{Config.BASE_URL}/accounts/update_pfp/{user_id}').json()
 
 
 ########## NAMECHANGES ##########
