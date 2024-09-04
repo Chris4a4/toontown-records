@@ -391,3 +391,26 @@ async def get_approved_submissions(user_id: int):
         'message': 'Got all submissions featuring user',
         'data': to_json
     }
+
+
+@submissions_router.get('/api/submissions/get_recent', tags=['Unlogged'])
+async def get_recent_submissions():
+    query = {
+        'status': 'APPROVED'
+    }
+
+    documents = Mongo_Config.submissions.find(query).sort('timestamp', -1).limit(3)  # Newest first
+    if not documents:
+        return {
+            'success': False,
+            'message': 'User not found',
+            'data': []
+        }
+
+    to_json = docs_to_json(documents)
+
+    return {
+        'success': True,
+        'message': 'Got the three most recent submissions',
+        'data': to_json
+    }
