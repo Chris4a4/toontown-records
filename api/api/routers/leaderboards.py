@@ -1,5 +1,8 @@
 from fastapi import APIRouter
 import re
+import os
+import yaml
+from functools import cache
 
 from api.backend.wrapper import get_leaderboard, get_all_users, get_pfp, get_recent, get_record_info, get_all_records
 
@@ -29,6 +32,44 @@ async def records():
         records.append(new_data)
 
     return records
+
+
+@leaderboards_router.get('/api/leaderboards/grouped_records')
+async def grouped_records():
+    all_records = {}
+    name_to_id = get_all_users()
+    raw_data = get_all_records()
+    id_to_name = {v: k for k, v in name_to_id.items()}
+    for tags, details in tags_to_details():
+        category_name = details[0]
+
+        records = []
+        
+        raw_data_2 = []
+        for item in raw_data:
+            if set(item['tags']) == set(item['tags']) | set(tags):
+                raw_data_2.append(item)
+        
+        for item in raw_data_2:
+            raw_data.remove(item)
+
+        for record in raw_data_2:
+            new_data = {}
+            new_data['record_name'] = record['record_name']
+            new_data['tags'] = record['tags']
+            if record['top3']:
+                best_submission = record['top3'][0]
+                new_data['value'] = value_string(best_submission, record['tags'])
+                new_data['submitters'] = ', '.join([id_to_name[user_id] for user_id in best_submission['user_ids']])
+            else:
+                new_data['value'] = None
+                new_data['submitters'] = 'No Submissions'
+            
+            records.append(new_data)
+        
+        all_records[category_name] = records
+
+    return all_records
 
 
 @leaderboards_router.get('/api/leaderboards/top3')
@@ -128,3 +169,31 @@ def value_string(submission, tags=[]):
 
     # Unknown record/no tags provided, use sensible default format
     return f'{score_string} score, {time_string} time'
+
+
+# Recursive function to flatten out the nested dictionary format in record_metadata.yaml
+def flatten_yaml(d):
+    if not isinstance(d, dict):
+        return [([], d)]
+
+    result = []
+    for k, v in d.items():
+        new_tag = []
+        if k:
+            new_tag.append(k)
+
+        for sub_tags, record_data in flatten_yaml(v):
+            result.append((new_tag + sub_tags, record_data))
+
+    return result
+
+
+# Returns tuples of tags, details for all record groups, in order of importance
+@cache
+def tags_to_details():
+    config_path = os.path.join(os.path.dirname(__file__), 'data', 'record_metadata.yaml')
+
+    with open(config_path, 'r') as file:
+        data = yaml.safe_load(file)
+
+    return flatten_yaml(data)

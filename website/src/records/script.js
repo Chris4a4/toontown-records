@@ -1,57 +1,44 @@
-let numDummyItems = 30;
-
-// Create loading icons
-window.addEventListener("DOMContentLoaded", () => {
-  for (let i = 0; i < numDummyItems; i++) {
-    document
-      .getElementById("record-container")
-      .insertAdjacentHTML("beforeend", make_placeholder(i));
-  }
-});
-
 // Populate records
 window.addEventListener("load", () => {
-  fetch("/api/leaderboards/records")
+  fetch("/api/leaderboards/grouped_records")
     .then((response) => response.json())
     .then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        if (i < numDummyItems) {
-          document.getElementById(`record-${i}`).outerHTML = make_record(
-            i,
-            data[i]["record_name"],
-            data[i]["tags"],
-            data[i]["value"],
-            data[i]["submitters"],
-          );
-        } else {
-          document
-            .getElementById("record-container")
-            .insertAdjacentHTML(
-              "beforeend",
-              make_record(
+      Object.keys(data).forEach((key) => {
+        // Create title
+        document
+        .getElementById("record-container")
+        .insertAdjacentHTML(
+          "beforeend",
+          `<h1 class="text-white font-poppins font-extrabold text-5xl pt-8 pb-2 drop-shadow-2xl">${key}</h1>`
+        );
+
+        // Create records
+        let r = '<ul class="flex flex-grid flex-wrap">';
+        for (let i = 0; i < data[key].length; i++){
+            r += make_record(
                 i,
-                data[i]["record_name"],
-                data[i]["tags"],
-                data[i]["value"],
-                data[i]["submitters"],
-              ),
-            );
+                data[key][i]["record_name"],
+                data[key][i]["tags"],
+                data[key][i]["value"],
+                data[key][i]["submitters"],
+              )
         }
-      }
+        r += '</ul>';
+
+        console.log(r);
+
+        document
+        .getElementById("record-container")
+        .insertAdjacentHTML(
+          "beforeend",
+          r
+        );
+      });
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
 });
-
-function make_placeholder(i) {
-  return /* HTML */ `
-    <li
-      id="record-${i}"
-      class="h-[220px] w-[380px] overflow-hidden rounded-lg bg-[url(/images/unknown.webp)]"
-    ></li>
-  `;
-}
 
 function make_record(i, recordName, tags, value, submitters) {
   if (value === null) {
@@ -94,7 +81,7 @@ function make_record(i, recordName, tags, value, submitters) {
   return /* HTML */ `
     <li
       id="record-${i}"
-      class="${bgImage} h-[220px] w-[380px] overflow-hidden rounded-lg"
+      class="${bgImage} h-[220px] w-[380px] overflow-hidden rounded-lg m-4"
     >
       <div class="${bgColor} h-full w-full p-2 text-white opacity-75">
         <div class="flex h-2/5 justify-between">
@@ -109,9 +96,9 @@ function make_record(i, recordName, tags, value, submitters) {
         </div>
         <p class="font-poppins text-3xl font-extrabold">${value}</p>
         <div class="flex h-1/2 items-center">
-            <p class="${submittersSize} font-poppins font-semibold">
+          <p class="${submittersSize} font-poppins font-semibold">
             ${submitters}
-            </p>
+          </p>
         </div>
       </div>
     </li>

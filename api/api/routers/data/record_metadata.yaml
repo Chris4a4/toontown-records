@@ -1,0 +1,101 @@
+ttr:
+  vp:
+    nr:
+      full: ['VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [250, 216, 120]]
+      cog: ['VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, [250, 216, 120]]
+      pie: ['VP Pie Round Records', 'https://i.imgur.com/A3l0ctU.png', 7489641, [250, 216, 120]]
+    rl:
+      full: ['Rewardless VP Records', 'https://i.imgur.com/54nl5SN.png', 7489641, [93, 212, 155]]
+      cog: ['Rewardless VP Cog Round Records', 'https://i.imgur.com/EPIyWNJ.jpeg', 7489641, [93, 212, 155]]
+    misc: ['Miscellaneous VP Records', 'https://i.imgur.com/zeaOZxO.png', 7489641, [200, 205, 212]]
+
+  cfo:
+    nr:
+      full: ['CFO Records', 'https://i.imgur.com/SUwPXpi.png', 6660217, [250, 216, 120]]
+      cog: ['CFO Cog Round Records', 'https://i.imgur.com/1h5yoOa.png', 6660217, [250, 216, 120]]
+      crane: ['CFO Crane Round Records', 'https://i.imgur.com/plhYQt3.png', 6660217, [250, 216, 120]]
+    rl:
+      full: ['Rewardless CFO Records', 'https://i.imgur.com/SUwPXpi.png', 6660217, [93, 212, 155]]
+      cog: ['Rewardless CFO Cog Round Records', 'https://i.imgur.com/1h5yoOa.png', 6660217, [93, 212, 155]]
+    misc: ['Miscellaneous CFO Records', 'https://i.imgur.com/u9Hn209.png', 6660217, [200, 205, 212]]
+
+  cj:
+    nr:
+      full: ['CJ Records', 'https://i.imgur.com/Q8ybUn2.png', 4278935, [250, 216, 120]]
+      cog: ['CJ Cog Round Records', 'https://i.imgur.com/iS95oLy.png', 4278935, [250, 216, 120]]
+      scale: ['CJ Scale Round Records', 'https://i.imgur.com/1iq6EdF.png', 4278935, [250, 216, 120]]
+    rl:
+      full: ['Rewardless CJ Records', 'https://i.imgur.com/Q8ybUn2.png', 4278935, [93, 212, 155]]
+      cog: ['Rewardless CJ Cog Round Records', 'https://i.imgur.com/iS95oLy.png', 4278935, [93, 212, 155]]
+    misc: ['Miscellaneous CJ Records', 'https://i.imgur.com/Opsvg1Z.png', 4278935, [200, 205, 212]]
+
+  ceo:
+    nr:
+      full: ['CEO Records', 'https://i.imgur.com/kEgb0SU.png', 3416590, [250, 216, 120]]
+      cog: ['CEO Cog Round Records', 'https://i.imgur.com/12L4krm.png', 3416590, [250, 216, 120]]
+      seltzer: ['CEO Seltzer Round Records', 'https://i.imgur.com/TYn0kn8.png', 3416590, [250, 216, 120]]
+    rl:
+      full: ['Rewardless CEO Records', 'https://i.imgur.com/kEgb0SU.png', 3416590, [93, 212, 155]]
+      cog: ['Rewardless CEO Cog Round Records', 'https://i.imgur.com/12L4krm.png', 3416590, [93, 212, 155]]
+    misc: ['Miscellaneous CEO Records', 'https://i.imgur.com/YgBOb5j.png', 3416590, [200, 205, 212]]
+
+  field-office:
+    nr:
+      full:
+        low-star: ['Low-Star Field Office Records', 'https://i.imgur.com/IVCw1sB.png', 7489641, [250, 216, 120]]
+        high-star: ['High-Star Field Office Records', 'https://i.imgur.com/vO9kCkQ.png', 7489641, [250, 216, 120]]
+      boiler: 
+        low-star-b: ['Low-Star Boiler Records', 'https://i.imgur.com/Ykd0LJm.png', 7489641, [250, 216, 120]]
+        high-star-b: ['High-Star Boiler Records', 'https://i.imgur.com/snkmZeD.png', 7489641, [250, 216, 120]]
+    rl: 
+      full: ['Rewardless Field Office Records', 'https://i.imgur.com/vO9kCkQ.png', 7489641, [93, 212, 155]]
+      boiler: ['Rewardless Boiler Records', 'https://i.imgur.com/snkmZeD.png', 7489641, [93, 212, 155]]
+
+  factory:
+    nr:
+      scrap: ['Scrap Factory Records', 'https://i.imgur.com/7WbKRdU.png', 7489641, [250, 216, 120]]
+      steel: ['Steel Factory Records', 'https://i.imgur.com/aHq1un2.png', 7489641, [250, 216, 120]]
+      foreman: ['Factory Foreman Records', 'https://i.imgur.com/0b0q4gg.png', 7489641, [250, 216, 120]]
+    rl:
+      scrap: ['Rewardless Scrap Factory Records', 'https://i.imgur.com/7WbKRdU.png', 7489641, [93, 212, 155]]
+      steel: ['Rewardless Steel Factory Records', 'https://i.imgur.com/aHq1un2.png', 7489641, [93, 212, 155]]
+      foreman: ['Rewardless Factory Foreman Records', 'https://i.imgur.com/0b0q4gg.png', 7489641, [93, 212, 155]]
+
+  mint:
+    nr:
+      coin: ['Coin Mint Records', 'https://i.imgur.com/cp9Udt7.png', 6660217, [250, 216, 120]]
+      bullion: ['Bullion Mint Records', 'https://i.imgur.com/RunGHlD.png', 6660217, [250, 216, 120]]
+      auditor: ['Mint Auditor Records', 'https://i.imgur.com/c1QxJAf.png', 6660217, [250, 216, 120]]
+    rl:
+      coin: ['Rewardless Coin Mint Records', 'https://i.imgur.com/cp9Udt7.png', 6660217, [93, 212, 155]]
+      bullion: ['Rewardless Bullion Mint Records', 'https://i.imgur.com/RunGHlD.png', 6660217, [93, 212, 155]]
+      auditor: ['Rewardless Mint Auditor Records', 'https://i.imgur.com/c1QxJAf.png', 6660217, [93, 212, 155]]
+
+  office:
+    nr:
+      junior: ['Junior Wing Records', 'https://i.imgur.com/xyDBxKu.png', 4278935, [250, 216, 120]]
+      senior: ['Senior Wing Records', 'https://i.imgur.com/4AWOeHT.png', 4278935, [250, 216, 120]]
+      clerk: ['Office Clerk Records', 'https://i.imgur.com/hDS23PB.png', 4278935, [250, 216, 120]]
+    rl:
+      junior: ['Rewardless Junior Wing Records', 'https://i.imgur.com/xyDBxKu.png', 4278935, [93, 212, 155]]
+      senior: ['Rewardless Senior Wing Records', 'https://i.imgur.com/4AWOeHT.png', 4278935, [93, 212, 155]]
+      clerk: ['Rewardless Office Clerk Records', 'https://i.imgur.com/hDS23PB.png', 4278935, [93, 212, 155]]
+
+  cog-golf-course:
+    nr:
+      fairway: ['First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [250, 216, 120]]
+      fringe: ['Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [250, 216, 120]]
+      president: ['Club President Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [250, 216, 120]]
+    rl:
+      fairway: ['Rewardless First Fairway Records', 'https://i.imgur.com/5TFAp9i.png', 3416590, [93, 212, 155]]
+      fringe: ['Rewardless Final Fringe Records', 'https://i.imgur.com/ZdoMxC1.png', 3416590, [93, 212, 155]]
+      president: ['Rewardless Club President Records', 'https://i.imgur.com/eIDQNIs.png', 3416590, [93, 212, 155]]
+
+  activities:
+    golf: ['Golfing Records', 'https://i.imgur.com/B56V0Lh.png', 5563476, [55, 181, 27]]
+    racing:
+      speedway: ['Speedway Racing Records', 'https://i.imgur.com/jAseWEX.png', 12565676, [207, 43, 31]]
+      rural: ['Rural Racing Records', 'https://i.imgur.com/phLIlbA.png', 5392935, [207, 43, 31]]
+      urban: ['Urban Racing Records', 'https://i.imgur.com/wETlTLQ.png', 14925342, [207, 43, 31]]
+
+~: ['Unknown Records', 'https://i.imgur.com/jgSzqns.png', 7489641, [200, 205, 212]]
