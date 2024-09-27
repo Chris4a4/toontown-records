@@ -731,8 +731,8 @@ video {
   height: 1.5rem;
 }
 
-.h-\[250px\] {
-  height: 250px;
+.h-\[220px\] {
+  height: 220px;
 }
 
 .h-\[28rem\] {
@@ -747,12 +747,16 @@ video {
   height: 527px;
 }
 
-.h-\[60px\] {
-  height: 60px;
+.h-\[55px\] {
+  height: 55px;
 }
 
 .h-full {
   height: 100%;
+}
+
+.h-\[54px\] {
+  height: 54px;
 }
 
 .w-3\/4 {
@@ -775,8 +779,8 @@ video {
   width: 480px;
 }
 
-.w-\[60px\] {
-  width: 60px;
+.w-\[55px\] {
+  width: 55px;
 }
 
 .w-\[746px\] {
@@ -785,6 +789,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[54px\] {
+  width: 54px;
 }
 
 .max-w-screen-2xl {
@@ -1030,6 +1038,11 @@ video {
   line-height: 1;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1043,16 +1056,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 .font-black {
@@ -1147,6 +1150,16 @@ video {
   font-weight: 400;
 
   src: url(/fonts/Poppins-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  src: url(/fonts/Poppins-SemiBold.woff2) format("woff2");
 }
 
 @font-face {

@@ -48,7 +48,7 @@ function make_placeholder(i) {
   return /* HTML */ `
     <li
       id="record-${i}"
-      class="h-[250px] w-[380px] overflow-hidden rounded-lg bg-[url(/images/unknown.webp)]"
+      class="h-[220px] w-[380px] overflow-hidden rounded-lg bg-[url(/images/unknown.webp)]"
     ></li>
   `;
 }
@@ -62,7 +62,7 @@ function make_record(i, recordName, tags, value, submitters) {
   let gameImagePath = "???";
   if (tags.includes("ttr")) {
     gameImageAlt = "Toontown Rewritten logo";
-    gameImagePath = "/images/ttr.webp";
+    gameImagePath = "/images/ttr_smaller.webp";
   } else if (tags.includes("ttcc")) {
     gameImageAlt = "Corporate Clash logo";
     gameImagePath = "/images/ttcc.webp";
@@ -94,23 +94,25 @@ function make_record(i, recordName, tags, value, submitters) {
   return /* HTML */ `
     <li
       id="record-${i}"
-      class="${bgImage} h-[250px] w-[380px] overflow-hidden rounded-lg"
+      class="${bgImage} h-[220px] w-[380px] overflow-hidden rounded-lg"
     >
       <div class="${bgColor} h-full w-full p-2 text-white opacity-75">
         <div class="flex h-2/5 justify-between">
-          <h1 class="font-poppins text-2xl font-extrabold">
+          <h1 class="font-poppins text-xl font-extrabold">
             ${recordName.toUpperCase()}
           </h1>
           <img
             alt="${gameImageAlt}"
             src="${gameImagePath}"
-            class="h-[60px] w-[60px]"
+            class="h-[54px] w-[54px]"
           />
         </div>
         <p class="font-poppins text-3xl font-extrabold">${value}</p>
-        <p class="${submittersSize} h-1/2 font-poppins font-semibold">
-          ${submitters}
-        </p>
+        <div class="flex h-1/2 items-center">
+            <p class="${submittersSize} font-poppins font-semibold">
+            ${submitters}
+            </p>
+        </div>
       </div>
     </li>
   `;
