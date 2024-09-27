@@ -554,40 +554,6 @@ video {
   --tw-contain-style:  ;
 }
 
-.container {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
-
 .btn-animate {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -677,11 +643,6 @@ video {
   margin-right: 1rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -726,10 +687,6 @@ video {
   margin-top: 1.25rem;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -746,6 +703,10 @@ video {
   height: 0.25rem;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
 .h-1\/3 {
   height: 33.333333%;
 }
@@ -758,6 +719,10 @@ video {
   height: 5rem;
 }
 
+.h-3\/5 {
+  height: 60%;
+}
+
 .h-48 {
   height: 12rem;
 }
@@ -766,36 +731,28 @@ video {
   height: 1.5rem;
 }
 
+.h-\[250px\] {
+  height: 250px;
+}
+
 .h-\[28rem\] {
   height: 28rem;
 }
 
-.h-\[520px\] {
-  height: 520px;
+.h-\[420px\] {
+  height: 420px;
 }
 
 .h-\[527px\] {
   height: 527px;
 }
 
+.h-\[60px\] {
+  height: 60px;
+}
+
 .h-full {
   height: 100%;
-}
-
-.h-3\/4 {
-  height: 75%;
-}
-
-.h-3\/5 {
-  height: 60%;
-}
-
-.h-\[480px\] {
-  height: 480px;
-}
-
-.h-\[420px\] {
-  height: 420px;
 }
 
 .w-3\/4 {
@@ -810,8 +767,16 @@ video {
   width: 1.5rem;
 }
 
+.w-\[380px\] {
+  width: 380px;
+}
+
 .w-\[480px\] {
   width: 480px;
+}
+
+.w-\[60px\] {
+  width: 60px;
 }
 
 .w-\[746px\] {
@@ -822,24 +787,12 @@ video {
   width: 100%;
 }
 
-.max-w-7xl {
-  max-width: 80rem;
-}
-
 .max-w-screen-2xl {
   max-width: 1536px;
 }
 
 .max-w-screen-xl {
   max-width: 1280px;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
-
-.flex-grow {
-  flex-grow: 1;
 }
 
 .table-auto {
@@ -886,6 +839,10 @@ video {
   gap: 8rem;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .gap-8 {
   gap: 2rem;
 }
@@ -906,6 +863,10 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-md {
@@ -934,6 +895,11 @@ video {
   background-color: rgb(160 157 192 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-current {
   background-color: currentColor;
 }
@@ -953,6 +919,31 @@ video {
   background-color: rgb(45 49 66 / var(--tw-bg-opacity));
 }
 
+.bg-rloverlay {
+  --tw-bg-opacity: 1;
+  background-color: rgb(68 97 81 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\/images\/records\/ceo\.webp\)\] {
+  background-image: url(/images/records/ceo.webp);
+}
+
+.bg-\[url\(\/images\/records\/cfo\.webp\)\] {
+  background-image: url(/images/records/cfo.webp);
+}
+
+.bg-\[url\(\/images\/records\/cj\.webp\)\] {
+  background-image: url(/images/records/cj.webp);
+}
+
+.bg-\[url\(\/images\/records\/vp\.webp\)\] {
+  background-image: url(/images/records/vp.webp);
+}
+
+.bg-\[url\(\/images\/unknown\.webp\)\] {
+  background-image: url(/images/unknown.webp);
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -964,11 +955,6 @@ video {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .px-6 {
@@ -1049,9 +1035,24 @@ video {
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-black {
@@ -1103,6 +1104,10 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.opacity-75 {
+  opacity: 0.75;
 }
 
 .drop-shadow-lg {
@@ -1237,18 +1242,4 @@ video {
 .group:hover .group-hover\:text-frenchgray {
   --tw-text-opacity: 1;
   color: rgb(173 172 181 / var(--tw-text-opacity));
-}
-
-@media (min-width: 640px) {
-  .sm\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }

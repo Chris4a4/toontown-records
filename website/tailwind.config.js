@@ -28,6 +28,7 @@ module.exports = {
       discordblue: "#5769E9",
       amethystsmoke: "#A09DC0",
 
+      rloverlay: "#446151",
 
       white: colors.white,
       blue: colors.blue,

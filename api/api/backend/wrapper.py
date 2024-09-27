@@ -14,3 +14,6 @@ def get_recent():
 
 def get_record_info(record_name):
     return requests.get(f'http://backend:8000/api/records/get_info/{record_name}').json()['data']
+
+def get_all_records():
+    return requests.get(f'http://backend:8000/api/records/get_all_records').json()['data']

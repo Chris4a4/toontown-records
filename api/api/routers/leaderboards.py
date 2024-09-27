@@ -1,9 +1,34 @@
 from fastapi import APIRouter
 import re
 
-from api.backend.wrapper import get_leaderboard, get_all_users, get_pfp, get_recent, get_record_info
+from api.backend.wrapper import get_leaderboard, get_all_users, get_pfp, get_recent, get_record_info, get_all_records
 
 leaderboards_router = APIRouter()
+
+
+@leaderboards_router.get('/api/leaderboards/records')
+async def records():
+    records = []
+    raw_data = get_all_records()
+
+    name_to_id = get_all_users()
+    id_to_name = {v: k for k, v in name_to_id.items()}
+
+    for record in raw_data:
+        new_data = {}
+        new_data['record_name'] = record['record_name']
+        new_data['tags'] = record['tags']
+        if record['top3']:
+            best_submission = record['top3'][0]
+            new_data['value'] = value_string(best_submission, record['tags'])
+            new_data['submitters'] = ', '.join([id_to_name[user_id] for user_id in best_submission['user_ids']])
+        else:
+            new_data['value'] = None
+            new_data['submitters'] = 'No Submissions'
+        
+        records.append(new_data)
+
+    return records
 
 
 @leaderboards_router.get('/api/leaderboards/top3')

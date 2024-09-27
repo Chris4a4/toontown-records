@@ -1,0 +1,117 @@
+let numDummyItems = 30;
+
+// Create loading icons
+window.addEventListener("DOMContentLoaded", () => {
+  for (let i = 0; i < numDummyItems; i++) {
+    document
+      .getElementById("record-container")
+      .insertAdjacentHTML("beforeend", make_placeholder(i));
+  }
+});
+
+// Populate records
+window.addEventListener("load", () => {
+  fetch("/api/leaderboards/records")
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        if (i < numDummyItems) {
+          document.getElementById(`record-${i}`).outerHTML = make_record(
+            i,
+            data[i]["record_name"],
+            data[i]["tags"],
+            data[i]["value"],
+            data[i]["submitters"],
+          );
+        } else {
+          document
+            .getElementById("record-container")
+            .insertAdjacentHTML(
+              "beforeend",
+              make_record(
+                i,
+                data[i]["record_name"],
+                data[i]["tags"],
+                data[i]["value"],
+                data[i]["submitters"],
+              ),
+            );
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+});
+
+function make_placeholder(i) {
+  return /* HTML */ `
+    <li
+      id="record-${i}"
+      class="h-[250px] w-[380px] overflow-hidden rounded-lg bg-[url(/images/unknown.webp)]"
+    ></li>
+  `;
+}
+
+function make_record(i, recordName, tags, value, submitters) {
+  if (value === null) {
+    value = "N/A";
+  }
+
+  let gameImageAlt = "???";
+  let gameImagePath = "???";
+  if (tags.includes("ttr")) {
+    gameImageAlt = "Toontown Rewritten logo";
+    gameImagePath = "/images/ttr.webp";
+  } else if (tags.includes("ttcc")) {
+    gameImageAlt = "Corporate Clash logo";
+    gameImagePath = "/images/ttcc.webp";
+  }
+
+  let bgImage = "???";
+  if (tags.includes("vp")) {
+    bgImage = "bg-[url(/images/records/vp.webp)]";
+  } else if (tags.includes("cfo")) {
+    bgImage = "bg-[url(/images/records/cfo.webp)]";
+  } else if (tags.includes("cj")) {
+    bgImage = "bg-[url(/images/records/cj.webp)]";
+  } else if (tags.includes("ceo")) {
+    bgImage = "bg-[url(/images/records/ceo.webp)]";
+  }
+
+  let bgColor = "bg-black";
+  if (tags.includes("rl")) {
+    bgColor = "bg-rloverlay";
+  }
+
+  let submittersSize = "text-2xl";
+  if (submitters.length > 100) {
+    submittersSize = "text-sm";
+  } else if (submitters.length > 50) {
+    submittersSize = "text-base";
+  }
+
+  return /* HTML */ `
+    <li
+      id="record-${i}"
+      class="${bgImage} h-[250px] w-[380px] overflow-hidden rounded-lg"
+    >
+      <div class="${bgColor} h-full w-full p-2 text-white opacity-75">
+        <div class="flex h-2/5 justify-between">
+          <h1 class="font-poppins text-2xl font-extrabold">
+            ${recordName.toUpperCase()}
+          </h1>
+          <img
+            alt="${gameImageAlt}"
+            src="${gameImagePath}"
+            class="h-[60px] w-[60px]"
+          />
+        </div>
+        <p class="font-poppins text-3xl font-extrabold">${value}</p>
+        <p class="${submittersSize} h-1/2 font-poppins font-semibold">
+          ${submitters}
+        </p>
+      </div>
+    </li>
+  `;
+}

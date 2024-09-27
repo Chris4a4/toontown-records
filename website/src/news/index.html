@@ -3,71 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>News | Toontown Records</title>
+    <title>Records | Toontown Records</title>
     <link href="/styles/output.css" rel="stylesheet" />
-    <link rel="preload" href="/fonts/Minnie-Regular.woff2" as="font" crossorigin="anonymous">
   </head>
+
   <body>
-    <div class="bg-gunmetal">
-      <nav
-        class="bg-gunmetal mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
-      >
-        <!-- Logo -->
-        <div class="flex-shrink-0 p-2 drop-shadow-lg">
-          <a href="/" class="btn-animate block h-full w-full">
-            <img
-              alt="Toontown Records logo"
-              src="/images/logo_small.png"
-              class="h-full w-full"
-            />
-          </a>
-        </div>
-
-        <!-- Desktop menu -->
-        <div class="font-minnie flex-grow">
-          <ul class="flex justify-center space-x-14 text-3xl text-white">
-            <!-- Records -->
-            <a href="/records">
-              <li class="btn-animate group relative">
-                <span class="group-hover:text-frenchgray">
-                  <div class="drop-shadow-lg">Records</div>
-                </span>
-                <div class="bg-gunmetal h-1 w-full"></div>
-              </li>
-            </a>
-
-            <!-- Leaderboards -->
-            <a href="/leaderboards">
-              <li class="btn-animate group relative">
-                <span class="group-hover:text-frenchgray">
-                  <div class="drop-shadow-lg">Leaderboards</div>
-                </span>
-                <div class="bg-gunmetal h-1 w-full"></div>
-              </li>
-            </a>
-
-            <!-- Rules -->
-            <a href="/rules">
-              <li class="btn-animate group relative">
-                <span class="group-hover:text-frenchgray">
-                  <div class="drop-shadow-lg">Rules</div>
-                </span>
-                <div class="bg-gunmetal h-1 w-full"></div>
-              </li>
-            </a>
-
-            <!-- News -->
-            <a href="/news">
-              <li class="btn-animate group relative">
-                <span class="group-hover:text-frenchgray">
-                  <div class="drop-shadow-lg">News</div>
-                </span>
-                <div class="w-full h-1 bg-current group-hover:bg-frenchgray drop-shadow-lg"></div>
-              </li>
-            </a>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav id="nav">
+      <script src="/components/nav.js"></script>
+    </nav>
+    <footer id="footer">
+      <script src="/components/footer.js"></script>
+    </footer>
   </body>
 </html>
