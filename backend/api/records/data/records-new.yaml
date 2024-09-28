@@ -1,0 +1,522 @@
+ttr:
+  boss:
+    vp:
+      any:
+        instance:
+          8: [Fastest VP, 1]
+          6: [Fastest 6-Toon VP, 1]
+          4: [Fastest 4-Toon VP, 1]
+          2: [Fastest Duo VP, 1]
+          1: [Fastest Solo VP, 1]
+        coground:
+          8: [Fastest VP Cog Round, 1]
+          6: [Fastest 6-Toon VP Cog Round, 1]
+          4: [Fastest 4-Toon VP Cog Round, 1]
+          2: [Fastest Duo VP Cog Round, 1]
+          1: [Fastest Solo VP Cog Round, 1]
+        bossround:
+          8: [Fastest VP Pie Round, 1]
+          6: [Fastest 6-Toon VP Pie Round, 1]
+          4: [Fastest 4-Toon VP Pie Round, 1]
+          2: [Fastest Duo VP Pie Round, 1]
+          1: [Fastest Solo VP Pie Round, 1]
+        misc:
+          fewestrewards:
+            1: [Fewest Rewards in a VP Solo, 1]
+          leastpiesthrown:
+            1: [Least Pies Thrown in a VP Solo, 1]
+
+      rewardless:
+        instance:
+          8: [Fastest Rewardless VP, 1]
+          6: [Fastest 6-Toon Rewardless VP, 1]
+          4: [Fastest 4-Toon Rewardless VP, 1]
+        coground:
+          8: [Fastest Rewardless VP Cog Round, 1]
+          6: [Fastest 6-Toon Rewardless VP Cog Round, 1]
+          4: [Fastest 4-Toon Rewardless VP Cog Round, 1]
+    cfo:
+      any:
+        instance:
+          8: [Fastest CFO, 1]
+          6: [Fastest 6-Toon CFO, 1]
+          4: [Fastest 4-Toon CFO, 1]
+          2: [Fastest Duo CFO, 1]
+          1: [Fastest Solo CFO, 1]
+        coground:
+          8: [Fastest CFO Cog Round, 1]
+          6: [Fastest 6-Toon CFO Cog Round, 1]
+          4: [Fastest 4-Toon CFO Cog Round, 1]
+          2: [Fastest Duo CFO Cog Round, 1]
+          1: [Fastest Solo CFO Cog Round, 1]
+        bossround:
+          8: [Fastest CFO Crane Round, 1]
+          6: [Fastest 6-Toon CFO Crane Round, 1]
+          4: [Fastest 4-Toon CFO Crane Round, 1]
+          2: [Fastest Duo CFO Crane Round, 1]
+          1: [Fastest Solo CFO Crane Round, 1]
+        misc:
+          fewestrewards:
+            1: [Fewest Rewards in a CFO Solo, 1]
+          leastgoonhits:
+            1: [Least Goon Hits in a CFO Solo, 1]
+      rewardless:
+        instance:
+          8: [Fastest Rewardless CFO, 1]
+          6: [Fastest 6-Toon Rewardless CFO, 1]
+          4: [Fastest 4-Toon Rewardless CFO, 1]
+        coground:
+          8: [Fastest Rewardless CFO Cog Round, 1]
+          6: [Fastest 6-Toon Rewardless CFO Cog Round, 1]
+          4: [Fastest 4-Toon Rewardless CFO Cog Round, 1]
+    cj:
+      any:
+        instance:
+          overall:
+            8: [Fastest CJ, 1]
+            6: [Fastest 6-Toon CJ, 1]
+            4: [Fastest 4-Toon CJ, 1]
+            2: [Fastest Duo CJ, 1]
+            1: [Fastest Solo CJ, 1]
+          nobonusweight:
+            8: [Fastest CJ (NBW), 1]
+            6: [Fastest 6-Toon CJ (NBW), 1]
+            4: [Fastest 4-Toon CJ (NBW), 1]
+            2: [Fastest Duo CJ (NBW), 1]
+            1: [Fastest Solo CJ (NBW), 1]
+        coground:
+          8: [Fastest CJ Cog Round, 1]
+          6: [Fastest 6-Toon CJ Cog Round, 1]
+          4: [Fastest 4-Toon CJ Cog Round, 1]
+          2: [Fastest Duo CJ Cog Round, 1]
+          1: [Fastest Solo CJ Cog Round, 1]
+        bossround:
+          overall:
+            8: [Fastest CJ Evidence Round, 1]
+            6: [Fastest 6-Toon CJ Evidence Round, 1]
+            4: [Fastest 4-Toon CJ Evidence Round, 1]
+            2: [Fastest Duo CJ Evidence Round, 1]
+            1: [Fastest Solo CJ Evidence Round, 1]
+          nobonusweight:
+            8: [Fastest CJ Evidence Round (NBW), 1]
+            6: [Fastest 6-Toon CJ Evidence Round (NBW), 1]
+            4: [Fastest 4-Toon CJ Evidence Round (NBW), 1]
+            2: [Fastest Duo CJ Evidence Round (NBW), 1]
+            1: [Fastest Solo CJ Evidence Round (NBW), 1]
+        solostuns:
+          eightcog:
+            normal:
+              8: [Fastest 8-Cog Stun, 1]
+              1: [Fastest 8-Cog Solo Stun, 1]
+            fromstart:
+              8: [Fastest 8-Cog Stun From Start, 1]
+              1: [Fastest 8-Cog Solo Stun From Start, 1]
+          ninecog:
+            normal:
+              8: [Fastest 9-Cog Stun, 1]
+              1: [Fastest 9-Cog Solo Stun, 1]
+            fromstart:
+              8: [Fastest 9-Cog Stun From Start, 1]
+              1: [Fastest 9-Cog Solo Stun From Start, 1]
+          tencog:
+            normal:
+              8: [Fastest 10-Cog Stun, 1]
+              1: [Fastest 10-Cog Solo Stun, 1]
+            fromstart:
+              8: [Fastest 10-Cog Stun From Start, 1]
+              1: [Fastest 10-Cog Solo Stun From Start, 1]
+        misc:
+          fewestrewards:
+            1: [Fewest Rewards in a CJ Solo, 1]
+          leastevidencethrows:
+            1: [Least Evidence Thrown in a CJ Solo, 1]
+          leasttoonsseated:
+            1: [Least Toons Seated in a CJ Solo, 1]
+      rewardless:
+        instance:
+          8: [Fastest Rewardless CJ, 1]
+          6: [Fastest 6-Toon Rewardless CJ, 1]
+          4: [Fastest 4-Toon Rewardless CFO, 1]
+        coground:
+          8: [Fastest Rewardless CJ Cog Round, 1]
+          6: [Fastest 6-Toon Rewardless CJ Cog Round, 1]
+          4: [Fastest 4-Toon Rewardless CJ Cog Round, 1]
+    ceo:
+      any:
+        instance:
+          overall:
+            8: [Fastest CEO, 1]
+            6: [Fastest 6-Toon CEO, 1]
+            4: [Fastest 4-Toon CEO, 1]
+            2: [Fastest Duo CEO, 1]
+            1: [Fastest Solo CEO, 1]
+          sixfire:
+            8: [Fastest Max Tier CEO, 1]
+            6: [Fastest 6-Toon Max Tier CEO, 1]
+            4: [Fastest 4-Toon Max Tier CEO, 1]
+            2: [Fastest Duo Max Tier CEO, 1]
+            1: [Fastest Solo Max Tier CEO, 1]
+        coground:
+          8: [Fastest CEO Cog Round, 1]
+          6: [Fastest 6-Toon CEO Cog Round, 1]
+          4: [Fastest 4-Toon CEO Cog Round, 1]
+          2: [Fastest Duo CEO Cog Round, 1]
+          1: [Fastest Solo CEO Cog Round, 1]
+        bossround:
+          8: [Fastest CEO Seltzer Round, 1]
+          6: [Fastest 6-Toon CEO Seltzer Round, 1]
+          4: [Fastest 4-Toon CEO Seltzer Round, 1]
+          2: [Fastest Duo CEO Seltzer Round, 1]
+          1: [Fastest Solo CEO Seltzer Round, 1]
+        misc:
+          fewestrewards:
+            1: [Fewest Rewards in a CEO Solo, 1]
+          leastgoonhits:
+            1: [Least Seltzer Hits in a CEO Solo, 1]
+          mostcogsfed:
+            8: [Most Cogs Fed in a CEO, 1]
+      rewardless:
+        instance:
+          8: [Fastest Rewardless CEO, 1]
+          6: [Fastest 6-Toon Rewardless CEO, 1]
+          4: [Fastest 4-Toon Rewardless CEO, 1]
+        coground:
+          8: [Fastest Rewardless CEO Cog Round, 1]
+          6: [Fastest 6-Toon Rewardless CEO Cog Round, 1]
+          4: [Fastest 4-Toon Rewardless CEO Cog Round, 1]
+    fieldoffice:
+      any:
+        1star:
+          instance:
+            4: [Fastest 1-Star Field Office, 1]
+            2: [Fastest Duo 1-Star Field Office, 1]
+            1: [Fastest Solo 1-Star Field Office, 1]
+          supervisor:
+            4: [Fastest 1-Star Boiler, 1]
+            2: [Fastest Duo 1-Star Boiler, 1]
+            1: [Fastest Solo 1-Star Boiler, 1]
+          minigames:
+            megamovers:
+              4: [Fastest 1-Star Mega Movers Clear, 1]
+            coldcallercubicles:
+              4: [Fastest 1-Star Cold Caller Cubicles Clear, 1]
+        2star:
+          instance:
+            4: [Fastest 2-Star Field Office, 1]
+            2: [Fastest Duo 2-Star Field Office, 1]
+            1: [Fastest Solo 2-Star Field Office, 1]
+          supervisor:
+            4: [Fastest 2-Star Boiler, 1]
+            2: [Fastest Duo 2-Star Boiler, 1]
+            1: [Fastest Solo 2-Star Boiler, 1]
+          minigames:
+            megamovers:
+              4: [Fastest 2-Star Mega Movers Clear, 1]
+            coldcallercubicles:
+              4: [Fastest 2-Star Cold Caller Cubicles Clear, 1]
+        3star:
+          instance:
+            4: [Fastest 3-Star Field Office, 1]
+            2: [Fastest Duo 3-Star Field Office, 1]
+            1: [Fastest Solo 3-Star Field Office, 1]
+          supervisor:
+            4: [Fastest 3-Star Boiler, 1]
+            2: [Fastest Duo 3-Star Boiler, 1]
+            1: [Fastest Solo 3-Star Boiler, 1]
+          minigames:
+            megamovers:
+              4: [Fastest 3-Star Mega Movers Clear, 1]
+            coldcallercubicles:
+              4: [Fastest 3-Star Cold Caller Cubicles Clear, 1]
+        4star:
+          instance:
+            4: [Fastest 4-Star Field Office, 1]
+            2: [Fastest Duo 4-Star Field Office, 1]
+          supervisor:
+            4: [Fastest 4-Star Boiler, 1]
+            2: [Fastest Duo 4-Star Boiler, 1]
+          minigames:
+            megamovers:
+              4: [Fastest 4-Star Mega Movers Clear, 1]
+            coldcallercubicles:
+              4: [Fastest 4-Star Cold Caller Cubicles Clear, 1]
+      rewardless:
+        1star:
+          instance:
+            4: [Fastest Rewardless 1-Star Field Office, 1]
+          supervisor:
+            4: [Fastest Rewardless 1-Star Boiler, 1]
+        2star:
+          instance:
+            4: [Fastest Rewardless 2-Star Field Office, 1]
+          supervisor:
+            4: [Fastest Rewardless 2-Star Boiler, 1]
+        3star:
+          instance:
+            4: [Fastest Rewardless 3-Star Field Office, 1]
+          supervisor:
+            4: [Fastest Rewardless 3-Star Boiler, 1]
+  facility:
+    factory:
+      any:
+        scrap:
+          instance:
+            4: [Fastest Scrap Factory, 1]
+            2: [Fastest Duo Scrap Factory, 1]
+            1: [Fastest Solo Scrap Factory, 1]
+          long:
+            4: [Fastest Long Scrap Factory, 1]
+            2: [Fastest Duo Long Scrap Factory, 1]
+            1: [Fastest Solo Long Scrap Factory, 1]
+          supervisor:
+            4: [Fastest Scrap Factory Foreman, 1]
+            2: [Fastest Duo Scrap Factory Foreman, 1]
+            1: [Fastest Solo Scrap Factory Foreman, 1]
+        steel:
+          instance:
+            4: [Fastest Steel Factory, 1]
+            2: [Fastest Duo Steel Factory, 1]
+            1: [Fastest Solo Steel Factory, 1]
+          long:
+            4: [Fastest Long Steel Factory, 1]
+            2: [Fastest Duo Long Steel Factory, 1]
+            1: [Fastest Solo Long Steel Factory, 1]
+          supervisor:
+            4: [Fastest Steel Factory Foreman, 1]
+            2: [Fastest Duo Steel Factory Foreman, 1]
+            1: [Fastest Solo Steel Factory Foreman, 1]
+      rewardless:
+        scrap:
+          instance:
+            4: [Fastest Rewardless Scrap Factory, 1]
+            2: [Fastest Duo Rewardless Scrap Factory, 1]
+            1: [Fastest Solo Rewardless Scrap Factory, 1]
+          long:
+            4: [Fastest Rewardless Long Scrap Factory, 1]
+            2: [Fastest Duo Rewardless Long Scrap Factory, 1]
+            1: [Fastest Solo Rewardless Long Scrap Factory, 1]
+          supervisor:
+            4: [Fastest Rewardless Scrap Factory Foreman, 1]
+            2: [Fastest Duo Rewardless Scrap Factory Foreman, 1]
+            1: [Fastest Solo Rewardless Scrap Factory Foreman, 1]
+        steel:
+          instance:
+            4: [Fastest Rewardless Steel Factory, 1]
+            2: [Fastest Duo Rewardless Steel Factory, 1]
+          long:
+            4: [Fastest Long Rewardless Steel Factory, 1]
+            2: [Fastest Duo Long Rewardless Steel Factory, 1]
+          supervisor:
+            4: [Fastest Rewardless Steel Factory Foreman, 1]
+            2: [Fastest Duo Rewardless Steel Factory Foreman, 1]
+    mint:
+      any:
+        coin:
+          instance:
+            4: [Fastest Coin Mint, 1]
+            2: [Fastest Duo Coin Mint, 1]
+            1: [Fastest Solo Coin Mint, 1]
+          supervisor:
+            4: [Fastest Coin Mint Auditor, 1]
+            2: [Fastest Duo Coin Mint Auditor, 1]
+            1: [Fastest Solo Coin Mint Auditor, 1]
+          minigames:
+            parkour:
+              4: [Fastest Coin Mint Parkour Room, 1]
+              1: [Fastest Solo Coin Mint Parkour Room, 1]
+            crane:
+              4: [Fastest Coin Mint Crane Minigame, 1]
+              1: [Fastest Solo Coin Mint Crane Minigame, 1]
+        bullion:
+          instance:
+            4: [Fastest Bullion Mint, 1]
+            2: [Fastest Duo Bullion Mint, 1]
+            1: [Fastest Solo Bullion Mint, 1]
+          supervisor:
+            4: [Fastest Bullion Mint Auditor, 1]
+            2: [Fastest Duo Bullion Mint Auditor, 1]
+            1: [Fastest Solo Bullion Mint Auditor, 1]
+          minigames:
+            parkour:
+              4: [Fastest Bullion Mint Parkour Room, 1]
+              1: [Fastest Solo Bullion Mint Parkour Room, 1]
+            crane:
+              4: [Fastest Bullion Mint Crane Minigame, 1]
+              1: [Fastest Solo Bullion Mint Crane Minigame, 1]
+      rewardless:
+        coin:
+          instance:
+            4: [Fastest Rewardless Coin Mint, 1]
+            2: [Fastest Duo Rewardless Coin Mint, 1]
+          supervisor:
+            4: [Fastest Rewardless Coin Mint Auditor, 1]
+            2: [Fastest Duo Rewardless Coin Mint Auditor, 1]
+        bullion:
+          instance:
+            4: [Fastest Rewardless Bullion Mint, 1]
+            2: [Fastest Duo Rewardless Bullion Mint, 1]
+          supervisor:
+            4: [Fastest Rewardless Bullion Mint Auditor, 1]
+            2: [Fastest Duo Rewardless Bullion Mint Auditor, 1]
+    office:
+      any:
+        junior:
+          instance:
+            4: [Fastest Junior Wing, 1]
+            2: [Fastest Duo Junior Wing, 1]
+            1: [Fastest Solo Junior Wing, 1]
+          supervisor:
+            4: [Fastest Junior Office Clerk, 1]
+            2: [Fastest Duo Junior Office Clerk, 1]
+            1: [Fastest Solo Junior Office Clerk, 1]
+          minigames:
+            puzzles:
+              4: [Fastest Junior Puzzle Set Completion, 1]
+              1: [Fastest Solo Junior Puzzle Set Completion, 1]
+        senior:
+          instance:
+            4: [Fastest Senior Wing, 1]
+            2: [Fastest Duo Senior Wing, 1]
+            1: [Fastest Solo Senior Wing, 1]
+          supervisor:
+            4: [Fastest Senior Office Clerk, 1]
+            2: [Fastest Duo Senior Office Clerk, 1]
+            1: [Fastest Solo Senior Office Clerk, 1]
+          minigames:
+            puzzles:
+              4: [Fastest Senior Puzzle Set Completion, 1]
+              1: [Fastest Solo Senior Puzzle Set Completion, 1]
+      rewardless:
+        junior:
+          instance:
+            4: [Fastest Rewardless Junior Wing, 1]
+            2: [Fastest Duo Rewardless Junior Wing, 1]
+          supervisor:
+            4: [Fastest Rewardless Junior Office Clerk, 1]
+            2: [Fastest Duo Rewardless Junior Office Clerk, 1]
+        senior:
+          instance:
+            4: [Fastest Rewardless Senior Wing, 1]
+          supervisor:
+            4: [Fastest Senior Rewardless Office Clerk, 1]
+    coggolfcourse:
+      any:
+        fairway:
+          instance:
+            4: [Fastest First Fairway, 1]
+            2: [Fastest Duo First Fairway, 1]
+            1: [Fastest Solo First Fairway, 1]
+          supervisor:
+            4: [Fastest Fairway Club President, 1]
+            2: [Fastest Duo Fairway Club President, 1]
+            1: [Fastest Solo Fairway Club President, 1]
+          minigames:
+            golfpuzzles:
+              4: [Fastest Fairway Golf Puzzles Completion, 1]
+              1: [Fastest Solo Fairway Golf Puzzles Completion, 1]
+        fringe:
+          instance:
+            4: [Fastest Final Fringe, 1]
+            2: [Fastest Duo Final Fringe, 1]
+            1: [Fastest Solo Final Fringe, 1]
+          supervisor:
+            4: [Fastest Fringe Club President, 1]
+            2: [Fastest Duo Fringe Club President, 1]
+            1: [Fastest Solo Fringe Club President, 1]
+          minigames:
+            golfpuzzles:
+              4: [Fastest Fringe Golf Puzzles Completion, 1]
+              1: [Fastest Solo Fringe Golf Puzzles Completion, 1]
+      rewardless:
+        fairway:
+          instance:
+            4: [Fastest Rewardless First Fairway, 1]
+            2: [Fastest Duo Rewardless First Fairway, 1]
+          supervisor:
+            4: [Fastest Rewardless Fairway Club President, 1]
+            2: [Fastest Duo Rewardless Fairway Club President, 1]
+        fringe:
+          instance:
+            4: [Fastest Rewardless Final Fringe, 1]
+          supervisor:
+            4: [Fastest Rewardless Fringe Club President, 1]
+  activity:
+    fishing:
+      fastestbucket:
+        1: [Fastest Fish Bucket Filled, 1]
+      leastjellybeans:
+        1: [Least Jellybeans Earned in Full Bucket, 1]
+      mostjellybeans:
+        1: [Most Jellybeans Earned in Full Bucket, 1]
+    racing:
+      speedway:
+        screw:
+          regular:
+            1: [Fastest Screwball Stadium, 1]
+          reverse:
+            1: [Fastest Screwball Stadium (Reverse), 1]
+        cork:
+          regular:
+            1: [Fastest Corkscrew Colosseum, 1]
+          reverse:
+            1: [Fastest Corkscrew Colosseum (Reverse), 1]
+      rural:
+        rust:
+          regular:
+            1: [Fastest Rustic Raceway, 1]
+          reverse:
+            1: [Fastest Rustic Raceway (Reverse), 1]
+        air:
+          regular:
+            1: [Fastest Airborne Acres, 1]
+          reverse:
+            1: [Fastest Airborne Acres (Reverse), 1]
+      urban:
+        city:
+          regular:
+            1: [Fastest City Circuit, 1]
+          reverse:
+            1: [Fastest City Circuit (Reverse), 1]
+        bliz:
+          regular:
+            1: [Fastest Blizzard Boulevard, 1]
+          reverse:
+            1: [Fastest Blizzard Boulevard (Reverse), 1]
+    golf:
+      par:
+        1: [Best Score on Walk in the Par, 1]
+      fun:
+        1: [Best Score on Hole Some Fun, 1]
+      kit:
+        1: [Best Score on The Hole Kit and Kaboodle, 1]
+  playground:
+    ttc:
+      coop:
+        1: [Fastest CO-OP Toontown Central Tasks, 1]
+      solo:
+        1: [Fastest SOLO Toontown Central Tasks, 1]
+    dd:
+      coop:
+        1: [Fastest CO-OP Donalds Dock Tasks, 1]
+      solo:
+        1: [Fastest SOLO Donalds Dock Tasks, 1]
+    dg:
+      coop:
+        1: [Fastest CO-OP Daisys Gardens Tasks, 1]
+      solo:
+        1: [Fastest SOLO Daisys Gardens Tasks, 1]
+    mml:
+      coop:
+        1: [Fastest CO-OP Minnies Melodyland Tasks, 1]
+      solo:
+        1: [Fastest SOLO Minnies Melodyland Tasks, 1]
+    tb:
+      coop:
+        1: [Fastest CO-OP The Brrrgh Tasks, 1]
+      solo:
+        1: [Fastest SOLO The Brrrgh Tasks, 1]
+    ddl:
+      coop:
+        1: [Fastest CO-OP Donalds Dreamland Tasks, 1]
+      solo:
+        1: [Fastest SOLO Donalds Dreamland Tasks, 1]
