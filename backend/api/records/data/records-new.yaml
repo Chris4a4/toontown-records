@@ -104,25 +104,24 @@ ttr:
             2: [Fastest Duo CJ Evidence Round (NBW), 1]
             1: [Fastest Solo CJ Evidence Round (NBW), 1]
         solostuns:
-          eightcog:
-            normal:
+          normal:
+            eightcog:
               8: [Fastest 8-Cog Stun, 1]
               1: [Fastest 8-Cog Solo Stun, 1]
-            fromstart:
-              8: [Fastest 8-Cog Stun From Start, 1]
-              1: [Fastest 8-Cog Solo Stun From Start, 1]
-          ninecog:
-            normal:
+            ninecog:
               8: [Fastest 9-Cog Stun, 1]
               1: [Fastest 9-Cog Solo Stun, 1]
-            fromstart:
-              8: [Fastest 9-Cog Stun From Start, 1]
-              1: [Fastest 9-Cog Solo Stun From Start, 1]
-          tencog:
-            normal:
+            tencog:
               8: [Fastest 10-Cog Stun, 1]
               1: [Fastest 10-Cog Solo Stun, 1]
-            fromstart:
+          fromstart:
+            eightcog:
+              8: [Fastest 8-Cog Stun From Start, 1]
+              1: [Fastest 8-Cog Solo Stun From Start, 1]
+            ninecog:
+              8: [Fastest 9-Cog Stun From Start, 1]
+              1: [Fastest 9-Cog Solo Stun From Start, 1]
+            tencog:
               8: [Fastest 10-Cog Stun From Start, 1]
               1: [Fastest 10-Cog Solo Stun From Start, 1]
         misc:
@@ -132,11 +131,12 @@ ttr:
             1: [Least Evidence Thrown in a CJ Solo, 1]
           leasttoonsseated:
             1: [Least Toons Seated in a CJ Solo, 1]
+
       rewardless:
         instance:
           8: [Fastest Rewardless CJ, 1]
           6: [Fastest 6-Toon Rewardless CJ, 1]
-          4: [Fastest 4-Toon Rewardless CFO, 1]
+          4: [Fastest 4-Toon Rewardless CJ, 1]
         coground:
           8: [Fastest Rewardless CJ Cog Round, 1]
           6: [Fastest 6-Toon Rewardless CJ Cog Round, 1]
@@ -150,12 +150,12 @@ ttr:
             4: [Fastest 4-Toon CEO, 1]
             2: [Fastest Duo CEO, 1]
             1: [Fastest Solo CEO, 1]
-          sixfire:
-            8: [Fastest Max Tier CEO, 1]
-            6: [Fastest 6-Toon Max Tier CEO, 1]
-            4: [Fastest 4-Toon Max Tier CEO, 1]
-            2: [Fastest Duo Max Tier CEO, 1]
-            1: [Fastest Solo Max Tier CEO, 1]
+          maxtier:
+            8: [Fastest Max-Tier CEO, 1]
+            6: [Fastest 6-Toon Max-Tier CEO, 1]
+            4: [Fastest 4-Toon Max-Tier CEO, 1]
+            2: [Fastest Duo Max-Tier CEO, 1]
+            1: [Fastest Solo Max-Tier CEO, 1]
         coground:
           8: [Fastest CEO Cog Round, 1]
           6: [Fastest 6-Toon CEO Cog Round, 1]
@@ -177,9 +177,14 @@ ttr:
             8: [Most Cogs Fed in a CEO, 1]
       rewardless:
         instance:
-          8: [Fastest Rewardless CEO, 1]
-          6: [Fastest 6-Toon Rewardless CEO, 1]
-          4: [Fastest 4-Toon Rewardless CEO, 1]
+          overall:
+            8: [Fastest Rewardless CEO, 1]
+            6: [Fastest 6-Toon Rewardless CEO, 1]
+            4: [Fastest 4-Toon Rewardless CEO, 1]
+          maxtier:
+            8: [Fastest Rewardless Max-Tier CEO, 1]
+            6: [Fastest 6-Toon Rewardless Max-Tier CEO, 1]
+            4: [Fastest 4-Toon Rewardless Max-Tier CEO, 1]
         coground:
           8: [Fastest Rewardless CEO Cog Round, 1]
           6: [Fastest 6-Toon Rewardless CEO Cog Round, 1]
@@ -187,58 +192,64 @@ ttr:
     fieldoffice:
       any:
         instance:
-          1star:
-            4: [Fastest 1-Star Field Office, 1]
-            2: [Fastest Duo 1-Star Field Office, 1]
-            1: [Fastest Solo 1-Star Field Office, 1]
-          2star:
-            4: [Fastest 2-Star Field Office, 1]
-            2: [Fastest Duo 2-Star Field Office, 1]
-            1: [Fastest Solo 2-Star Field Office, 1]
-          3star:
-            4: [Fastest 3-Star Field Office, 1]
-            2: [Fastest Duo 3-Star Field Office, 1]
-            1: [Fastest Solo 3-Star Field Office, 1]
-          4star:
-            4: [Fastest 4-Star Field Office, 1]
-            2: [Fastest Duo 4-Star Field Office, 1]
+          lowstar:
+            1star:
+              4: [Fastest 1-Star Field Office, 1]
+              2: [Fastest Duo 1-Star Field Office, 1]
+              1: [Fastest Solo 1-Star Field Office, 1]
+            2star:
+              4: [Fastest 2-Star Field Office, 1]
+              2: [Fastest Duo 2-Star Field Office, 1]
+              1: [Fastest Solo 2-Star Field Office, 1]
+          highstar:
+            3star:
+              4: [Fastest 3-Star Field Office, 1]
+              2: [Fastest Duo 3-Star Field Office, 1]
+              1: [Fastest Solo 3-Star Field Office, 1]
+            4star:
+              4: [Fastest 4-Star Field Office, 1]
+              2: [Fastest Duo 4-Star Field Office, 1]
         supervisor:
-          1star:
-            4: [Fastest 1-Star Boiler, 1]
-            2: [Fastest Duo 1-Star Boiler, 1]
-            1: [Fastest Solo 1-Star Boiler, 1]
-          2star:
-            4: [Fastest 2-Star Boiler, 1]
-            2: [Fastest Duo 2-Star Boiler, 1]
-            1: [Fastest Solo 2-Star Boiler, 1]
-          3star:
-            4: [Fastest 3-Star Boiler, 1]
-            2: [Fastest Duo 3-Star Boiler, 1]
-            1: [Fastest Solo 3-Star Boiler, 1]
-          4star:
-            4: [Fastest 4-Star Boiler, 1]
-            2: [Fastest Duo 4-Star Boiler, 1]
+          lowstar:
+            1star:
+              4: [Fastest 1-Star Boiler, 1]
+              2: [Fastest Duo 1-Star Boiler, 1]
+              1: [Fastest Solo 1-Star Boiler, 1]
+            2star:
+              4: [Fastest 2-Star Boiler, 1]
+              2: [Fastest Duo 2-Star Boiler, 1]
+              1: [Fastest Solo 2-Star Boiler, 1]
+          highstar:
+            3star:
+              4: [Fastest 3-Star Boiler, 1]
+              2: [Fastest Duo 3-Star Boiler, 1]
+              1: [Fastest Solo 3-Star Boiler, 1]
+            4star:
+              4: [Fastest 4-Star Boiler, 1]
+              2: [Fastest Duo 4-Star Boiler, 1]
         minigames:
-          1star:
-            megamovers:
-              4: [Fastest 1-Star Mega Movers Clear, 1]
-            coldcallercubicles:
-              4: [Fastest 1-Star Cold Caller Cubicles Clear, 1]
-          2star:
-            megamovers:
-              4: [Fastest 2-Star Mega Movers Clear, 1]
-            coldcallercubicles:
-              4: [Fastest 2-Star Cold Caller Cubicles Clear, 1]
-          3star:
-            megamovers:
-              4: [Fastest 3-Star Mega Movers Clear, 1]
-            coldcallercubicles:
-              4: [Fastest 3-Star Cold Caller Cubicles Clear, 1]
-          4star:
-            megamovers:
-              4: [Fastest 4-Star Mega Movers Clear, 1]
-            coldcallercubicles:
-              4: [Fastest 4-Star Cold Caller Cubicles Clear, 1]
+          lowstar:
+            1star:
+              megamovers:
+                4: [Fastest 1-Star Mega Movers Clear, 1]
+              coldcallercubicles:
+                4: [Fastest 1-Star Cold Caller Cubicles Clear, 1]
+            2star:
+              megamovers:
+                4: [Fastest 2-Star Mega Movers Clear, 1]
+              coldcallercubicles:
+                4: [Fastest 2-Star Cold Caller Cubicles Clear, 1]
+          highstar:
+            3star:
+              megamovers:
+                4: [Fastest 3-Star Mega Movers Clear, 1]
+              coldcallercubicles:
+                4: [Fastest 3-Star Cold Caller Cubicles Clear, 1]
+            4star:
+              megamovers:
+                4: [Fastest 4-Star Mega Movers Clear, 1]
+              coldcallercubicles:
+                4: [Fastest 4-Star Cold Caller Cubicles Clear, 1]
       rewardless:
         instance:
           1star:
