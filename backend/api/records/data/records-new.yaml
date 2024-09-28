@@ -186,75 +186,73 @@ ttr:
           4: [Fastest 4-Toon Rewardless CEO Cog Round, 1]
     fieldoffice:
       any:
-        1star:
-          instance:
+        instance:
+          1star:
             4: [Fastest 1-Star Field Office, 1]
             2: [Fastest Duo 1-Star Field Office, 1]
             1: [Fastest Solo 1-Star Field Office, 1]
-          supervisor:
+          2star:
+            4: [Fastest 2-Star Field Office, 1]
+            2: [Fastest Duo 2-Star Field Office, 1]
+            1: [Fastest Solo 2-Star Field Office, 1]
+          3star:
+            4: [Fastest 3-Star Field Office, 1]
+            2: [Fastest Duo 3-Star Field Office, 1]
+            1: [Fastest Solo 3-Star Field Office, 1]
+          4star:
+            4: [Fastest 4-Star Field Office, 1]
+            2: [Fastest Duo 4-Star Field Office, 1]
+        supervisor:
+          1star:
             4: [Fastest 1-Star Boiler, 1]
             2: [Fastest Duo 1-Star Boiler, 1]
             1: [Fastest Solo 1-Star Boiler, 1]
-          minigames:
+          2star:
+            4: [Fastest 2-Star Boiler, 1]
+            2: [Fastest Duo 2-Star Boiler, 1]
+            1: [Fastest Solo 2-Star Boiler, 1]
+          3star:
+            4: [Fastest 3-Star Boiler, 1]
+            2: [Fastest Duo 3-Star Boiler, 1]
+            1: [Fastest Solo 3-Star Boiler, 1]
+          4star:
+            4: [Fastest 4-Star Boiler, 1]
+            2: [Fastest Duo 4-Star Boiler, 1]
+        minigames:
+          1star:
             megamovers:
               4: [Fastest 1-Star Mega Movers Clear, 1]
             coldcallercubicles:
               4: [Fastest 1-Star Cold Caller Cubicles Clear, 1]
-        2star:
-          instance:
-            4: [Fastest 2-Star Field Office, 1]
-            2: [Fastest Duo 2-Star Field Office, 1]
-            1: [Fastest Solo 2-Star Field Office, 1]
-          supervisor:
-            4: [Fastest 2-Star Boiler, 1]
-            2: [Fastest Duo 2-Star Boiler, 1]
-            1: [Fastest Solo 2-Star Boiler, 1]
-          minigames:
+          2star:
             megamovers:
               4: [Fastest 2-Star Mega Movers Clear, 1]
             coldcallercubicles:
               4: [Fastest 2-Star Cold Caller Cubicles Clear, 1]
-        3star:
-          instance:
-            4: [Fastest 3-Star Field Office, 1]
-            2: [Fastest Duo 3-Star Field Office, 1]
-            1: [Fastest Solo 3-Star Field Office, 1]
-          supervisor:
-            4: [Fastest 3-Star Boiler, 1]
-            2: [Fastest Duo 3-Star Boiler, 1]
-            1: [Fastest Solo 3-Star Boiler, 1]
-          minigames:
+          3star:
             megamovers:
               4: [Fastest 3-Star Mega Movers Clear, 1]
             coldcallercubicles:
               4: [Fastest 3-Star Cold Caller Cubicles Clear, 1]
-        4star:
-          instance:
-            4: [Fastest 4-Star Field Office, 1]
-            2: [Fastest Duo 4-Star Field Office, 1]
-          supervisor:
-            4: [Fastest 4-Star Boiler, 1]
-            2: [Fastest Duo 4-Star Boiler, 1]
-          minigames:
+          4star:
             megamovers:
               4: [Fastest 4-Star Mega Movers Clear, 1]
             coldcallercubicles:
               4: [Fastest 4-Star Cold Caller Cubicles Clear, 1]
       rewardless:
-        1star:
-          instance:
+        instance:
+          1star:
             4: [Fastest Rewardless 1-Star Field Office, 1]
-          supervisor:
-            4: [Fastest Rewardless 1-Star Boiler, 1]
-        2star:
-          instance:
+          2star:
             4: [Fastest Rewardless 2-Star Field Office, 1]
-          supervisor:
-            4: [Fastest Rewardless 2-Star Boiler, 1]
-        3star:
-          instance:
+          3star:
             4: [Fastest Rewardless 3-Star Field Office, 1]
-          supervisor:
+        supervisor:
+          1star:
+            4: [Fastest Rewardless 1-Star Boiler, 1]
+          2star:
+            4: [Fastest Rewardless 2-Star Boiler, 1]
+          3star:
             4: [Fastest Rewardless 3-Star Boiler, 1]
   facility:
     factory:
